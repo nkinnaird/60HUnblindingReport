@@ -1,0 +1,20 @@
+\chapter{Analysis Procedures}
+
+\section{Key parameters in reconstruction method}
+
+Find out procedures used in 60 hr production dataset
+
+\section{Analysis Data Preparation Procedure}
+
+git branch: gm2analyses branch feature/KinnairdAnalyses
+Majority of code located in gm2analyses/macros/RatioMacro folder.
+
+\begin{enumerate}
+	\item{Submit jobs to OSG to run the rootTreesAndLostMuons.fcl file which produces root trees of positron hits using the ClusterTree analyzer module and coincident MIP hits using the TestCoincidenceFinder analyzer module.}
+	\item{Submit jobs to Fermigrid to produce histograms from root trees using the ClusterTreeToHistsPileup.C macro in RatioMacro/HistMaking. Beyond standard threshold histograms this macro produces pileup and lost muon histograms all within the same root file.}
+\end{enumerate}
+
+\section{Histogramming Procedure}
+
+Method: Weighted Ratio (threshold)
+

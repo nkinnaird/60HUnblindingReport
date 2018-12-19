@@ -6,8 +6,10 @@ Find out procedures used in 60 hr production dataset
 
 \section{Analysis Data Preparation Procedure}
 
-git branch: gm2analyses branch feature/KinnairdAnalyses
-Majority of code located in gm2analyses/macros/RatioMacro folder.
+\begin{itemize}
+	\item{git branch: gm2analyses branch feature/KinnairdAnalyses}
+	\item{Majority of code located in gm2analyses/macros/RatioMacro folder.}
+\end{itemize}
 
 \begin{enumerate}
 	\item{Submit jobs to OSG to run the rootTreesAndLostMuons.fcl file which produces root trees of positron hits using the ClusterTree analyzer module and coincident MIP hits using the TestCoincidenceFinder analyzer module.}
@@ -17,4 +19,11 @@ Majority of code located in gm2analyses/macros/RatioMacro folder.
 \section{Histogramming Procedure}
 
 Method: Weighted Ratio (threshold)
+
+\begin{enumerate}
+	\item{Loop through all clusters and apply an artificial deadtime to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< 25 \mu s$ or time $> 600 \mu s$.}
+	\item{Histograms are constructed with ROOT's TH1F class with 149.15 ns bins from $0 - 699.96095 \mu s$ corresponding to 4693 bins.}
+	\item{Randomize times by $\pm 149.15/2 ns$ and fill histograms for energies $> 1.7$ GeV. Randomization uses ROOT's default TRandom3 class.}
+	\item{Generate a random number per cluster to determine which }
+\end{enumerate}
 

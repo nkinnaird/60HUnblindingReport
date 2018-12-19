@@ -1,0 +1,108 @@
+Should this be a section at the front of the report? Or should it be in the appendix as I've place it here?
+
+\chapter{Ratio Method Derivation}
+
+Consider the 5 parameter function:
+	\begin{align}
+		N_{5}(t) = N_{0}e^{-t/\tau}(1 + A \cos(\omega_{a}t + \phi)),
+	\end{align}
+which describes some ideal dataset in histogram format. Here $\phi$ will be set to zero for simplicity. Now define the variables $u_{+}(t)$, $u_{-}(t)$, $v_{1}(t)$, and $v_{2}(t)$ as
+	\begin{equation}
+	\begin{aligned}
+		u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
+		u_{-}(t) &= \frac{1}{4} N_{5}(t-T/2) \\
+		v_{1}(t) &= \frac{1}{4} N_{5}(t) \\
+		v_{2}(t) &= \frac{1}{4} N_{5}(t),
+	\end{aligned}
+	\end{equation}
+where the $1/4$ out front stands for randomly splitting the whole dataset into 4 equally weighted sub-datasets, and T is the g-2 period known to high precision. This corresponds to a weighting of 1:1:1:1 between the datasets. To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$. To form the ratio define the variables:
+	\begin{equation}
+	\begin{aligned}
+		U(t) &= u_{+}(t) + u_{-}(t) \\
+		V(t) &= v_{1}(t) + v_{2}(t) \\
+		R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}.
+	\end{aligned}
+	\end{equation}
+Plugging in and dividing the common terms $(N_{0}e^{-t/\tau}/4)$,
+	\begin{align}
+		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))} {2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2))}.
+	\end{align}
+Now set $\omega_{a}T/2 = \delta$, and note that T is really
+	\begin{equation}
+	\begin{aligned}
+ 		T = T_{guess} = \frac{2\pi}{\omega_{a}} + \Delta T, \\
+ 		\Delta T = T_{guess} - T_{true}.
+	\end{aligned}
+	\end{equation}
+Now 
+	\begin{align}
+		\delta = \frac{\omega_{a}}{2} T_{guess} = \frac{\omega_{a}}{2} (\frac{2\pi}{\omega_{a}} + \Delta T) = \pi + \pi \frac{\Delta T}{T_{true}} = \pi + \pi (\delta T).
+	\end{align}
+$\delta$ can be redefined as 
+	\begin{align}
+		\delta = \pi (\delta T),
+	\end{align}
+by flipping the sign of any cosine terms that contain $\delta$ (coming from the $\pi$ that has been dropped). If one makes this subsitution for $R(t)$ and then makes approximations in the smallness of $\delta T$, then one arrives at the conventional 3 parameter function
+	\begin{align}
+		R(t) = A \cos(\omega_{a}t) - C_{1}, \\
+		C_{1} = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2}.
+	\end{align}
+	
+(Go back and show this derivation here at some point - taking inspiration but not copying from Paley's thesis.)
+
+If one instead weights the counts in the histograms as
+	\begin{align}
+		u_{+}(t) : u_{-}(t) : v_{1}(t) : v_{2}(t) = e^{T/2\tau} : e^{-T/2\tau} : 1 : 1,		
+	\end{align}
+so that
+	\begin{align}
+		u_{+}(t) = \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
+		u_{-}(t) = \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
+		v_{1}(t) = \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
+		v_{2}(t) = \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t),
+	\end{align}
+then instead $R(t)$ becomes 
+	\begin{align}
+		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t + \delta)) - (1 - A \cos(\omega_{a}t - \delta))} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t + \delta)) + (1 - A \cos(\omega_{a}t + \delta))},
+	\end{align}
+where the $e^{\pm T/ 2\tau}$ terms now cancel out and $\delta$ has replaced the $\omega_{a}T/2$ terms here and the appropriate signs have been switched. (These factors out front aren't so far off from 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) In the code, this amounts to generating a random double between 0 and 1 per pulse and then filling the associated histogram based according to the relative probabilities of the different weights. As a reminder, the pulses that had their times shifted by $t \rightarrow t - T/2$ are the pulses that should be weighted by $e^{T/2\tau}$ since they will be filled into the $u_{+}$ histogram, and vice versa for the $u_{-}$ histogram.
+
+Then, using the trig identity 
+	\begin{align}
+		\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)
+	\end{align}
+so that 
+	\begin{align}
+		\cos(\omega_{a}t \pm \delta) = \cos(\omega_{a}t)\cos{\delta} \mp \sin(\omega_{a}t)\sin{\delta},
+	\end{align}
+replacing those terms in $R(t)$, cancelling the $\sin$ terms and simplifying: 
+	\begin{align}
+		R(t) = \frac{2A \cos(\omega_{a}t) (1 + \cos{\delta} )} {4 + 2A \cos(\omega_{a}t) (1 - \cos{\delta} )}.
+	\end{align}
+In the limit that 
+	\begin{align}
+		\delta = \pi (\delta T) \rightarrow 0
+	\end{align}
+since $\delta T$ is small, 
+	\begin{align}
+		R(t) = A \cos(\omega_{a}t)
+	\end{align}
+with no approximations having been made.
+
+(Go back and expand out these $\cos{\delta}$ terms to show the level of precision needed for $\omega_{a}$. I can sort of see what to do for R(t) but not sure how to get from that to $\omega_{a}$ exactly.)
+
+While the 3 parameter function suffices for initial fits and data containing slow modulations, it does not suffice for faster oscillation features such as the coherent betatron oscillation (CBO). In that case it is more useful to fit with a higher parameter function (historically 9 terms):
+	\begin{align}
+		R_{9}(t) = \frac{V(t) - U(t)}{V(t) + U(t)} = \frac{v_{1}(t) + v_{2}(t) - u_{+}(t) - u_{-}(t)}{v_{1}(t) + v_{2}(t) + u_{+}(t) + u_{-}(t)}
+	\end{align}
+where $u_{+}(t)$, $u_{-}(t)$, $v_{1}(t)$, and $v_{2}(t)$ now derive themselves from the more general formula
+	\begin{align}
+		N(t) = N_{cbo}(t) e^{-t/\tau}(1 + A_{cbo}(t) \cos(\omega_{a}t + \phi_{cbo}(t))),
+	\end{align}
+where the number, asymmetry, and phase of the incoming positrons are modulated by the CBO. In the E821 experiment these were all well described by the normal constant term plus an additional exponentially decaying and oscillatory term:
+	\begin{align}
+		N_{cbo}(t) = N_{0}(1 + e^{-t/\tau_{cbo}} A_{N_{cbo}} \cos(\omega_{cbo}t + \phi_{N_{cbo}})), \\
+		A_{cbo}(t) = A(1 + e^{-t/\tau_{cbo}} A_{A_{cbo}} \cos(\omega_{cbo}t + \phi_{A_{cbo}})), \\
+		\phi_{cbo}(t) = \phi_{0}(1 + e^{-t/\tau_{cbo}} A_{\phi_{cbo}} \cos(\omega_{cbo}t + \phi_{\phi_{cbo}})),
+	\end{align}
+where $\tau_{cbo}$ and $\omega_{cbo}$ are the lifetime and frequency of the CBO oscillations respectively. (It is important to remember that these forms were effective in getting the E821 fits to converge, but are not necessarily the exact form of the CBO effects.) This results in 11 unknown parameters. When forming the $R_{9}(t)$ variable, the $N_{0}$ and $e^{-t/\tau}$ cancel out in the same way as before. In the past $\tau_{cbo}$ and $\omega_{cbo}$ were extracted from the data in separate analyses and taken as given in the final ratio fit, with 9 free parameters. It is unecessary to simplify this general form for $R_{9}(t)$ when fitting the data as was done for the 3 parameter ratio function, and indeed improves the accuracy of the fit by avoiding approximations. 

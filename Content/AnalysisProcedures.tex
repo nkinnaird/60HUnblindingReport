@@ -27,3 +27,5 @@ Method: Weighted Ratio (threshold)
 	\item{Generate a random number per cluster to determine which }
 \end{enumerate}
 
+In the code, this amounts to generating a random double between 0 and 1 per pulse and then filling the associated histogram based according to the relative probabilities of the different weights.
+ As a reminder, the pulses that had their times shifted by $t \rightarrow t - T/2$ are the pulses that should be weighted by $e^{T/2\tau}$ since they will be filled into the $u_{+}$ histogram, and vice versa for the $u_{-}$ histogram.

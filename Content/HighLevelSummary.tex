@@ -1,8 +1,7 @@
 \chapter*{High Level Summary}
 
 \begin{itemize}
-	\item{Lead Analyst: Nick Kinnaird}
-	\item{Support Analyst: James Mott}
+	\item{Lead Analysts: Nick Kinnaird, James Mott}
 	\item{Positron Reconstruction Method: Recon West}
 	\item{Software Release: V9\_11\_00}
 	\item{Dataset: gm2pro\_daq\_full\_run1\_60h\_5033A\_withfullDQC}
@@ -13,12 +12,14 @@
 	\item{Models for CBO and VW: Exponential envelopes, frequency from tracking analysis}
 	\item{$R = -19.something \pm 1.something ppm$ (blinding with common string)}
 	\item{$\chi^{2}/NDF = 4211/4200$something}
+	\item{P value = }
 \end{itemize}
 
 \textbf{Final fit function:}
+
 \begin{gather*}
-		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\
-		f_{\pm}(t) = f(t \pm T_{a}/2) \\
-		f(t) = C(t) (1 + A \cos(\omega_{a}t + \phi)) \\ 
+		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[10pt]
+		f_{\pm}(t) = f(t \pm T_{a}/2) \\[10pt]
+		f(t) = C(t) (1 + A \cos(\omega_{a}t + \phi)) \\[10pt]
 		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}t + \phi_{cbo})
 \end{gather*}

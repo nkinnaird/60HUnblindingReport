@@ -1,14 +1,16 @@
 \chapter{Analysis Procedures}
 
+
 \section{Key parameters in reconstruction method}
 
 Find out procedures used in 60 hr production dataset
+
 
 \section{Analysis Data Preparation Procedure}
 
 \begin{itemize}
 	\item{git branch: gm2analyses branch feature/KinnairdAnalyses}
-	\item{Majority of code located in gm2analyses/macros/RatioMacro folder.}
+	\item{Majority of code located under gm2analyses/macros/RatioMacro}
 \end{itemize}
 
 \begin{enumerate}
@@ -16,16 +18,60 @@ Find out procedures used in 60 hr production dataset
 	\item{Submit jobs to Fermigrid to produce histograms from root trees using the ClusterTreeToHistsPileup.C macro in RatioMacro/HistMaking. Beyond standard threshold histograms this macro produces pileup and lost muon histograms all within the same root file.}
 \end{enumerate}
 
+
 \section{Histogramming Procedure}
 
 Method: Weighted Ratio (threshold)
 
 \begin{enumerate}
-	\item{Loop through all clusters and apply an artificial deadtime to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< 25 \mu s$ or time $> 600 \mu s$.}
+	\item{Loop through all clusters and apply an artificial deadtime (ADT) to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< 25 \mu s$ or time $> 600 \mu s$.}
 	\item{Histograms are constructed with ROOT's TH1F class with 149.15 ns bins from $0 - 699.96095 \mu s$ corresponding to 4693 bins.}
-	\item{Randomize times by $\pm 149.15/2 ns$ and fill histograms for energies $> 1.7$ GeV. Randomization uses ROOT's default TRandom3 class.}
-	\item{Generate a random number per cluster to determine which }
+	\item{Randomize times by $\pm 149.15/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses ROOT's default TRandom3 class.}
+	\item{Fill one of the four histograms \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} as shown in Equation \ref{eqn:fourHists} per cluster. The associated histogram is determined by generating a random number between 0 and 1, and comparing that number to the relative probabilities of the different weights.}
+	\item{Clusters filled into the $u_{+}(t)$ histogram have their times shifted by $t \rightarrow t - T/2$ and clusters filled into the $u_{-}(t)$ histogram have their times shifted by $t \rightarrow t + T/2$.}
 \end{enumerate}
 
-In the code, this amounts to generating a random double between 0 and 1 per pulse and then filling the associated histogram based according to the relative probabilities of the different weights.
- As a reminder, the pulses that had their times shifted by $t \rightarrow t - T/2$ are the pulses that should be weighted by $e^{T/2\tau}$ since they will be filled into the $u_{+}$ histogram, and vice versa for the $u_{-}$ histogram.
+
+\section{Gain Correction Procedure}
+
+Gain correction method: Default by the Italian Calibration Team
+
+\begin{enumerate}
+	\item{Long term gain is corrected using out-of-fill lasers included normalization from the Source Monitor.}
+	\item{In-fill gain is corrected using in-fill lasers including normalization from the Source Monitor.}
+	\item{Short-term double pulse (SDTP) effect is not included.}
+\end{enumerate}
+
+
+\section{Pileup Correction Procedure}
+
+Pileup correction method: Asymmetric shadow window
+
+\begin{enumerate}
+	\item{Create a vector of clusters per calorimeter per fill. For each cluster look for a second cluster in a window from 12-18 ns after the time of the first cluster. This corresponds to a shadow dead time (SDT) of 6 ns and a shadow gap time (SGT) of 12 ns, equal to 1 and 2 times the applied ADT respectively.}
+	\item{Create shadow doublets with energies and times as:
+		\begin{gather*}
+			E_{doublet} = E_{1} + E_{2} \\
+			t_{doublet} = \frac{t_{1}*E_{1} + (t_{2}-SGT)*E_{2}}{E_{1} + E_{2}}
+		\end{gather*}
+		}
+	\item{For each calorimeter construct a pileup spectrum P = doublets - singlets = D - S, where the singlets are subtracted at time $t_{doublet}$, and pulses are only added or subtracted if they are above 1.7 GeV.}
+
+
+U and V splitting as well
+carefule with threhsholds
+time randomization of pileup hits
+
+	\item{errors}
+	\item{triple pileup not included}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+

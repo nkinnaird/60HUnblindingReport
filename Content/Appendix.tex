@@ -104,6 +104,7 @@ so that
 		u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
 		v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
 		v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t).
+	\label{eqn:fourHists}
 	\end{aligned}
 	\end{equation}
 (These factors out front aren't so far off from 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) Then instead $R(t)$ becomes 
@@ -145,15 +146,4 @@ and $C(t)$ can encode any other effects in the data that need to be fitted for, 
 Additionally, any other fit parameters such as $A$ or $\phi$ can be made a fuction of $t$. Using the non-approximated form for the final fit function gives greater confidence in the fit results for the high precision $\omega_{a}$ extraction necessary for the experimental measurement.
 
 
-
-% where $u_{+}(t)$, $u_{-}(t)$, $v_{1}(t)$, and $v_{2}(t)$ now derive themselves from the more general formula
-% 	\begin{align}
-% 		N(t) = N_{cbo}(t) e^{-t/\tau}(1 + A_{cbo}(t) \cos(\omega_{a}t + \phi_{cbo}(t))),
-% 	\end{align}
-% where the number, asymmetry, and phase of the incoming positrons are modulated by the CBO. In the E821 experiment these were all well described by the normal constant term plus an additional exponentially decaying and oscillatory term:
-% 	\begin{align}
-% 		N_{cbo}(t) = N_{0}(1 + e^{-t/\tau_{cbo}} A_{N_{cbo}} \cos(\omega_{cbo}t + \phi_{N_{cbo}})), \\
-% 		A_{cbo}(t) = A(1 + e^{-t/\tau_{cbo}} A_{A_{cbo}} \cos(\omega_{cbo}t + \phi_{A_{cbo}})), \\
-% 		\phi_{cbo}(t) = \phi_{0}(1 + e^{-t/\tau_{cbo}} A_{\phi_{cbo}} \cos(\omega_{cbo}t + \phi_{\phi_{cbo}})),
-% 	\end{align}
-% where $\tau_{cbo}$ and $\omega_{cbo}$ are the lifetime and frequency of the CBO oscillations respectively. (It is important to remember that these forms were effective in getting the E821 fits to converge, but are not necessarily the exact form of the CBO effects.) This results in 11 unknown parameters. When forming the $R_{9}(t)$ variable, the $N_{0}$ and $e^{-t/\tau}$ cancel out in the same way as before. In the past $\tau_{cbo}$ and $\omega_{cbo}$ were extracted from the data in separate analyses and taken as given in the final ratio fit, with 9 free parameters. It is unecessary to simplify this general form for $R_{9}(t)$ when fitting the data as was done for the 3 parameter ratio function, and indeed improves the accuracy of the fit by avoiding approximations. 
+\chapter{Ratio Method Errors}

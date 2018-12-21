@@ -8,7 +8,7 @@
 	\item{Histogramming Method: Weighted Ratio}
 	\item{Gain Correction Method: Default in reconstruction}
 	\item{Pileup Correction Method: Asymmetic shadow window}
-	\item{Lost Muon Spectrum Extraction: put something here?}
+	\item{Lost Muon Spectrum Extraction: Triple coincidence, not included in ratio fit}
 	\item{Models for CBO and VW: Exponential envelopes, frequency from tracking analysis}
 	\item{$R = -19.something \pm 1.something ppm$ (blinding with common string)}
 	\item{$\chi^{2}/NDF = 4211/4200$something}
@@ -21,5 +21,5 @@
 		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[10pt]
 		f_{\pm}(t) = f(t \pm T_{a}/2) \\[10pt]
 		f(t) = C(t) (1 + A \cos(\omega_{a}t + \phi)) \\[10pt]
-		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}t + \phi_{cbo})
+		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}(t)t + \phi_{cbo})
 \end{gather*}

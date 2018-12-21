@@ -53,25 +53,94 @@ Pileup correction method: Asymmetric shadow window
 		\begin{gather*}
 			E_{doublet} = E_{1} + E_{2} \\
 			t_{doublet} = \frac{t_{1}*E_{1} + (t_{2}-SGT)*E_{2}}{E_{1} + E_{2}}
+		\end{gather*}}
+	\item{Randomize $t_{doublet}$ times by $\pm 149.15/2$ ns as in the histogramming procedure described above.}
+	\item{For each calorimeter construct a pileup spectrum P = doublets - singlets = D - S, where the singlets are subtracted at time $t_{doublet}$ as opposed to their individual times, and pulses are only added or subtracted if they are above 1.7 GeV. Subtract P off energy and threshold histograms.}
+	\item{For pileup subraction in the ratio method, randomly split associated doublets and singlets into 4 separate histograms as is done in the histogramming procedure described above, with times shifted accordingly. Subtract 4 pileup histograms off corresponding \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} histograms before forming the ratio.}
+	\item{The errors of the pileup corrected histogram were determined to be: 
+		\begin{gather*}
+			\sigma(N_{corrected}) = \sqrt{N_{corrected} + 2 N_{1} + 6 N_{4}},
 		\end{gather*}
-		}
-	\item{For each calorimeter construct a pileup spectrum P = doublets - singlets = D - S, where the singlets are subtracted at time $t_{doublet}$, and pulses are only added or subtracted if they are above 1.7 GeV.}
-
-
-U and V splitting as well
-carefule with threhsholds
-time randomization of pileup hits
-
-	\item{errors}
-	\item{triple pileup not included}
+	where $N_{1}$ is the number of doublets where both singlets were below threshold, and $N_{4}$ is the number of doublets where both singlets were above threshold, and this is a quantity evaluated at each time bin. (Cite this? DocDB 14830. Derive this in the appendix?) A histogram of error multipliers was created by factoring out the $N_{corrected}$ term, which is then applied to the bin errors before fitting. This is true even for the ratio errors to good approximation. (Cite this? Derive it as JP did?) Note that I did not time randomize the $N_{1}$ and $N_{4}$ entries when constructing the correct errors, which should have a negligble effect.}
+	\item{The pileup correction at the triplet/contamination level is not included. The machinery exists to apply such a correction, but it requires more work to get it correct. It has been determined not be necessary for the 60H and Run 1 data.}
 \end{enumerate}
 
 
+\section{Lost muon spectrum extraction procedure}
+
+Method: Triple coincidence of clusters
+
+Note that the lost muons are not included in the ratio fit because the ratio method divides out such slow effects. This is reflected by the lack of a low frequency peak in the FFT of the fit residuals for the ratio fit, whereas such a peak exists for T method fits. I include here however my method for extracting the lost muon function for possible future systematic studies.
+
+\begin{enumerate}
+	\item{Triple coincidence of clusters in 3 consecutive calorimeters are made with an energy cut of 100 MeV $<$ E $<$ 250 MeV and 5 ns $<$ dt $<$ 8.5 ns.}
+	\item{A time histogram is made with the muon cluster in the first calorimeter.}
+	\item{The function that would be used in the final fit is:
+		\begin{gather*}
+			\Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(-t'/\gamma\tau_{\mu})} dt'
+		\end{gather*}
+	where $L(t)$ is the triples histogram, and an arbitrary $10^{-6}$ factor has been absorbed into $\kappa_{loss}$ in order to bring it to a more reasonable value (from $\mathcal{O}(10^{-10})$ to $\mathcal{O}(10^{-4})$).}
+\end{enumerate}
 
 
+\section{Beam Dynamics: CBO Model}
+
+\begin{enumerate}
+	\item{The CBO frequency as a function of time is taken from the tracking analysis, DocDB 14208. The form used is 
+		\begin{gather*}
+			\omega_{cbo}(t) = \omega_{0}(1 + \Delta\omega t + A e^{-t/\tau_{A}} + B e^{-t/\tau_{B}})
+		\end{gather*}
+	with parameters determined from station 12 in the 60H dataset and fixed in the fit as:
+		\begin{equation*}	
+		\begin{aligned}
+		 	\Delta\omega &= \SI{1.86e-8}{ns^{-1}}, \\
+		 	A &= -0.0504, \\
+		 	\tau_{A} &= \SI{73.3}{\mu s}, \\
+		 	B &= -0.131, \\
+		 	\tau_{B} &= \SI{16.6}{\mu s}. \\
+		\end{aligned}
+		\end{equation*}
+	The parameter $\omega_{0}$ is allowed to float in the fit. The ratio method has trouble with letting the other parameters float, and fixing them to various values does not change the fit results significantly.}
+	\item{Because the ratio method divides out the CBO partially (reduction by a factor of $\sim5$ in the FFT cbo peak amplitude), the ratio fit has a hard time fitting the CBO lifetime. Therefore $\tau_{cbo}$ is fixed to $\SI{180}{\mu s}$, determined from a T Method fit to the same data.}
+	\item{An exponential function is assumed for the CBO decoherence.}
+	\item{The $N_{cbo}$ term is included in the fit, $A_{cbo}$ and $\phi_{cbo}$ are excluded. The 2CBO term is excluded.}
+	\item{The final CBO function is:
+		\begin{gather*}
+				N_{cbo}(t) = C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}(t)t + \phi_{cbo})
+		\end{gather*}
+	}
+\end{enumerate}
 
 
+\section{Beam Dynamics: Vertical Waist Model}
 
+\begin{enumerate}
+	\item{\wa is senstive to the width of the beam, which is characterized by the frequency 
+		\begin{gather*}
+			f_{VW} = f_{cyc} - 2f_{y}, \\
+			f_{y} = f_{cbo} \sqrt{\frac{2f_{cyc}}{f_{cbo}} - 1}.
+		\end{gather*}
+	In the 60H dataset $f_{VW} \approx \SI{2.3}{MHz} \approx 10 \cdot \omega_{a}$, an even multiple of the g-2 frequency. Because of this, the vertical waist largely cancels in the numerator of the ratio. (show this explicitly?) This combined with the time randomization to remove the fast rotation ($f_{cyc}$) means the vertical waist does not need to be included in the ratio fit. This is justified by the lack of a vertical waist peak in the FFT of the residuals of the fit. (mention at all how there is a very small but observable peak at very early times or omit it?)
+	}
+	\item{If included, an exponential function is assumed for the VW decoherence as in the CBO, and the final VW term is 
+		\begin{gather*}
+				V(t) = 1 + A_{VW} e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW})
+		\end{gather*}
+	}
+	\item{$\omega_{VW}$ is assumed to be a constant value even though the CBO frequency changes vs time.}
+\end{enumerate}
+
+
+\section{Final Fit Function}
+
+The following function is used for the final fit for each calorimeter and for the calorimeter sum:
+\begin{gather*}
+		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[10pt]
+		f_{\pm}(t) = f(t \pm T_{a}/2) \\[10pt]
+		f(t) = C(t) (1 + A \cos(\omega_{a}t + \phi)) \\[10pt]
+		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}(t)t + \phi_{cbo})
+\end{gather*}
+All parameters are floating except for terms in $\omega_{cbo}(t)$ and $\tau_{cbo}$ as described above.
 
 
 

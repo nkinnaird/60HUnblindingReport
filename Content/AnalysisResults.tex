@@ -1,8 +1,10 @@
-\graphicspath{ {Figures/Pileup/} }
+\graphicspath{ {Figures/Pileup/} {Figures/Main/} }
 
 \chapter{Analysis Results}
 
-\begin{figure}[]
+\section{Pre-corrected and corrected energy and time spectra}
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
     \caption[ClusterEnergiesVsPileupEnergies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together. At energies below about 2.4 GeV the pileup spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this. Due to the triplets and contamination in the pileup spectrum, the red and black curves can be seen to diverge at high energies.}    
@@ -40,9 +42,17 @@
     \label{fig:CaloEnergiesZoomed}
 \end{figure}
 
-\section{Pre-corrected and corrected energy and time spectra}
+
 
 \section{6 Parameter Ratio Fit}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{ratioCBO_moduloPlot}
+    \caption[ratioCBO_moduloPlot]{Final fit result for the 60 hour dataset. The fit includes 6 free parameters and one fixed. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from 30 $\mu$s to 500 $\mu$s.}
+    \label{fig:ratioCBO_moduloPlot}
+\end{figure}
+
 
 
 \section{Residual and FFT}

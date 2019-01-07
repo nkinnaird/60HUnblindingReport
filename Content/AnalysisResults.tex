@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/} {Figures/Main/} }
+\graphicspath{ {Figures/Pileup/} {Figures/Main/} {Figures/ResidualsFFT/} }
 
 \chapter{Analysis Results}
 
@@ -46,7 +46,7 @@
 
 \section{6 Parameter Ratio Fit}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{ratioCBO_moduloPlot}
     \caption[ratioCBO_moduloPlot]{Final fit result for the 60 hour dataset. The fit includes 6 free parameters and one fixed. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from 30 $\mu$s to 500 $\mu$s.}
@@ -56,6 +56,30 @@
 
 
 \section{Residual and FFT}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{fitResidual}
+	    \caption{Fit residuals.}
+    \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{fitPull}
+	    \caption{Fit pulls.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{4mm}
+    \begin{subfigure}[]{0.7\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{fitPull_projected}
+	    \caption{Fit pulls projected onto the y axis. Note the Gaussian shape centered around 0 with unit width.}
+    \end{subfigure}
+\caption[fitResidual]{Residuals and pulls for the full ratio fit.}
+\label{fig:fitResidual}
+\end{figure}
+
+
 
 
 

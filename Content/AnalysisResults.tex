@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/} {Figures/Main/} {Figures/ResidualsFFT/} }
+\graphicspath{ {Figures/Pileup/} {Figures/Main/} {Figures/ResidualsFFT/} {Figures/FitStartScans/} }
 
 \chapter{Analysis Results}
 
@@ -81,20 +81,64 @@
 
 \begin{figure}[]
 	\centering
-	\includegraphics[width=\textwidth]{FFT_ratioCBOFit.png}
+	\includegraphics[width=\textwidth]{FFT_ratioCBOFit}
     \caption[FFT_ratioCBOFit]{FFT of the residuals of the full ratio fit. No significant peaks remain in the ratio fit residuals after fitting with CBO terms. Overlayed are dotted lines for the \gmtwo, CBO, and vertical waist frequencies. Peaks close to the lines are coincidental but don't line up when zoomed in.}
     \label{fig:FFT_ratioCBOFit}
 \end{figure}
 
 \begin{figure}[]
 	\centering
-	\includegraphics[width=\textwidth]{FFTComparison_RatioCBO.png}
+	\includegraphics[width=\textwidth]{FFTComparison_RatioCBO}
     \caption[FFTComparison_RatioCBO]{A plot of the FFT of the residuals of the fit for the five parameter fit compared to the ratio fit. In black is the FFT for a five parameter fit, where peaks for the CBO and vertical waist can be seen as well as the \gmtwo peak. In red is the FFT of the full ratio fit residuals, where it has been scaled up to be visible on this plot.}
     \label{fig:FFTComparison_RatioCBO}
 \end{figure}
 
 
 \section{Start time scans}
+
+\begin{figure}[H]
+\centering
+  %   \begin{subfigure}[]{0.45\textwidth}
+	 %    \centering
+		% \includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv}
+	 %    \caption{}
+  %   \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_R_FS_Canv}
+	    \caption{}
+    \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_\#phi_FS_Canv}
+	    \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{4mm}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_A_Vs_FS_Canv}
+	    \caption{}
+    \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_#omega_\{cbo\}_Vs_FS_Canv}
+	    \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{4mm}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_N_\{cbo-A\}_FS_Canv}
+	    \caption{}
+    \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_N_\{cbo-#phi\}_FS_Canv}
+	    \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+\caption[FitStartScans]{}
+\label{fig:FitStartScans}
+\end{figure}
+
 
 
 \section{Results vs calorimeter}

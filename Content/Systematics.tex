@@ -1,8 +1,31 @@
+\graphicspath{ {Figures/Pileup/Multiplier/} }
+
 \chapter{Systematic Uncertainty Evaluations}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to gain corrections}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to pileup}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2_Vs_PileupMultiplier_Canv}
+	    \caption{}
+    \end{subfigure}
+    \hspace{4mm}
+    \begin{subfigure}[]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_R_Vs_PileupMultiplier_Canv}
+	    \caption{}
+    \end{subfigure}
+\caption[PileupMultiplier]{}
+\label{fig:PileupMultiplier}
+\end{figure}
+
+
+       % TF1* parabFunc = new TF1("parabFunc", "[2] * (x - [1]) * (x - [1]) + [0]", .8, 1.2);
+
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muon function shape}
 

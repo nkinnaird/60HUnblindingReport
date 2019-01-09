@@ -106,34 +106,34 @@
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_R_FS_Canv}
 	    \caption{Fitted R value vs fit start time.}
     \end{subfigure}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_phi_FS_Canv}
 	    \caption{Fitted \gmtwo phase vs fit start time.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \vspace{4mm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_A_FS_Canv}
 	    \caption{Fitted asymmetry vs fit start time.}
     \end{subfigure}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_FS_Canv}
 	    \caption{Fitted CBO frequency ($\omega_{0}$) vs fit start time.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \vspace{4mm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_N_cbo-A_FS_Canv}
 	    \caption{Fitted CBO amplitdue vs fit start time.}
     \end{subfigure}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBO_N_cbo-phi_FS_Canv}
 	    \caption{Fitted CBO phase vs fit start time.}
@@ -154,36 +154,39 @@
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}[H]
 \centering
-    \begin{subfigure}[]{0.4\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_R_Vs_Calo_Canv}
 	    \caption{Fitted R value vs calorimeter number.}
     \end{subfigure}
-    \begin{subfigure}[]{0.4\textwidth}
+    \hspace{4mm}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_phi_Vs_Calo_Canv}
 	    \caption{Fitted \gmtwo phase vs calorimeter number. Calorimeters 13 and 19 lie behind the trackers leading to the different \gmtwo phases.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \vspace{4mm}
-    \begin{subfigure}[]{0.4\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_A_Vs_Calo_Canv}
 	    \caption{Fitted asymmetry vs calorimeter number.}
     \end{subfigure}
-    \begin{subfigure}[]{0.4\textwidth}
+    \hspace{4mm}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_omega_cbo_Vs_Calo_Canv}
 	    \caption{Fitted CBO frequency ($\omega_{0}$) vs calorimeter number.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \vspace{4mm}
-    \begin{subfigure}[]{0.4\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_N_cbo-A_Vs_Calo_Canv}
 	    \caption{Fitted CBO amplitdue vs calorimeter number.}
     \end{subfigure}
-    \begin{subfigure}[]{0.4\textwidth}
+    \hspace{4mm}
+    \begin{subfigure}[t]{0.4\textwidth}
 	    \centering
 		\includegraphics[width=\textwidth]{RatioCBOFit_N_cbo-phi_Vs_Calo_Canv}
 	    \caption{Fitted CBO phase vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
@@ -194,6 +197,26 @@
 
 
 \section{Correlation matrix for fit parameters}
+
+\begin{table}[H]
+\setlength\tabcolsep{0pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}
+                                l
+                           *{9}{c}
+                            }
+    \toprule
+                & A & R & $\phi$ & $\omega_{cbo}$ & $\tau_{cbo}$ (fixed) & $N_{cbo-A}$ & $N_{cbo-\phi}$ \\
+    \midrule
+	A    			 	 &  1.0000  &  0.0049  & -0.0068  & -0.0166  &  0.0000  & -0.0098  &  0.0233  \\
+	R     			 	 &  0.0049  &  1.0000  & -0.8300  & -0.0204  &  0.0000  &  0.0207  &  0.0282  \\
+	$\phi$   			 & -0.0068  & -0.8300  &  1.0000  &  0.0280  &  0.0000  & -0.0287  & -0.0387  \\
+	$\omega_{cbo}$   	 & -0.0166  & -0.0204  &  0.0280  &  1.0000  &  0.0000  &  0.0773  & -0.8585  \\
+	$\tau_{cbo}$ (fixed) &  0.0000  &  0.0000  &  0.0000  &  0.0000  &  1.0000  &  0.0000  &  0.0000  \\
+	$N_{cbo-A}$   	 	 & -0.0098  &  0.0207  & -0.0287  &  0.0773  &  0.0000  &  1.0000  & -0.0656  \\
+	$N_{cbo-\phi}$   	 &  0.0233  &  0.0282  & -0.0387  & -0.8585  &  0.0000  & -0.0656  &  1.0000  \\
+    \bottomrule
+\end{tabular*}
+\end{table}
 
 
 

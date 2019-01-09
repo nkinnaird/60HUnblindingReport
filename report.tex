@@ -21,8 +21,13 @@
 \usepackage{xspace}
 \usepackage{siunitx}
 % \usepackage{epstopdf} % what does this do?
-\usepackage{booktabs}
 \usepackage{appendix}
+
+% table packages and commands
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\newcolumntype{L}{D{.}{.}{2,4}} % define a column type L with specific spacing before and after the decimal point
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{#1}} % define a new command thead which centers table headers in the first row and works with the rest of the table environment
 
 % https://tex.stackexchange.com/questions/13509/biblatex-in-a-nutshell-for-beginners
 % if I get the error, ".bbl not created by bib latex", run biber $, where $ is the basename of the main .tex file, then rerun the build

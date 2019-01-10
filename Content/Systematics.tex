@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 
@@ -31,26 +31,29 @@ This corresponds to an uncertainty of $\sqrt{1/508.4} = 0.0444$ or 4.44\%. The m
 	\end{align}
 where $\delta\alpha_{pm}$ is the uncertainty on the pileup amplitude, the systematic error on R is calculated as 509.1 pbb $\times 0.0444 = 22.6$ ppb.
 
+Another technique to estimate the uncertainty of the pileup amplitude construction is to look at the offset of the high energy tail of the pileup subtracted energy spectrum from zero. Because however I've applied only the doublet correction, I know that the shape of the pileup spectrum is wrong by some amount, as evidenced in \ref{fig:AddedEnergies}. While the pileup itself can multiplied by some scaling factor other than 1 in order to align the energy spectra slightly better, because the shape of the pileup correction is imperfect the offset calculation I believe is the wrong way to go about calculating this uncertainty in my case. The shape can be fixed by including the triplets and the doublet contamination in the shadow method, but that work is incomplete. Since the triplets are a 1\% effect relative to the doublets, and the contamination is of the same order, I believe the uncertainty of 4.44\% conservatively includes for this mismatch in shape and the omission of the triplets. Regardless, since the statistics of the 60H dataset is much larger than the order of the systematic effect for the pileup construction ($\mathcal{O}$(1 ppm) vs $\mathcal{O}$(10 ppb)), this is a fine assumption.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{RatioCBO_R_Vs_PileupTimeShift_Canv}
+    \caption[PileupPhase]{Sensitivity of R vs the pileup phase. The slope is 8.571 ppb per ns.}
+    \label{fig:PileupPhase}
+\end{figure}
 
+The error on R due to the pileup phase construction was calculated by scanning over a pileup time shift parameter, where the pileup spectrum was shifted in time by some amount before subtraction. The sensitivity of R to this parameter is shown in Figure \ref{fig:PileupPhase}. It is extremely unlikely that the entire pileup spectrum could be shifted by the offsets shown here, so this is a conservative estimate of the effect of the pileup phase on R. Another factor that the phase depends on is the energy dependence of the constructed pileup pulses, calculated as just the sum of the singlets. If the energy is miscalculated then the phase of the included pulses will be off. However, because the spatial separation is turned off in the reconstruction clustering, this is a small effect for my pileup construction method. Similarly, in the near future the Short Term Double Pulse (STDP) improvement to the laser calibration will be included also reducing this effect. For these reasons and due to the conservative nature of my phase error estimation, I leave such effects out. I then calculate the phase error as 
+	\begin{align}
+		\delta R_{pp} = \delta\alpha_{pp} \times \frac{dR}{d\alpha_{pp}}
+	\end{align}
+where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. I once again very conservatively estimate the uncertainty on the pileup phase as half the artificial deadtime at 3ns. The systematic error on R is then calculated as 8.571 pbb $\times 3 = 25.7$ ppb. This is a very conservative estimate which is fine once again because of the comparison of order of statistics vs the systematic effect.
 
+\begin{figure}[]
+	\centering
+	\includegraphics[width=.8\textwidth]{pileupTimeShiftComparison}
+    \caption[PileupTimeShiftFS]{Plotted is $\Delta R$ between pileup time shifted and unshifted results vs fit start time. The black line and points are by definition 0. As the fit start time increases and the pileup reduces, the $\Delta R$ points converge to zero as they should.}
+    \label{fig:PileupTimeShiftFS}
+\end{figure}
 
-
-The shape of the energy spectrum of the pileup was not taken to be the unceratiny because the shape is off blah blha
-
-This uncertainty takes care of the triples because..
-
-
-
-The pileup phase sysetematic error is calcualted as...
-
-
-
-
-
-A third part is the error due to unseen pileup which...
-
-
+Adding these two errors in quadrature results in a systematic error on R due to the pileup as 34.2 ppb.
 
 
 

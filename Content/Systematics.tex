@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 
@@ -64,6 +64,55 @@ Adding these two errors in quadrature results in a systematic error on R due to 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to various effects}
+
+\subsection{Randomization}
+
+I'm not sure what the systematic error due to the randomization should be. I'm also not sure what I should take as my final answer for R. Would it just be the average of all the random seeds?
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_Iter_Canv}
+	    \caption{\chisq/NDF vs random seed number.}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_R_Vs_Iter_Canv}
+	    \caption{R vs random seed number.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+\caption[RandomSeeds]{Plotted is the \chisq/NDF and fitted R value for 20 random seeds.}
+\label{fig:RandomSeeds}
+\end{figure}
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed0}
+	    \caption{Seed 1}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed5}
+	    \caption{Seed 2}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{4mm}
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed12}
+	    \caption{Seed 3}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed18}
+	    \caption{Seed 4}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+\caption[RandomSeedFitStartScans]{Fit start time scans for the \chisq for four random seeds of the randomization of the same dataset. Compare to Figure \ref{fig:RatioCBO_Chi2NDF_Vs_FS_canv}. Note how the scans rise and fall at different points but are all consistent with the statistical bands.}
+\label{fig:RandomSeedFitStartScans}
+\end{figure}
+
+
 
 \section{Final Systematic Uncertainty Table}
 

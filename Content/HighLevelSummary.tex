@@ -11,8 +11,8 @@
 	\item{Lost Muon Spectrum Extraction: Triple coincidence, not included in ratio fit}
 	\item{Model for CBO: Exponential envelope, frequency from tracking analysis}
 	\item{Model for VW: Exponential envelope, constant frequency, not included in ratio fit}
-	\item{Fit Range: $30 \mu s - 500 \mu s$}
-	\item{$R = -19.88 \pm 1.373 ppm \pm syst.$ (blinding with common string)}
+	\item{Fit Range: $\SI{30}{\mu s} - \SI{500}{\mu s}$}
+	\item{$R = -19.88 \pm \SI{1.373}{ppm} \pm syst.$ (blinding with common string)}
 	\item{$\chi^{2}/NDF = 3052/3145$}
 	\item{P value = 0.8806}
 \end{itemize}
@@ -23,5 +23,6 @@
 		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[10pt]
 		f_{\pm}(t) = f(t \pm T_{a}/2) \\[10pt]
 		f(t) = C(t) (1 + A \cos(\omega_{a}t + \phi)) \\[10pt]
-		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}(t)t + \phi_{cbo})
+		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}(t)t + \phi_{cbo}) \\[10pt]
+		\omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
 \end{gather*}

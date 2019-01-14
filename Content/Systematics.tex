@@ -29,7 +29,7 @@ This corresponds to an uncertainty of $\sqrt{1/508.4} = 0.0444$ or 4.44\%. The m
 	\begin{align}
 		\delta R_{pm} = \delta\alpha_{pm} \times \frac{dR}{d\alpha_{pm}}
 	\end{align}
-where $\delta\alpha_{pm}$ is the uncertainty on the pileup amplitude, the systematic error on R is calculated as 509.1 pbb $\times 0.0444 = 22.6$ ppb.
+where $\delta\alpha_{pm}$ is the uncertainty on the pileup amplitude, the systematic error on R is calculated as $0.0444 \times \SI{509.1}{pbb} = \SI{22.6}{ppb}$.
 
 Another technique to estimate the uncertainty of the pileup amplitude construction is to look at the offset of the high energy tail of the pileup subtracted energy spectrum from zero. Because however I've applied only the doublet correction, I know that the shape of the pileup spectrum is wrong by some amount, as evidenced in \ref{fig:AddedEnergies}. While the pileup itself can multiplied by some scaling factor other than 1 in order to align the energy spectra slightly better, because the shape of the pileup correction is imperfect the offset calculation I believe is the wrong way to go about calculating this uncertainty in my case. The shape can be fixed by including the triplets and the doublet contamination in the shadow method, but that work is incomplete. Since the triplets are a 1\% effect relative to the doublets, and the contamination is of the same order, I believe the uncertainty of 4.44\% conservatively includes for this mismatch in shape and the omission of the triplets. Regardless, since the statistics of the 60H dataset is much larger than the order of the systematic effect for the pileup construction ($\mathcal{O}$(1 ppm) vs $\mathcal{O}$(10 ppb)), this is a fine assumption.
 
@@ -44,7 +44,7 @@ The error on R due to the pileup phase construction was calculated by scanning o
 	\begin{align}
 		\delta R_{pp} = \delta\alpha_{pp} \times \frac{dR}{d\alpha_{pp}}
 	\end{align}
-where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. I once again very conservatively estimate the uncertainty on the pileup phase as half the artificial deadtime at 3ns. The systematic error on R is then calculated as 8.571 pbb $\times 3 = 25.7$ ppb. This is a very conservative estimate which is fine once again because of the comparison of order of statistics vs the systematic effect.
+where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. I once again very conservatively estimate the uncertainty on the pileup phase as half the artificial deadtime at 3 ns. The systematic error on R is then calculated as $\SI{3}{ns} \times \SI{8.571}{pbb/ns} = \SI{25.7}{ppb}$. This is a very conservative estimate which is fine once again because of the comparison of order of statistics vs the systematic effect.
 
 \begin{figure}[]
 	\centering
@@ -67,10 +67,16 @@ Adding these two errors in quadrature results in a systematic error on R due to 
 
 \subsection{\gmtwo Period Guess}
 
+To perform the ratio method, the \gmtwo period needs to be known a priori to high precision. By scanning over various \gmtwo period guesses the dependence of R on $T_{a}$ can be determined, as shown in Figure \ref{fig:gm2PeriodGuess}. The systematic error can then be calculated as 
+	\begin{align}
+		\delta R_{period} = \delta\alpha_{period} \times \frac{dR}{d\alpha_{period}}
+	\end{align}
+where $\delta\alpha_{period}$ is the uncertainty on $T_{a}$. Very conservatively taking the uncertainty as 10 ppm, the systematic error on R is calcualted as $\SI{10}{ppm} \times \SI{1.62e-4}{ppm/ppm} = \SI{1.62}{ppb}$, which is completely negligible.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_gm2PeriodGuess_Canv}
-    \caption[gm2PeriodGuess]{Fitted R value as a function of the .   Error bars have been removed from this plot, otherwise it appears as a flat line. The slope is .16 ppb per ppm offset in $T_{a}$.}
+    \caption[gm2PeriodGuess]{Fitted R value as a function of the ppm level offset from the guess used for the \gmtwo period, \ref{eq:Ta}. Error bars have been removed from this plot, otherwise it appears as a flat line. The slope is .16 ppb per ppm offset in $T_{a}$.}
     \label{fig:gm2PeriodGuess}
 \end{figure}
 

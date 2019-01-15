@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/CBO/LifetimeScan/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 
@@ -60,6 +60,18 @@ Adding these two errors in quadrature results in a systematic error on R due to 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muon function shape}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to CBO function}
+
+
+\subsection{CBO Lifetime}
+
+Because the CBO lifetime has been fixed in the fit, there is a systematic error on R. Scanning over various values of the fixed CBO lifetime allows this error to be calculated. The resulting curve of R vs the CBO lifetime turns out not to be linear, as shown in Figure \ref{fig:CBOLifetime}. Taking the uncertainty on the CBO lifetime as the error produced by the T Method fit, approximately $\SI{16}{\mu s}$, and looking at the change in R for CBO lifetime values of $180 \pm \SI{16}{\mu s}$, the systematic error on R is taken as the larger of the two at 12.1 ppb.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_tau_cbo_Canv}
+    \caption[CBOLifetime]{Plotted is the fitted R value as a function of the CBO lifetime, which has been fixed in the full ratio fit. The error bars have been removed from the plot in order to show the shape of the curve better. The points have been fitted to an exponential function which lines up nicely, $p_{0} e^{-t/p_{1}} + p_{2}$.}
+    \label{fig:CBOLifetime}
+\end{figure}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 

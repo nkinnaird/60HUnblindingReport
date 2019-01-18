@@ -230,14 +230,13 @@
 
 \begin{table}[H]
 \centering
-\setlength\tabcolsep{0pt}
-\setlength\extrarowheight{10pt}
-% \begin{tabular*}{.5\linewidth}{@{\extracolsep{\fill}}|lG{c}}
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{.5\linewidth}{@{\extracolsep{\fill}}|lG|}
   \hline
-  	\multicolumn{2}{|c|}{Summary of Systematic Errors} \\
+  	\multicolumn{2}{|c|}{\textbf{Summary of Systematic Errors}} \\
   \hline\hline
-    Systematic Error & \thead{\SI{60}{H}} \\
+    Systematic Error & \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
 	Gain(+)    	     &  24.8  \\
 	Pileup     	     &  34.2  \\
@@ -257,3 +256,11 @@
 
 
 \section{Final Results}
+
+\begin{itemize}
+	\item{$R = -19.88 \pm \SI{1.373}{ppm} \pm syst.$ (blinding with common string)}
+	\item{$\chi^{2}/NDF = 3052/3145$}
+\end{itemize}
+
+
+

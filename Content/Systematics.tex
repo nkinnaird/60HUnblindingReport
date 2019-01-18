@@ -178,7 +178,7 @@
 
 	\subsection{Randomization}
 
-		I'm not sure what the systematic error due to the randomization should be. I'm also not sure what I should take as my final answer for R. Would it just be the average of all the random seeds?
+		In the histogramming phase of my analysis, random seeds are used in two places. One for the randomization of counts into the 4 separate datasets that go into the ratio, and one for the time randomization to reduce the fast rotation. It's necessary to make sure that results are consistent among random seeds, and that the final answer wasn't a particularly fortuitous or disastrous choice. In order to test this I performed fits with 20 different random seeds, the $\chi^{2}/NDF$ and fitted R values of which are plotted in Figure \ref{fig:RandomSeeds}. Results are consistent and very much within error of each other. I also performed fit start scans for a couple of the random seeds as an extra check to make sure the fitting was behaving consistently as shown in Figure \ref{fig:RandomSeedFitStartScans}.
 
 		\begin{figure}[]
 		\centering
@@ -219,16 +219,16 @@
 				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed18}
 			    \caption{Seed 4}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
-		\caption[RandomSeedFitStartScans]{Fit start time scans for the \chisq for four random seeds of the randomization of the same dataset. Compare to Figure \ref{fig:RatioCBO_Chi2NDF_Vs_FS_canv}. Note how the scans rise and fall at different points but are all consistent with the statistical bands.}
+		\caption[RandomSeedFitStartScans]{Fit start time scans for the \chisq for four random seeds of the randomization of the same dataset. Compare to Figure \ref{fig:RatioCBO_Chi2NDF_Vs_FS_canv}. The general behaviour of the fits vs fit start time is consistent and relatively the same, but as is seen the scans can rise and fall at different points due to the choice of randomization.}
 		\label{fig:RandomSeedFitStartScans}
 		\end{figure}
 
-		I'm not so sure there should be a systematic error on R due to the randomization. Such an error due to the randomization should be contained within the statistical error of the final answer I believe. However I calculate one here for posterity in the manner that it was done for E821,
+		I'm not so sure there should be a systematic error on R due to the randomization. Such an error should be contained within the statistical error of the final answer I believe. However I calculate one here for posterity in the manner that was done for E821,
 			\begin{align}
 				\delta R_{rand} = \sigma(R)/\sqrt{NDF},
 			\label{Eqn:Rand}
 			\end{align}
-		where NDF is the number of degrees of freedom equal to the number of random seeds minus one, in this case 19. Therefore with an RMS on R of 193.6 ppb, the systematic error on R due to the randomization is (potentially) 44.4 ppb. (The fact that simply increasing the number of seeds allows for this systematic error to reduce to zero as shown in Equation \ref{Eqn:Rand} gives greater weight to the argument that this really shouldn't be a systematic error at all.)
+		where $\sigma(R)$ is the RMS spread in R and NDF is the number of degrees of freedom which is equal to the number of random seeds minus one, in this case 19. Therefore with an RMS on R of 193.6 ppb, the systematic error on R due to the randomization is (potentially) 44.4 ppb. (The fact that simply increasing the number of seeds allows for this systematic error to reduce to zero as shown in Equation \ref{Eqn:Rand} gives greater weight to the argument that this really shouldn't be a systematic error at all, and is instead a purely statistical effect already taken care of in the fit.)
 
 
 

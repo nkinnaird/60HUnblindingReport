@@ -229,11 +229,16 @@
 
 
 \begin{table}[H]
+\centering
 \setlength\tabcolsep{0pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS{c}}
-  \toprule
-    Systematic Error & 60H      \\
-  \midrule
+\setlength\extrarowheight{10pt}
+% \begin{tabular*}{.5\linewidth}{@{\extracolsep{\fill}}|lG{c}}
+\begin{tabular*}{.5\linewidth}{@{\extracolsep{\fill}}|lG|}
+  \hline
+  	\multicolumn{2}{|c|}{Summary of Systematic Errors} \\
+  \hline\hline
+    Systematic Error & \thead{\SI{60}{H}} \\
+  \hline
 	Gain(+)    	     &  24.8  \\
 	Pileup     	     &  34.2  \\
 	Lost Muons       &        \\
@@ -242,9 +247,11 @@
 	Bin Width        &  44.5  \\
 	Randomization    &        \\
 	Other   	     &        \\
-  \bottomrule
+  \hline\hline
+  	Total   	     &        \\
+  \hline
 \end{tabular*}
-\caption{}
+\caption{Systematic error table for the 60H dataset. All units are in ppb.}
 \end{table}
 
 

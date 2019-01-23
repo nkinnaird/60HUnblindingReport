@@ -56,9 +56,10 @@ Pileup correction method: Asymmetric shadow window
 	\item{Create a vector of clusters per calorimeter per fill. For each cluster look for a second cluster in a window from 12-18 ns after the time of the first cluster. This corresponds to a shadow dead time (SDT) of 6 ns and a shadow gap time (SGT) of 12 ns, equal to 1 and 2 times the applied ADT respectively.}
 	\item{Create shadow doublets with energies and times as:
 		\begin{gather}
-			E_{doublet} = E_{1} + E_{2} \\
-			t_{doublet} = \frac{t_{1}*E_{1} + (t_{2}-SGT)*E_{2}}{E_{1} + E_{2}}
-		\end{gather}}
+			E_{doublet} = C \cdot (E_{1} + E_{2}), \\
+			t_{doublet} = \frac{t_{1}*E_{1} + (t_{2}-SGT)*E_{2}}{E_{1} + E_{2}},
+		\end{gather}
+	where the latter equation is just the energy-weighted time between the two singlets. In the former equation, the calculation of the doublet energy is the sum of the singlets times some factor. That factor is set equal to 1, which is a decent approximation since the spatial separation in the reconstruction is turned off, and because the Short Term Double Pulse (SDTP) improvement to the laser energy calibration will be applied. The systematic effects of a factor not equal to 1 are studied in Section \ref{SubSec:PileupPhase}.}
 	\item{Randomize $t_{doublet}$ times by $\pm 149.15/2$ ns as in the histogramming procedure described above.}
 	\item{For each calorimeter construct a pileup spectrum P = doublets - singlets = D - S, where the singlets are subtracted at time $t_{doublet}$ as opposed to their individual times, and pulses are only added or subtracted if they are above 1.7 GeV. Subtract P off energy and threshold histograms.}
 	\item{For pileup subraction in the ratio method, randomly split associated doublets and singlets into 4 separate histograms as is done in the histogramming procedure described above, with times shifted accordingly. Subtract 4 pileup histograms off corresponding \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} histograms before forming the ratio.}

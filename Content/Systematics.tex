@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 \label{Ch:Systematics}
@@ -65,7 +65,7 @@
 
 	\subsection{Pileup Amplitude}
 
-		The error due to the amplitude misconstruction was calculated by scanning over a pileup multiplier parameter, from 90\% of the calculated pileup amplitude to 110\%, as shown in Figure \ref{fig:PileupMultiplier}. The sensitivity of R to the amplitude was determined to be 509.1 ppb per unit amplitude. The uncertainty of the pileup amplitude construction was determined by fitting a parabola to the \chisq as a function of the pileup amplitude, and taking the width of that parabola as the uncertainty. This width is determined as the distance in X for the \chisq to rise by 1 from the minimum, also calculated as $\sqrt{2/(\chi^{2})''}$.
+		The error due to the amplitude misconstruction was calculated by scanning over a pileup multiplier parameter, from 90\% of the calculated pileup amplitude to 110\%, as shown in Figure \ref{fig:PileupMultiplier}. The sensitivity of R to the amplitude was determined to be -509.1 ppb per unit amplitude. The uncertainty of the pileup amplitude construction was determined by fitting a parabola to the \chisq as a function of the pileup amplitude, and taking the width of that parabola as the uncertainty. This width is determined as the distance in X for the \chisq to rise by 1 from the minimum, also calculated as $\sqrt{2/(\chi^{2})''}$.
 
 		\begin{figure}[h]
 		\centering
@@ -78,7 +78,7 @@
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_Chi2_Vs_PileupMultiplier_Canv}
-			    \caption{Plotted is the fitted \chisq vs the pileup amplitude. The fit equation used was $p2 \times (x - p1)^{2} + p0.$ The minimum therefore lies at 1.022.}
+			    \caption{Plotted is the fitted \chisq vs the pileup amplitude. The fit equation used was $p2 \times (x - p1)^{2} + p0.$ The minimum lies at 1.022.}
 		    \end{subfigure}
 		\caption[PileupMultiplier]{The significant plots to determine the pileup amplitude systematic error.}
 		\label{fig:PileupMultiplier}
@@ -99,7 +99,7 @@
 			\begin{align}
 				\delta R_{pp} = \delta\alpha_{pp} \times \frac{dR}{d\alpha_{pp}}
 			\end{align}
-		where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. I once again very conservatively estimate the uncertainty on the pileup phase as half the artificial deadtime at 3 ns. The systematic error on R is then calculated as $\SI{3}{ns} \times \SI{8.571}{ppb/ns} = \SI{25.7}{ppb}$. This is a very conservative estimate which is fine once again because of the comparison of order of statistics vs the systematic effect.
+		where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. Conservatively estimating the uncertainty on the pileup phase as half the artificial deadtime at 3 ns, the systematic error on R is then calculated as $\SI{3}{ns} \times \SI{8.571}{ppb/ns} = \SI{25.7}{ppb}$. Figure \ref{fig:PileupTimeShiftFS} shows the change in R vs fit start times for pileup time shifted spectra vs the unshifted pileup time spectra. As shown the difference converges to zero as the level of pileup diminishes over the course of a fill.
 
 		\begin{figure}[]
 			\centering
@@ -108,9 +108,6 @@
 		    \label{fig:PileupPhase}
 		\end{figure}
 
-		// reference the figure below
-
-
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.8\textwidth]{pileupTimeShiftComparison}
@@ -118,14 +115,34 @@
 		    \label{fig:PileupTimeShiftFS}
 		\end{figure}
 
-		// change text and include new plots
+		As mentioned in section Section \ref{Sec:PileupCorrection}, the energy of the pileup pulses may not actually be exactly equal to the sum of the pileup singlets. If the energy of the pileup pulses are systematically miscalculated, then doublets will be added or lost near the energy threshold applied when constructing the pileup spectrum. This leads to an additional error on the phase which needs to be included. With the energy of the pileup pulses calculated as
+			\begin{align}
+				E_{doublet} = C \cdot (E_{1} + E_{2}),
+			\end{align}
+		by scanning over the parameter C this error can be determined. The sensitivity of R to this pileup energy scaling parameter is shown in Figure \ref{fig:PileupEnergyScaling}, with a slope of -806.5 ppb per unit scaling parameter. The systematic error on R is calculated in the usual way,
+			\begin{align}
+				\delta R_{pe} = \delta\alpha_{pe} \times \frac{dR}{d\alpha_{pe}}
+			\end{align}
+		where $\delta\alpha_{pe}$ is the uncertainty on the pileup energy dependence. This uncertainty was calculated in the same manner as was done for the pileup amplitude, by fitting a parabola to the \chisq as a function of the energy scaling parameter, and it was determined to be 2\%. The systematic error on R is then calculated as $0.02 \times \SI{806.5}{ppb} = \SI{16.1}{ppb}$.
 
-		Another factor that the phase depends on is the energy dependence of the constructed pileup pulses, calculated as just the sum of the singlets. If the energy is miscalculated then the phase of the included pulses will be off. However, because the spatial separation is turned off in the reconstruction clustering, this is a small effect for my pileup construction method. Similarly, in the near future the Short Term Double Pulse (STDP) improvement to the laser calibration will be included also reducing this effect. For these reasons and due to the conservative nature of my phase error estimation, I leave such effects out.
+		\begin{figure}[]
+		\centering
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_PileupEnergyScaling_Canv}
+			    \caption{Sensitivity of R vs the pileup energy scaling parameter. The slope is -806.5 ppb per unit energy scaling.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_Chi2_Vs_PileupEnergyScaling_Canv}
+			    \caption{Plotted is the fitted \chisq vs the pileup energy scaling parameter. The fit equation used was $p2 \times (x - p1)^{2} + p0.$ The minimum lies at 1.023.}
+		    \end{subfigure}
+		\caption[PileupEnergyScaling]{The significant plots to determine a part of the pileup phase systematic error.}
+		\label{fig:PileupEnergyScaling}
+		\end{figure}
 
-
-
-
-		Adding these two errors in quadrature results in a systematic error on R due to the pileup as 34.2 ppb.
+		Adding these errors in quadrature results in a systematic error on R due to the pileup of 37.8 ppb.
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muon function shape}
@@ -263,12 +280,12 @@
     Systematic Error & \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
 	Gain(+)    	     &  24.8  \\
-	Pileup     	     &  34.2  \\
+	Pileup     	     &  37.8  \\
 	Lost Muons       &        \\
 	CBO(+)   		 &  24.3  \\
 	VW 			     &        \\
 	Bin Width        &  44.5  \\
-	Randomization(?) &  44.4  \\
+	Randomization    &  44.4  \\
 	Other   	     &        \\
   \hline\hline
   	Total   	     &        \\

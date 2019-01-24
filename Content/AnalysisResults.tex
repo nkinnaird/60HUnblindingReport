@@ -5,9 +5,16 @@
 
 \section{Pre-corrected and corrected energy and time spectra}
 
-	Before fitting the data and extracting the \gmtwo frequency, pileup has to be removed. The procedure to do this was detailed in Section \ref{Sec:PileupCorrection}, and the results are shown here. Figure \ref{fig:ClusterEnergiesVsPileupEnergies} shows a comparison between the cluster energies and the constructed pileup energies, where differences in the two spectra are small and can be attributed to pileup contamination in the shadow method and triplets which have not been included in this analysis. Figures \ref{fig:AddedEnergies}, \ref{fig:CaloEnergies}, and \ref{fig:CaloEnergiesZoomed} show the pre-corrected and corrected energy spectra for the added histograms and for some individual calorimeters. Since the pileup energies are not perfectly reconstructed the corrected energy spectrum does not converge to 0 at the end of the high energy tail, which is readily seen in the log-scale plots. This is okay for the level of statistics included in both the 60H dataset and in Run 1. Systematic effects from getting the pileup amplitude or shape wrong are explored in Section \ref{Sec:SystematicPileup}.
+	Before fitting the data and extracting the \gmtwo frequency, pileup has to be removed. The procedure to do this was detailed in Section \ref{Sec:PileupCorrection}, and the results are shown here. Figure \ref{fig:PileupTimeSpectrum} shows the constructed pileup time spectrum, for pileup energies above threshold. The pre-corrected and corrected time spectra are not shown because differences are small and hard to see. As shown the pileup is almost completely gone by $\SI{300}{\mu s}$. The exact shape of the pileup time spectra is explained in DocDB 14394, which is in general unimportant as long as it is constructed and subtracted properly. Figure \ref{fig:ClusterEnergiesVsPileupEnergies} shows a comparison between the cluster energies and the constructed pileup energies, where differences in the two spectra are small and can be attributed to pileup contamination in the shadow method and triplets which have not been included in this analysis. Figures \ref{fig:AddedEnergies}, \ref{fig:CaloEnergies}, and \ref{fig:CaloEnergiesZoomed} show the pre-corrected and corrected energy spectra for the added histograms and for some individual calorimeters. Since the pileup energies are not perfectly reconstructed the corrected energy spectrum does not converge to 0 at the end of the high energy tail, which is readily seen in the log-scale plots. This is okay for the level of statistics included in both the 60H dataset and in Run 1. Systematic effects from getting the pileup amplitude or shape wrong are explored in Section \ref{Sec:SystematicPileup}.
 
-	\begin{figure}[h]
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=\textwidth]{PileupTimeSpectrum}
+	    \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{32.02}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
+	    \label{fig:PileupTimeSpectrum}
+	\end{figure}
+
+	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
 	    \caption[ClusterEnergiesVsPileupEnergies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together. At energies below about 2.4 GeV the pileup spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this.}    
@@ -45,16 +52,11 @@
 	    \label{fig:CaloEnergiesZoomed}
 	\end{figure}
 
-	Figure \ref{fig:PileupTimeSpectrum} shows the constructed pileup time spectrum, for pileup energies above threshold. The pre-corrected and corrected time spectra are not shown because differences are small and hard to see. As shown the pileup is almost completely gone by $\SI{300}{\mu s}$. The exact shape of the pileup time spectra is explained in DocDB 14394, which is in general unimportant as long as it is constructed and subtracted properly.
+\clearpage
 
-	\begin{figure}[]
-		\centering
-		\includegraphics[width=\textwidth]{PileupTimeSpectrum}
-	    \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{32.02}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
-	    \label{fig:PileupTimeSpectrum}
-	\end{figure}
+\section{7 Parameter Ratio Fit}
 
-\section{6 Parameter Ratio Fit}
+	The data has been fit to a 7 parameter function, as shown in Section \ref{Sec:FinalFitFunction}, reduced from the conventional 14 parameters in a T Method ift. These 7 parameters include the asymmetry ``A'', the ppm level shift in the \gmtwo frequency ``R'', the \gmtwo phase ``$\phi$'', and then 4 CBO parameters. As detailed in Section \ref{Sec:CBO}, these CBO parameters include the frequency ``$\omega_{cbo}$'', lifetime ``$\tau_{cbo}$'', and then the CBO amplitude and phase on the N term, ``$N_{cbo-A}$'' and ``$N_{cbo-\phi}$'' respectively. The CBO lifetime has been fixed in the fit to $\SI{180}{\mu s}$. The N and muon lifetime terms are unecessary because the ratio method removes those terms in the data to be fit. The ratio method also divides out slow effects, which removes the need to fit for muon losses. The lack of a low frequency rise in the FFTs of the residuals as shown in Figure \ref{fig:FFT_ratioCBOFit} justifies excluding this term. Finally, due to the specific n value used in gathering the 60H data, the vertical waist (VW) frequency just so happens to be very nearly 10 times the \gmtwo frequency. This means that blah blah blah
 
 	\begin{figure}[h]
 		\centering
@@ -63,6 +65,30 @@
 	    \label{fig:ratioCBO_moduloPlot}
 	\end{figure}
 
+	\begin{table}[H]
+	\centering
+	\setlength\tabcolsep{10pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}|l|l|c|c|}
+	  \hline
+	  	\multicolumn{4}{|c|}{\textbf{Fit Results}} \\
+	  \hline\hline
+	  	\multicolumn{2}{|c}{$\chi^{2}$/NDF}       				&  \multicolumn{2}{c|}{$3052/3145$}  \\
+	  	\multicolumn{2}{|c}{P value}         	 				&  \multicolumn{2}{c|}{$0.8806$}  \\
+	  \hline\hline
+	  	Parameter & Descriptor & Value & Error \\
+	  \hline
+		$A$    			 	  & Asymmetry  	    			&  $0.3704$  	&	$\SI{4.493e-5}{}$  \\
+		$R$     			  & R (blinded)   	 			&  $-19.88$  	&	$1.373$  \\
+		$\phi$   			  & \gmtwo Phase         		&  $2.091$  	&	$\SI{2.249e-4}{}$  \\
+		$\omega_{cbo}$   	  & CBO Frequency $(ns^{-1})$   &  $0.002306$  	&	$\SI{1.325e-6}{}$  \\
+		$\tau_{cbo}$ (fixed)  & CBO Lifetime $(\mu s)$ 	    &  $180$  		&	$0$  \\
+		$N_{cbo-A}$   	 	  & CBO N Amplitude      		&  $0.00449$  	&	$\SI{2.365e-4}{}$  \\
+		$N_{cbo-\phi}$   	  & CBO N Phase       	 		&  $-1.835$  	&	$0.1017$  \\
+	  \hline
+	\end{tabular*}
+	\caption{Table of final fit parameters.}
+	\end{table}
 
 
 \section{Residual and FFT}
@@ -214,7 +240,7 @@
 
 	\begin{table}[h]
 	\setlength\tabcolsep{0pt}
-	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLL{c}}
+	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLL}
 	  \toprule
 	            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$ (fixed)} & \thead{$N_{cbo-A}$} & \thead{$N_{cbo-\phi}$} \\
 	  \midrule

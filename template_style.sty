@@ -16,14 +16,14 @@
                                % Header height and header separator add 0.5in 
                                % Total top margin: 1in + 0.5in = 1.5in
 
-\headheight 12pt               % Header for numbering and running titles.
-\headsep 24pt                  % Separator between header and text.
+\headheight 0pt %12pt               % Header for numbering and running titles.
+\headsep 12pt %24pt                  % Separator between header and text.
 
-\textheight 8.5in              % Leaves 1.0in bottom margin (approximately - it's a little more since the double spaced text would go past the 1 in margin)
+\textheight 8.75in              % Leaves 1.0in bottom margin (approximately - it's a little more since the double spaced text would go past the 1 in margin)
 
-\footskip 0.25in               % Distance from bottom of text to bottom of foot,
+\footskip 0.5in               % Distance from bottom of text to bottom of foot,
                                % which is where page number goes for preliminary
-                               % pages. Hence number will be 0.75" from bottom.
+                               % pages.
 
 % "Double-space all textual material and all preliminary pages.
 % Footnotes and long quotations may be single-spaced"
@@ -125,7 +125,7 @@
 % command.
 %
 \def\@makechapterhead#1{             % Heading for \chapter command
-  \vspace*{-50pt}                     % Space at top of text page.
+  \vspace*{0pt}                     % Space at top of text page.
   { \parindent 0pt \raggedright
     \ifnum \c@secnumdepth >\m@ne     % IF secnumdepth > -1 THEN
     %\LARGE\bf \@chapapp{} \thechapter % Print 'Chapter' and number.
@@ -144,7 +144,7 @@
 % Must also do the \chapter* command which gets used for table of
 % contents, list of figures, and such.
 \def\@makeschapterhead#1{             % Heading for \chapter* command
-  \vspace*{-50pt}                     % Space at top of page.
+  \vspace*{0pt}                     % Space at top of page.
   { \parindent 0pt \raggedright
     %\Large\bf                        % Title.
     \LARGE\bf                        % Title.
@@ -163,7 +163,7 @@ minus
    -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
 
 % If using the report style, use \cdotinstead of . in the figure number.
-\@ifundefined{thechapter}{}{\def\thefigure{\thechapter$\cdot$\arabic{figure}}}
+% \@ifundefined{thechapter}{}{\def\thefigure{\thechapter$\cdot$\arabic{figure}}}
 
 
 %       BIBLIOGRAPHY

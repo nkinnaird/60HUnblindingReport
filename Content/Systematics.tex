@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/VW/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 \label{Ch:Systematics}
@@ -182,6 +182,17 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 
+	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as describe in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. Therefore I estimate the systematic error at 1 ppb. 
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=\textwidth]{ratioCBO_moduloPlot-VW}
+	    \caption[VWModuloPlot]{}
+	    \label{fig:VWModuloPlot}
+	\end{figure}
+
+
+
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to various effects}
 
 	\subsection{\gmtwo Period Guess}
@@ -322,7 +333,7 @@
 	Pileup     	     &  37.8  \\
 	Lost Muons       &        \\
 	CBO(+)   		 &  24.3  \\
-	VW 			     &        \\
+	VW 			     &  1     \\
 	Bin Width        &  44.5  \\
 	Randomization    &  44.4  \\
 	Other   	     &        \\

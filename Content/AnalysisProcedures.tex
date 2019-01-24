@@ -1,3 +1,5 @@
+\graphicspath{ {Figures/VW/} }
+
 \chapter{Analysis Procedures}
 \label{Ch:Procedures}
 
@@ -122,22 +124,30 @@
 
 
 \section{Beam Dynamics: Vertical Waist Model}
+\label{Sec:VW}
 
 	\begin{enumerate}
 		\item{\wa is senstive to the width of the beam, which is characterized by the frequency 
 			\begin{gather}
 				f_{VW} = f_{cyc} - 2f_{y}, \\
 				f_{y} = f_{cbo} \sqrt{\frac{2f_{cyc}}{f_{cbo}} - 1}.
-			\end{gather}
-		In the 60H dataset $f_{VW} \approx \SI{2.3}{MHz} \approx 10 \cdot \omega_{a}$, an even multiple of the g-2 frequency. Because of this, the vertical waist largely cancels in the numerator of the ratio. (show this explicitly?) This combined with the time randomization to remove the fast rotation ($f_{cyc}$) means the vertical waist does not need to be included in the ratio fit. This is justified by the lack of a vertical waist peak in the FFT of the residuals of the fit. (mention at all how there is a very small but observable peak at very early times or omit it?)
-		}
-		\item{If included, an exponential function is assumed for the VW decoherence as in the CBO, and the final VW term is 
+			\end{gather}}
+		\item{An exponential function is assumed for the VW decoherence as in the CBO, and so the VW term is defined as
 			\begin{gather}
 					V(t) = 1 + A_{VW} e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW})
 			\end{gather}
 		}
 		\item{$\omega_{VW}$ is assumed to be a constant value even though the CBO frequency changes vs time.}
 	\end{enumerate}
+
+	In the 60H dataset $f_{VW} \approx \SI{2.3}{MHz} \approx 10 \cdot \omega_{a}$, which is an even multiple of the \gmtwo frequency. It turns out that any frequencies which are even multiples of the \gmtwo frequency largely cancel in the ratio. This is shown for the vertical waist in Figure \ref{fig:VWPlot}. This combined with the time randomization to remove the fast rotation ($f_{cyc}$) means the vertical waist does not need to be included in the ratio fit. This is justified by the lack of a vertical waist peak in the FFT of the residuals of the fit, as will be shown later.
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=\textwidth]{VWPlot}
+	    \caption[VWPlot]{Plotted is the difference in the maximum value of the ratio with a vertical waist function included and without, as a function of both the amplitude of the vertical waist effect and the vertical waist frequency in units of the \gmtwo frequency. This was created with a toy Monte Carlo. As is shown the difference reaches a minimum for even multiples of the \gmtwo frequency. The 60H dataset lives at the bottom center of this plot, where the difference in the ratio is approximately \SI{5e-6}{} at 30 $\mu s$. Plot created by James Mott.}
+	    \label{fig:VWPlot}
+	\end{figure}
 
 
 \section{Final Fit Function}

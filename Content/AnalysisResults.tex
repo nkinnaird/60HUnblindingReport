@@ -92,7 +92,31 @@
 	\end{table}
 
 
+	Table \ref{Tab:CorrMat} shows the correlation matrix for the fit parameters in the added calorimeter fit. As seen the only significant correlation to R is the \gmtwo phase. This is good because it means that if other fit parameters are for some reason fitted slightly incorrectly, the resulting effect on R will be minimal.
+
+	\begin{table}[h]
+	\setlength\tabcolsep{0pt}
+	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLL}
+	  \toprule
+	            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$ (fixed)} & \thead{$N_{cbo-A}$} & \thead{$N_{cbo-\phi}$} \\
+	  \midrule
+		$A$    			 	 &  1.0000  &  0.0049  & -0.0068  & -0.0166  &  0.0000  & -0.0098  &  0.0233  \\
+		$R$     			 &  0.0049  &  1.0000  & -0.8300  & -0.0204  &  0.0000  &  0.0207  &  0.0282  \\
+		$\phi$   			 & -0.0068  & -0.8300  &  1.0000  &  0.0280  &  0.0000  & -0.0287  & -0.0387  \\
+		$\omega_{cbo}$   	 & -0.0166  & -0.0204  &  0.0280  &  1.0000  &  0.0000  &  0.0773  & -0.8585  \\
+		$\tau_{cbo}$ (fixed) &  0.0000  &  0.0000  &  0.0000  &  0.0000  &  1.0000  &  0.0000  &  0.0000  \\
+		$N_{cbo-A}$   	 	 & -0.0098  &  0.0207  & -0.0287  &  0.0773  &  0.0000  &  1.0000  & -0.0656  \\
+		$N_{cbo-\phi}$   	 &  0.0233  &  0.0282  & -0.0387  & -0.8585  &  0.0000  & -0.0656  &  1.0000  \\
+	  \bottomrule
+	\end{tabular*}
+	\caption{Correlation matrix for the full ratio fit. The CBO lifetime is fixed but included in this table. The only significant correlation to R is the \gmtwo phase.}
+	\label{Tab:CorrMat}
+	\end{table}
+
 \section{Residual and FFT}
+
+	In order to examine the goodness-of-fit, the residuals and the FFT of the residuals need to be examined. The residuals as well as the pulls are shown in Figure \ref{fig:fitResidual}. Also included is a plot of the pulls projected down onto the Y axis. In all three plots no substructure is immediately obvious, and in the latter the pull plot can be seen to have a mean consistent with 0 and an RMS consistent with 1, preliminarily indicating that the fit is good. Plotted in Figure \ref{fig:FFT_ratioCBOFit} is the FFT of the residuals. As can be seen no physical frequencies are observable above the noise. This shows that the CBO has been fitted correctly, and justifies the lack of a muon losses or vertical waist term in the fit. Figure \ref{fig:FFTComparison_RatioCBO} shows a similar plot, but this time overlayed with the FFT of the fit residuals for a 5 parameter fit. As seen the CBO, VW, \gmtwo, and their beat frequencies, as well as the lost muon peak at low frequencies are removed when performing the full ratio fit.
+
 
 	\begin{figure}[h]
 	\centering
@@ -130,14 +154,17 @@
 	    \label{fig:FFTComparison_RatioCBO}
 	\end{figure}
 
+\clearpage
 
 \section{Start time scans}
+
+	Also necessary to determine whether the fit has been performed appropriately, is to perform start time scans. This procedure involves changing the start bound of the fit as a function of time, and making sure that fit results are consistent. If effects in the data are not properly accounted for, then fit parameters or the goodness-of-fit will change over time and will wander far outside the statistical limits defined by the reduction in data that is fitted. An example of this is shown in Section \ref{Sec:CBOFreq}, where the CBO freqency was originally modelled incorrectly. For the full ratio fit it turns out that this is the only effect that has a negative impact on the fit vs fit start time. As shown in Figure \ref{fig:Chi2FSScan} the goodness-of-fit is consistent over time, only wandering outside the statistical bands slightly. (This is also partly due to the randomization as mentioned in Section \ref{Sec:Randomization}.) Similarly Figure \ref{fig:FitStartScans} shows fit start time scans for each free parameter in the fit. All fit parameters lie comfortably within the statistical bands and are stable vs fit start time, indicating again that the fit is behaving properly.
 
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv}
-	    \caption[RatioCBO_Chi2NDF_Vs_FS_canv]{Plotted is the \chisq per degree of freedom vs the start time of the fit. The solid lines indicate the one sigma statistically allowed difference in the fit result coming from the reduction in the data included in the fit. The error bars on the points are calculated as $\sqrt{2/NDF}$.}
-	    \label{fig:RatioCBO_Chi2NDF_Vs_FS_canv}
+	    \caption[Chi2FSScan]{Plotted is the \chisq per degree of freedom vs the start time of the fit. The solid lines indicate the one sigma statistically allowed difference in the fit result coming from the reduction in the data included in the fit. The error bars on the points are calculated as $\sqrt{2/NDF}$.}
+	    \label{fig:Chi2FSScan}
 	\end{figure}
 
 
@@ -186,6 +213,8 @@
 
 
 \section{Results vs calorimeter}
+
+	Finally results are examined on a per calorimeter basis. While there will be some differences in fit results due to the differing acceptance between the calorimeters, in general the results should be consistent. blah blah blah
 
 	\begin{figure}[h]
 		\centering
@@ -236,25 +265,5 @@
 	\label{fig:PerCaloPlots}
 	\end{figure}
 
-
-\section{Correlation matrix for fit parameters}
-
-	\begin{table}[h]
-	\setlength\tabcolsep{0pt}
-	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLL}
-	  \toprule
-	            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$ (fixed)} & \thead{$N_{cbo-A}$} & \thead{$N_{cbo-\phi}$} \\
-	  \midrule
-		$A$    			 	 &  1.0000  &  0.0049  & -0.0068  & -0.0166  &  0.0000  & -0.0098  &  0.0233  \\
-		$R$     			 &  0.0049  &  1.0000  & -0.8300  & -0.0204  &  0.0000  &  0.0207  &  0.0282  \\
-		$\phi$   			 & -0.0068  & -0.8300  &  1.0000  &  0.0280  &  0.0000  & -0.0287  & -0.0387  \\
-		$\omega_{cbo}$   	 & -0.0166  & -0.0204  &  0.0280  &  1.0000  &  0.0000  &  0.0773  & -0.8585  \\
-		$\tau_{cbo}$ (fixed) &  0.0000  &  0.0000  &  0.0000  &  0.0000  &  1.0000  &  0.0000  &  0.0000  \\
-		$N_{cbo-A}$   	 	 & -0.0098  &  0.0207  & -0.0287  &  0.0773  &  0.0000  &  1.0000  & -0.0656  \\
-		$N_{cbo-\phi}$   	 &  0.0233  &  0.0282  & -0.0387  & -0.8585  &  0.0000  & -0.0656  &  1.0000  \\
-	  \bottomrule
-	\end{tabular*}
-	\caption{Correlation matrix for the full ratio fit. The CBO lifetime is fixed but included in this table. The only significant correlation to R is the \gmtwo phase.}
-	\end{table}
 
 

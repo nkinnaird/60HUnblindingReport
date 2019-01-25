@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/FixedFrequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/VW/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/Frequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/VW/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 \label{Ch:Systematics}
@@ -153,22 +153,23 @@
 	\subsection{CBO Frequency}
 	\label{Sec:CBOFreq}
 
-	Talk about the model used and how it works, include picture of CBO frequency from one of James' slides, then try some fits with some other frequency parameters changed and see what difference that makes in the fit.
+	As described in Section \ref{Sec:CBO}, the CBO frequency as a function of time changes over the course of a fill. Shown in Figure \ref{fig:CBOFreqModel} is the difference in fitted CBO frequency parameter as a function of fit start time for a constant frequency vs a changing frequency. Without the changing frequency the fit behaves improperly. Because a specific model was chosen for the CBO frequency, there will be a systematic error on R that needs to be determined.
+
 
 		\begin{figure}[]
 		\centering
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{fixed-wcbo-vs-fs}
-			    \caption{}
+			    \caption{Fixed CBO frequency.}
 		    \end{subfigure}
 		    \hspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_FS_Canv}
-			    \caption{}
+			    \caption{Changing CBO frequency.}
 		    \end{subfigure}
-		\caption[CBOFreqModel]{}
+		\caption[CBOFreqModel]{Fit start time scans for the CBO frequency parameter with a fixed frequency (left) and for the tracker model frequency (right). With the inclusion of the changing frequency over time, the fit parameter becomes stable as a function of fit start time.}
 		\label{fig:CBOFreqModel}
 		\end{figure}
 

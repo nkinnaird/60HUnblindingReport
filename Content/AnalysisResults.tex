@@ -59,7 +59,7 @@
 	The data has been fit to a 7 parameter function, as described in Section \ref{Sec:FinalFitFunction}, reduced from the conventional 14 parameters in a T Method fit. The results are shown in Figure \ref{fig:ratioCBO_moduloPlot}, with the fit parameters transcribed into Table \ref{Tab:FitParams}. These 7 parameters include the asymmetry ``A'', the ppm level shift in the \gmtwo frequency ``R'', the \gmtwo phase ``$\phi$'', and then 4 CBO parameters. As detailed in Section \ref{Sec:CBO}, these CBO parameters include the frequency ``$\omega_{cbo}$'', lifetime ``$\tau_{cbo}$'', and then the CBO amplitude and phase on the N term, ``$N_{cbo-A}$'' and ``$N_{cbo-\phi}$'' respectively. The CBO lifetime has been fixed in the fit to $\SI{180}{\mu s}$. The N and muon lifetime terms are unecessary because the ratio method removes those terms in the data to be fit. The ratio method also divides out slow effects, which removes the need to fit for muon losses. The lack of a low frequency rise in the FFTs of the residuals as shown in Figure \ref{fig:FFT_ratioCBOFit} justifies excluding this term. Finally, due to the specific n value used in gathering the 60H data, the vertical waist (VW) frequency just so happens to be very nearly 10 times the \gmtwo frequency. As described in Section \ref{Sec:VW} this means that the VW does not need to be included in the fit. Like the lost muons this is justified by the lack of a VW peak in the FFT of the residuals. Finally, the fit range is restricted from $\SI{30}{\mu s} - \SI{500}{\mu s}$. The early time cut is determined due the instability of the stored muon beam at early times. The late time cut was chosen to avoid the region where the ratio actually starts to widen due to low stats. (This can actually be extended beyond $\SI{500}{\mu s}$ safely but that was the limit used by default for previous datasets, and was left in when analyzing the 60H dataset.)
 
 	Table \ref{Tab:CorrMat} shows the correlation matrix for the fit parameters in the added calorimeter fit. Figure \ref{fig:CorrelationMatrix} shows the same information in graphical format. As seen the only significant correlation to R is the \gmtwo phase. This is good because it means that if other fit parameters are for some reason fitted slightly incorrectly, the resulting effect on R will be minimal.
-	
+
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{ratioCBO_moduloPlot}
@@ -222,7 +222,9 @@
 
 \section{Results vs calorimeter}
 
-	Finally results are examined on a per calorimeter basis. While there will be some differences in fit results due to the differing acceptance between the calorimeters, in general the results should be consistent. blah blah blah
+	Finally results are examined on a per calorimeter basis. While there will be some differences in fit results due to the differing acceptance between the calorimeters, in general the results should be consistent.
+
+	Still working on per calo fit stuff - will update plots and text when ready.
 
 	\begin{figure}[h]
 		\centering

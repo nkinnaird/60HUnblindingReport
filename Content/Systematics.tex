@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/Frequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/VW/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/Frequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/VW/} {Figures/LostMuons/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 \label{Ch:Systematics}
@@ -150,9 +150,19 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muons}
 
-	Work and writing to be done here.
+	I estimate the systematic error on R due to the lost muon function at 36.1 ppb, and to the lost muon bias as
 
 	\subsection{Lost muon function}
+
+		As described in Section \ref{Sec:LM}, the lost muon function does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the lost muon function, I added the function to the fit as described in that section. I fixed the value of the $\kappa_{loss}$ parameter to that determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:LMModuloPlot}. The final fitted R value differs from the non-LM fitted function by -36.1 ppb. Therefore I take the the systematic error from excluding the lost muon function as 36.1 ppb. 
+
+		\begin{figure}[]
+			\centering
+			\includegraphics[width=\textwidth]{ratioCBO_moduloPlot-lostmuonsfixed}
+		    \caption[LMModuloPlot]{Fit results with the LM term included. The lost muon parameter has been fixed. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from 30 $\mu$s to 500 $\mu$s.}
+		    \label{fig:LMModuloPlot}
+		\end{figure}
+
 
 	\subsection{Lost muon bias}
 
@@ -214,12 +224,12 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 
-	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as describe in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. Therefore I estimate the systematic error at 1 ppb. 
+	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as described in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. This is unsurprising since I'm trying to fit an effect which does not exist in the ratio.
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{ratioCBO_moduloPlot-VW}
-	    \caption[VWModuloPlot]{}
+	    \caption[VWModuloPlot]{Fit results with the VW term included. The lifetime and amplitude of the effect have been fixed, while the frequency and phase are allowed to float. As can be seen there is a large error on the phase. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from 30 $\mu$s to 500 $\mu$s.}
 	    \label{fig:VWModuloPlot}
 	\end{figure}
 
@@ -367,19 +377,19 @@
   \hline
   	\multicolumn{2}{|c|}{\textbf{Summary of Systematic Errors}} \\
   \hline\hline
-    Systematic Error & \multicolumn{1}{c|}{\SI{60}{H}} \\
+    Systematic Error 		& \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
-	Gain(incomplete) &  24.8  \\
-	Pileup     	     &  37.8  \\
-	Lost Muons       &        \\
-	CBO      		 &  38.6  \\
-	VW 			     &  \multicolumn{1}{c|}{$<1$} \\
-	Bin Width        &  44.5  \\
-	Randomization    &  44.4  \\
-	Bunch Number     &        \\
-	Other   	     &        \\
-  \hline\hline
-  	Total   	     &        \\
+	Gain(incomplete) 		&  24.8  \\
+	Pileup     	     		&  37.8  \\
+	Lost Muons(incomplete)  &  36.1  \\
+	CBO      		 		&  38.6  \\
+	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\
+	Bin Width        		&  44.5  \\
+	Randomization    		&  44.4  \\
+	Bunch Number     		&        \\
+	Other   	     		&        \\
+  \hline\hline		
+  	Total   	     		&        \\
   \hline
 \end{tabular*}
 \caption{Systematic error table for the 60H dataset. All units are in ppb.}

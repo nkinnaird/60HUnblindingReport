@@ -229,7 +229,7 @@
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=.7\textwidth]{RatioCBOFit_Chi2NDF_Vs_Calo_Canv}
-	    \caption[RatioCBOFit_Chi2NDF_Vs_Calo_Canv]{Plotted is the \chisq per degree of freedom vs calorimeter number.}
+	    \caption[RatioCBOFit_Chi2NDF_Vs_Calo_Canv]{Plotted is the \chisq per degree of freedom vs calorimeter number. They are more or less centered around 1.}
 	    \label{fig:RatioCBOFit_Chi2NDF_Vs_Calo_Canv}
 	\end{figure}
 
@@ -262,18 +262,58 @@
 	    \vspace{4mm}
 	    \begin{subfigure}[t]{0.4\textwidth}
 		    \centering
-			\includegraphics[width=\textwidth]{RatioCBOFit_N_cbo-A_Vs_Calo_Canv}
-		    \caption{Fitted CBO amplitdue vs calorimeter number.}
+			\includegraphics[width=\textwidth]{RatioCBOFit_A_cbo-N_Vs_Calo_Canv}
+		    \caption{Fitted CBO amplitdue on the N parameter vs calorimeter number.}
 	    \end{subfigure}
 	    \hspace{4mm}
 	    \begin{subfigure}[t]{0.4\textwidth}
 		    \centering
-			\includegraphics[width=\textwidth]{RatioCBOFit_N_cbo-phi_Vs_Calo_Canv}
-		    \caption{Fitted CBO phase vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
+			\includegraphics[width=\textwidth]{RatioCBOFit_phi_cbo-N_Vs_Calo_Canv}
+		    \caption{Fitted CBO phase on the N parameter vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
 	\caption[PerCaloPlots]{Full ratio fit parameter values vs calorimeter number.}
 	\label{fig:PerCaloPlots}
 	\end{figure}
 
 
+	\begin{figure}[h]
+	\centering
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_A_2cbo-N_Vs_Calo_Canv}
+		    \caption{Fitted CBO amplitdue on the N parameter for twice the CBO frequency vs calorimeter number.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_phi_2cbo-N_Vs_Calo_Canv}
+		    \caption{Fitted CBO phase on the N parameter for twice the CBO frequency vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	    \vspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_A_cbo-A_Vs_Calo_Canv}
+		    \caption{Fitted CBO amplitdue on the A parameter vs calorimeter number.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_phi_cbo-A_Vs_Calo_Canv}
+		    \caption{Fitted CBO phase on the A parameter vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	    \vspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_A_cbo-phi_Vs_Calo_Canv}
+		    \caption{Fitted CBO amplitdue on the \gmtwo phase parameter vs calorimeter number.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_phi_cbo-phi_Vs_Calo_Canv}
+		    \caption{Fitted CBO phase on the \gmtwo phase parameter vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[PerCaloPlotsExtraCBOParams]{Full ratio fit parameter values vs calorimeter number. Plotted here are the extra CBO parameters which improve most single calorimeter fits.}
+	\label{fig:PerCaloPlotsExtraCBOParams}
+	\end{figure}
 

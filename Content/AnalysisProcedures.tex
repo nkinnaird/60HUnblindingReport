@@ -16,20 +16,25 @@
 	\end{itemize}
 
 	\begin{enumerate}
-		\item{Submit jobs to OSG to run the rootTreesAndLostMuons.fcl file which produces root trees of positron hits using the ClusterTree analyzer module and coincident MIP hits using the TestCoincidenceFinder analyzer module.}
-		\item{Submit jobs to Fermigrid to produce histograms from root trees using the ClusterTreeToHistsPileup.C macro in RatioMacro/HistMaking. Beyond standard threshold histograms this macro produces pileup and lost muon histograms all within the same root file.}
+		\item{Submit jobs to OSG to run the rootTreesAndLostMuons.fcl file which produces \texttt{ROOT} trees of positron hits using the ClusterTree analyzer module and coincident MIP hits using the TestCoincidenceFinder analyzer module.}
+		\item{Submit jobs to Fermigrid to produce histograms from \texttt{ROOT} trees using the ClusterTreeToHistsPileup.C macro in RatioMacro/HistMaking. Beyond standard $e^{+}$ arrival time histograms this macro produces pileup and lost muon histograms all within the same \texttt{ROOT} file.}
 	\end{enumerate}
 
 
 \section{Histogramming Procedure}
 
-	Method: Weighted Ratio (threshold)
+	Method: Ratio (DocDB 13080) \\
+	\noindent Systematics Sections \ref{SubSec:gm2Guess} and \ref{SubSec:LifetimeWeighting}
 
 	\begin{enumerate}
 		\item{Loop through all clusters and apply an artificial deadtime (ADT) to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< \SI{25}{\mu s}$ or time $> \SI{600}{\mu s}$.}
-		\item{Histograms are constructed with ROOT's TH1F class with 149.15 ns bins from $0 - \SI{699.96095}{\mu s}$ corresponding to 4693 bins.}
-		\item{Randomize times by $\pm 149.15/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses ROOT's default TRandom3 class.}
-		\item{Fill one of the four histograms \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} as shown in Equation \ref{eqn:fourHists} per cluster. The associated histogram is determined by generating a random number between 0 and 1, and comparing that number to the relative probabilities of the different weights.}
+		\item{Histograms are constructed with \texttt{ROOT}'s \texttt{TH1F} class with 149.15 ns bins from $0 - \SI{699.96095}{\mu s}$ corresponding to 4693 bins, of wich 3855 are filled with data, and 3151 are fit with a fit range of $\SI{30}{\mu s} - \SI{500}{\mu s}$.}
+		\item{Randomize cluster times by $\pm 149.15/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses \texttt{ROOT}'s default \texttt{TRandom3} class.}
+		\item{Divide the data into four datasets by filling one of the four histograms \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} per cluster. The associated histogram is determined by generating a random number between 0 and 1, and comparing that number to the relative probabilities of the different weights:
+			\begin{align}
+				u_{+}(t) : u_{-}(t) : v_{1}(t) : v_{2}(t) = e^{T/2\tau} : e^{-T/2\tau} : 1 : 1
+			\end{align}
+		$\tau$ is the lifetime of the muon, taken at $\SI{64.4}{\mu s}$. See the appendix for more details on what this weighting scheme does.}
 		\item{Clusters filled into the $u_{+}(t)$ histogram have their times shifted by $t \rightarrow t - T_{a}/2$ and clusters filled into the $u_{-}(t)$ histogram have their times shifted by $t \rightarrow t + T_{a}/2$.}
 		\item{$T_{a}$ is known a priori to high precision from the previous experiment, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2291}{MHz}:
 			\begin{align}
@@ -38,22 +43,23 @@
 			\end{align}}
 	\end{enumerate}
 
-
 \section{Gain Correction Procedure}
 
-	Gain correction method: Default by the Italian Calibration Team
+	Gain correction method: Default by the Italian Calibration Team (DocDB 16003) \\
+	\noindent Systematics Section \ref{Sec:SystematicGain}
 
 	\begin{enumerate}
-		\item{Long term gain is corrected using out-of-fill lasers included normalization from the Source Monitor.}
-		\item{In-fill gain is corrected using in-fill lasers including normalization from the Source Monitor.}
-		\item{Short-term double pulse (SDTP) effect is not included.}
+		\item{Long term gain is corrected using out-of-fill laser shots including normalization from the Source Monitor.}
+		\item{In-fill gain is corrected using in-fill laser shots including normalization from the Source Monitor.}
+		\item{Short-term double pulse (SDTP) effect is not yet included, but will be for the final report.}
 	\end{enumerate}
 
 
 \section{Pileup Correction Procedure}
 \label{Sec:PileupCorrection}
 
-	Pileup correction method: Asymmetric shadow window
+	Pileup correction method: Asymmetric shadow window \\
+	\noindent Systematics Section \ref{Sec:SystematicPileup}
 
 	\begin{enumerate}
 		\item{Create a vector of clusters per calorimeter per fill. For each cluster look for a second cluster in a window from 12-18 ns after the time of the first cluster. This corresponds to a shadow dead time (SDT) of 6 ns and a shadow gap time (SGT) of 12 ns, equal to 1 and 2 times the applied ADT respectively.}
@@ -78,7 +84,8 @@
 \section{Lost muon spectrum extraction procedure}
 \label{Sec:LM}
 
-	Method: Triple coincidence of clusters
+	Method: Triple coincidence of clusters \\
+	\noindent Systematics Section \ref{Sec:SystematicLM} \\
 
 	Note that the lost muons are not included in the ratio fit because the ratio method divides out such slow effects. This is reflected by the lack of a low frequency peak in the FFT of the fit residuals for the ratio fit, whereas such a peak exists for T method fits. I include here however my method for extracting the lost muon function for possible future systematic studies.
 
@@ -95,6 +102,8 @@
 
 \section{Beam Dynamics: CBO Model}
 \label{Sec:CBO}
+
+	\noindent Systematics Section \ref{Sec:SystematicCBO}
 
 	\begin{enumerate}
 		\item{The CBO frequency as a function of time is taken from the tracking analysis, DocDB 14208, and shown in Figure \ref{fig:TrackerCBOModel}. The CBO frequency is not constant because the quad voltage was not constant as a function of time. As described in that document, the source of this is almost certainly the fact that some of the quad resistors were damaged, leading to longer RC time constants. The form used is 
@@ -139,6 +148,8 @@
 
 \section{Beam Dynamics: Vertical Waist Model}
 \label{Sec:VW}
+
+	\noindent Systematics Section \ref{Sec:SystematicVW}
 
 	\begin{enumerate}
 		\item{\wa is senstive to the width of the beam, which is characterized by the frequency 

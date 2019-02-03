@@ -4,6 +4,7 @@
 \label{Ch:Systematics}
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to gain corrections}
+\label{Sec:SystematicGain}
 
 	I estimate the systematic error on R due to the the in-fill gain function at 24.8 ppb, and to the Short Term Double Pulse correction at blank ppb. Adding these in quadrature results in a systematic error of blank ppb.
 
@@ -149,6 +150,7 @@
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muons}
+\label{Sec:SystematicLM}
 
 	I estimate the systematic error on R due to the lost muon function at 36.1 ppb, and to the lost muon bias as
 
@@ -168,6 +170,7 @@
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to CBO function}
+\label{Sec:SystematicCBO}
 
 	I estimate the systematic error on R due to the CBO frequency at 30 ppb, to the CBO envelope shape at 21.1 ppb, and to the fixed CBO lifetime at 12.1 ppb. Adding these in quadrature results in a systematic error of 38.6 ppb.
 
@@ -223,6 +226,7 @@
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
+\label{Sec:SystematicVW}
 
 	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as described in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. This is unsurprising since I'm trying to fit an effect which does not exist in the ratio.
 
@@ -240,6 +244,7 @@
 	More effects to be studied - results vs bunch number, higher order beam/CBO effects, etc.
 
 	\subsection{\gmtwo Period Guess}
+	\label{SubSec:gm2Guess}
 
 		To perform the ratio method, the \gmtwo period needs to be known a priori to high precision. By scanning over various \gmtwo period guesses the dependence of R on $T_{a}$ can be determined, as shown in Figure \ref{fig:gm2PeriodGuess}. The systematic error can then be calculated as 
 			\begin{align}
@@ -255,6 +260,7 @@
 		\end{figure}
 
 	\subsection{Lifetime used in weighting}
+	\label{SubSec:LifetimeWeighting}
 
 		Similarly to the \gmtwo period guesses used when constructing the time spectra for the ratio method, the lifetime of the muon is used when splitting the counts into the various histograms with different weights, as seen in Equation \ref{Eqn:Weighting}. To check for a systematic effect on R from getting this lifetime wrong, I scanned over a range of such lifetimes around the default value used, $\SI{64.4}{\mu s}$. As shown in Figure \ref{fig:weightingLifetime}, the slope is 2.632 ppb per $\mu$s. Since the uncertainty on the lifetime is much less than a microsecond, this systematic error is completely neglible.
 

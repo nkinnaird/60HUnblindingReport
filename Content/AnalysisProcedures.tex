@@ -28,8 +28,8 @@
 	\noindent Systematics Sections \ref{SubSec:gm2Guess} and \ref{SubSec:LifetimeWeighting}
 
 	\begin{enumerate}
-		\item{Loop through all clusters and apply an artificial deadtime (ADT) to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< \SI{25}{\mu s}$ or time $> \SI{600}{\mu s}$.}
-		\item{Histograms are constructed with \texttt{ROOT}'s \texttt{TH1F} class with 149.15 ns bins from $0 - \SI{699.96095}{\mu s}$ corresponding to 4693 bins, of wich 3855 are filled with data, and 3151 are fit with a fit range of $\SI{30}{\mu s} - \SI{500}{\mu s}$.}
+		\item{Loop through all clusters and apply an artificial deadtime (ADT) to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< \SI{25}{\mu s}$ or time $> \SI{660}{\mu s}$.}
+		\item{Histograms are constructed with \texttt{ROOT}'s \texttt{TH1F} class with 149.15 ns bins from $0 - \SI{699.96095}{\mu s}$ corresponding to 4693 bins, of which 4258 are filled with data, and 3151 are fit with a fit range of $\SI{30}{\mu s} - \SI{500}{\mu s}$.}
 		\item{Randomize cluster times by $\pm 149.15/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses \texttt{ROOT}'s default \texttt{TRandom3} class.}
 		\item{Divide the data into four datasets by filling one of the four histograms \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} per cluster. The associated histogram is determined by generating a random number between 0 and 1, and comparing that number to the relative probabilities of the different weights:
 			\begin{align}
@@ -188,9 +188,9 @@
 			N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[10pt]
 			\omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
 	\end{gather}
-	All parameters are floating except for the $\omega_{0}$ term in $\omega_{cbo}(t)$ and $\tau_{cbo}$ as described above. The individual calorimeters use the same fit function, except with 
+	All parameters are floating except for the extra terms in $\omega_{cbo}(t)$ (except $\omega_{0}$) and $\tau_{cbo}$ as described above. The individual calorimeters use the same fit function, except with 
 	\begin{gather}
 			f(t) = N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A \cdot A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi \cdot \phi_{cbo}(t))),
 	\end{gather}
-	where the extra included CBO terms are as described in Section \ref{Sec:CBO}. In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}, with a particular string phrase. The value of the fit function in each time bin is calculated using the ``I'' option in \texttt{ROOT}, such that the value is the integral of the function over the bin, divided by the bin width.
+	where the extra included CBO terms are as described in Section \ref{Sec:CBO}. In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}, with a particular string phrase. Finally, the value of the fit function in each time bin is calculated as the integral of the function over the bin, divided by the bin width.
 

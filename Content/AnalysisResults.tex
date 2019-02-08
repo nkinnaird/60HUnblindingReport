@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Energies/} {Figures/Pileup/TimeSpectra/} {Figures/Main/} {Figures/ResidualsFFT/} {Figures/FitStartScans/} {Figures/PerCalo/} }
+\graphicspath{ {Figures/Pileup/Energies/} {Figures/Pileup/TimeSpectra/} {Figures/Main/} {Figures/ResidualsFFT/} {Figures/FitStartScans/} {Figures/FitEndScans/} {Figures/PerCalo/} }
 
 \chapter{Analysis Results}
 \label{Ch:Results}
@@ -208,17 +208,54 @@
 	    \begin{subfigure}[t]{0.45\textwidth}
 		    \centering
 			\includegraphics[width=\textwidth]{RatioCBO_N_cbo-phi_FS_Canv}
-		    \caption{Fitted CBO phase vs fit start time.}
+		    \caption{Fitted CBO frequency ($\omega_{0}$) vs fit start time.}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
 	\caption[FitStartScans]{Start time scans for the free parameters in the full ratio fit. All parameters are consistently within the one sigma statistical bands.}
 	\label{fig:FitStartScans}
 	\end{figure}
 
+\clearpage
 
-% \section{Stop time scans}
+\section{End time scans}
 
-% I can produce stop time scans, and the results are consistent with the statistical significance bands, but some of the fits aren't perfect leading to some bad looking plots. Should I leave these out completely? Play more with the limits like I did to get the start time scans clean? Hack the plotting module to produce nicer looking plots? Or only include the good looking plots like R and the chi2?
+	The ratio formed from the data blows up in regions of low stats, as shown in Figure \ref{fig:RatioLateFitEndZoomed}. This is because the ratio is formed from 4 subsets of the data, each of which individually need to have approximately equal entries to properly form the ratio, and enough statistics to avoid asymmetric errors. If the ratio and its errors blow up too much, then both the asymmetry of the fit can be pulled, and the \chisq blows up. This can potential lead to a poorer fit and pulling on other parameters. Performing a fit with the integral of the function as mentioned at the end of Section \ref{Sec:FinalFitFunction} mitigates this to a degree by improving the asymmetry fit parameter, but it's still important to verify that none of the other parameters are affected in a negative way. This is simply done with fit end time scans, as shown in Figure \ref{fig:FitEndScans}. There it is seen that the goodness of fit as well as the fit parameters behave well. The asymmetry, R, and \gmtwo phase all lie comfortably within or near the statistical significance bands. These plots justify the application of a fit end time of $\SI{650}{\mu s}$ in the calorimeter sum fit.
 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{ratio-latefitend}
+	    \caption[RatioLateFitEndZoomed]{The formed ratio of the data, zoomed in on the top portion. It's shown that as the time increases and the amount of data in each bin diminshes, the ratio points spread out and the errors grow large. If there is too little data, then the late times cannot be fit properly, similar to how a \chisq fit only applies to bins with enough statistics. While this effect is readily seen here, there is enough data in the 60H dataset to still be able to fit out to $\SI{650}{\mu s}$ without unduly affecting the other fit parameters.}
+	    \label{fig:RatioLateFitEndZoomed}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBO_R_FE_Canv}
+		    \caption{Fitted R value vs fit end time.}
+	    \end{subfigure}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBO_phi_FE_Canv}
+		    \caption{Fitted \gmtwo phase vs fit end time.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	    \vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBO_A_FE_Canv}
+		    \caption{Fitted asymmetry vs fit end time.}
+	    \end{subfigure}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FE_canv}
+		    \caption{\chisq per degree of freedom vs fit end time.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[FitEndScans]{Fit end time scans for the main free parameters in the full ratio fit, as well as the $\chi^{2}$/NDF. The statistical signifcance bands are narrow due to the small amount of data differences between successive points. The paramaters can be seen to behave well, and are not affected by the late fit end times.}
+	\label{fig:FitEndScans}
+	\end{figure}
+
+
+\clearpage
 
 \section{Results vs calorimeter}
 

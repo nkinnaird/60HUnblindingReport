@@ -6,18 +6,18 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to gain corrections}
 \label{Sec:SystematicGain}
 
-	I estimate the systematic error on R due to the the in-fill gain function at 3.5 ppb, and have yet to estimate the error due to the Short Term Double Pulse correction. %Adding these in quadrature results in a systematic error of blank ppb.
+	I estimate the systematic error on R due to the in-fill gain function at 3.5 ppb, and have yet to estimate the error due to the Short Term Double Pulse correction or unseen/unknown gain effects. %Adding these in quadrature results in a systematic error of blank ppb.
 
 	\subsection{In-Fill Gain}
 
-		As positrons hit the calorimeters throughout the fill, there will be a gain sag response such that the energy of detected positrons changes throughout the fill, dropping at first and then rising exponentially back up to their true values. This changing energy response will lead to a systematic error on R, as positrons with mis-measured energies near the energy threshold are excluded from the fit. This gain sag is corrected for in the Recon West code in stages at the crystal level, before I fill my histograms. When building the trees that my histogram maker runs over, the gain correction parameters can be stored in the tree such that they can be undone and modified for systematic studies. 
+		As positrons hit the calorimeters throughout the fill, there will be a gain sag response such that the energy of detected positrons changes throughout the fill. The energy response will drop early in the fill due to the flash and injection of beamline positrons, and then will rise exponentially back up to its static value. This changing energy response will lead to a systematic error on R, as the average \gmtwo phase depends on the energy, and positrons with mis-measured energies near the energy threshold are excluded from the fit. This gain sag is corrected in the Recon West code at the crystal level, before I fill my histograms. The gain correction parameters can be stored at the tree level such that they can be undone and modified for systematic studies.
 
-		The in-fill gain sag function was determined by Matthias Smith and the laser team as described in \DB{14077} and shown in Figure \ref{Fig:MatthiasInFill}. The function goes as  
+		The in-fill gain sag function was determined by Matthias Smith and the laser team as described in \DB{14077}. The function goes as  
 			\begin{gather}
 				E = E_{0}(1 - A \cdot e^{-t/\tau}),
 			\label{Eqn:GainSag}
 			\end{gather}
-		where $E_{0}$ is the orginal energy of the crystal hit, A is the amplitude factor on the gain sag function, and $\tau$ the lifetime. It is this function that is inverted and applied to the crystal hits in the reconstruction, before adding the individual crystal energies to form the clusters. In my histogram making code, I undo this function on each crystal before reapplying it with varying amplitude and lifetimes. In this way I can scan over multipliers of the amplitude and lifetime parameters in order to calculate the systematic effect on R.
+		where $E$ is the corrected energy of the crystal hit, $E_{0}$ is the original energy of the crystal hit, A is the amplitude factor on the gain sag function, and $\tau$ the lifetime. $E/E_{0}$ is shown in Figure \ref{Fig:MatthiasInFill}. It is this function that is inverted and applied to the crystal hits in the reconstruction, before adding the individual crystal energies to form the clusters. For these systematic studies, I undo this function on each crystal before reapplying it with varying amplitude and lifetimes. In this way I can scan over multipliers of the amplitude and lifetime parameters in order to calculate the systematic effect on R.
 
 		\begin{figure}[h]
 			\centering
@@ -31,7 +31,7 @@
 			\delta R_{A} &= \delta\alpha_{A} \times \frac{dR}{d\alpha_{A}}, \\
 			\delta R_{\tau} &= \delta\alpha_{\tau} \times \frac{dR}{d\alpha_{\tau}},
 		\end{align}
-		where $\delta\alpha_{A}$ and $\delta\alpha_{\tau}$ are the uncertainties on the gain sag amplitude and lifetime respectively. I take the uncertainty on the amplitude very conservatively at 10\%, leading to a systematic error on R of $0.1 \times \SI{10}{ppb} = \SI{1}{ppb}$. I take the uncertainty on the lifetime very conservatively at 10\%, leading to a systematic error on R of $0.1 \times \SI{33.1}{ppb} = \SI{3.3}{ppb}$. In each of these cases, the uncertainty is the uncertainty on the applied parameters, and not the stability or precision of the energy response over the course of the fill. Both of these errors are practically negligble, and added in quadrature results in a systematic error on R of 3.5 ppb.
+		where $\delta\alpha_{A}$ and $\delta\alpha_{\tau}$ are the uncertainties on the gain sag amplitude and lifetime respectively. I assume that these errors are uncorrelated. I take the uncertainty on the amplitude at 10\%, leading to a systematic error on R of $0.1 \times \SI{10}{ppb} = \SI{1}{ppb}$. I take the uncertainty on the lifetime at 10\%, leading to a systematic error on R of $0.1 \times \SI{33.1}{ppb} = \SI{3.3}{ppb}$. In each of these cases, the uncertainty is the uncertainty on the applied parameters, and not the stability or precision of the energy response over the course of the fill. Both of these errors are practically negligible, and added in quadrature results in a systematic error on R of 3.5 ppb.
 
 		\begin{figure}[]
 		\centering
@@ -54,6 +54,9 @@
 	\subsection{Short Term Double Pulse (SDTP)}
 
 		Work and writing to be done here. I plan on reconstructing clusters w/ and w/o the SDTP included and comparing the results to determine the systematic effect on R. I expect it to be very small.
+
+	\subsection{Unseen/Unknown Gain Changes}
+
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to pileup}

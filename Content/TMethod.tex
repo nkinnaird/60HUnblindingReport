@@ -3,21 +3,24 @@
 \chapter{T Method Fit}
 \label{Ch:TMethod}
 
+This entire chapter is a work in progress.
+
 
 While not the main focus of my analysis, I also perform a T-Method fit to the data along with the ratio fit. This is useful as a comparison to the ratio method results, and can also provide useful parameter information that the ratio method has trouble getting at. I do not perform systematic studies, and only perform further analysis checks like fit start time scans to verify that the T-Method fit is working correctly. In my T-Method fit, I include all CBO terms, the vertical waist, and lost muons, as described in Chapter \ref{Ch:Procedures}. The same fit start and end times as used in the ratio fit ($\SI{30}{\mu s} - \SI{650}{\mu s}$) are used here as well.
 
 The results for a T-Method fit are shown in Figure 
 
-A table of the results with parameter information is shown in Table
+A table of the results with parameter information is shown in Table \ref{Tab:FitParamsTMethod}
 
 The correlation matrix for the T-Method fit is shown in Table
 
-An FFT of the results is included for posterity in Figure
+An FFT of the results is included for posterity in Figures 
 
 
 
 A comparison between the ratio and T-Method results are shown in Table
 
+There is a slight difference in data that is fitted between the T method and the ratio method. Because of the time shifting that is done in the ratio method, there is a quarter \gmtwo periods worth of data starting at $\SI{30}{\mu s}$ that is replaced by data before $\SI{30}{\mu s}$. This shouldn't change much but should be kept in mind when comparing...
 
 
 
@@ -104,3 +107,24 @@ A comparison between the ratio and T-Method results are shown in Table
 
 
 \section{Toy MC Comparison}
+
+
+In order to assist in combining the ratio method results with those of the other analyzers and their T method results, it's useful to perform MC comparison between the ratio and T method fits. To do this I generated a set of ``positron'' toy MC data using a 1D \texttt{ROOT} function, corresponding to an energy threshold time histogram. The times of these hits were randomized in the same way as done for data to remove the fast rotation. These times were also randomly split into the separate U and V histograms to form the ratio. 5 parameter and 3 parameter ratio fits were then performed on the created histograms, and the subsequent fitted R values were put into separate histograms. The randomizations for the times and UV filling were then done 50 times to generate two histograms of fitted R values for the 5 parameter and 3 parameter ratio fits respectively. 
+In this way a single pseudo-experiment for a single set of ``positron'' data for a number of seeds was performed. The results for these two histograms is shown in Figure blank. The difference between the two means of these R histograms were then put into another histogram, a histogram of the mean difference between the fitted R values between the two types of fits for a single pseudo experiment. Finally, the whole process was repeated 100 times for 100 pseudo experiments, to fill out the mean difference histogram. It is this histogram that gives a measure of the expected difference between the fitted R results for the T method fit and the ratio method fit in data. This is shown in Figure blank.
+
+
+
+
+Do I want to include my T method data randomization results as well here or somewhere in this chapter?
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/TMethod/ResidualsFFT/} }
+\graphicspath{ {Figures/TMethod/ResidualsFFT/} {Figures/TMethod/Comparison/} }
 
 \chapter{T Method Fit}
 \label{Ch:TMethod}
@@ -104,7 +104,7 @@ There is a slight difference in data that is fitted between the T method and the
 
 
 
-
+\clearpage
 
 \section{Toy MC Comparison}
 
@@ -118,6 +118,34 @@ In this way a single pseudo-experiment for a single set of ``positron'' data for
 Do I want to include my T method data randomization results as well here or somewhere in this chapter?
 
 
+
+
+	\begin{figure}[h]
+	\centering
+	    \begin{subfigure}[]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{singleDist_canvas}
+		    \caption{Fit residuals.}
+	    \end{subfigure}
+	    \begin{subfigure}[]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{mean_canvas}
+		    \caption{Fit pulls.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	    \vspace{4mm}
+	    \begin{subfigure}[]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{width_canvas}
+		    \caption{Fit residuals.}
+	    \end{subfigure}
+	    \begin{subfigure}[]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{diff_canvas}
+		    \caption{Fit pulls.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodComparison]{Residuals and pulls for the T Method fit.}
+	\label{fig:TMethodComparison}
+	\end{figure}
 
 
 

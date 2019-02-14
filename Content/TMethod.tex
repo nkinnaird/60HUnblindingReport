@@ -8,17 +8,9 @@ This entire chapter is a work in progress.
 
 While not the main focus of my analysis, I also perform a T method fit to the data along with the ratio fit. This is useful as a comparison to the ratio method results, and can also provide useful parameter information that the ratio method has trouble getting at. I do not perform systematic studies, and only perform analysis checks like fit start time scans to verify that the T method fit is working correctly. In my T method fit, I include all CBO terms, the vertical waist, and lost muons, as described in Chapter \ref{Ch:Procedures}. The same fit start and end times as used in the ratio fit of ($\SI{30}{\mu s} - \SI{650}{\mu s}$) are used here as well.
 
-The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod}.
+The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod}. Residuals and FFTs of the T method fit results are included for posterity in Figures \ref{fig:fitResidual_TMethod} - \ref{fig:FFTComparison_TMethod}.
 
-An FFT of the results is included for posterity in Figures 
-
-
-
-A comparison between the ratio and T-Method results are shown in Table
-
-There is a slight difference in data that is fitted between the T method and the ratio method. Because of the time shifting that is done in the ratio method, there is a quarter \gmtwo periods worth of data starting at $\SI{30}{\mu s}$ that is replaced by data before $\SI{30}{\mu s}$. This shouldn't change much but should be kept in mind when comparing...
-
-
+A comparison between the ratio and T-Method results are shown in Table \ref{Tab:FitComparison}. There is a slight difference in data that is fitted between the T method and the ratio method. Because of the time shifting that is done in the ratio method, there is a quarter \gmtwo periods worth of data starting at $\SI{30}{\mu s}$ that is replaced by data before $\SI{30}{\mu s}$. This shouldn't change much but should be kept in mind when comparing the results.
 
 	\begin{figure}[]
 		\centering
@@ -31,7 +23,7 @@ There is a slight difference in data that is fitted between the T method and the
 	\centering
 	\setlength\tabcolsep{10pt}
 	\renewcommand{\arraystretch}{1.2}
-	\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}|l|l|c|c|}
+	\begin{tabular*}{.85\linewidth}{@{\extracolsep{\fill}}|l|l|c|c|}
 	  \hline
 	  	\multicolumn{4}{|c|}{\textbf{T-Method Fit Results}} \\
 	  \hline\hline
@@ -45,7 +37,7 @@ There is a slight difference in data that is fitted between the T method and the
 		$A$    			 	  & Asymmetry  	    			&  $0.3704$  			&	$\SI{4.493e-5}{}$  \\
 		$R$     			  & R (ppm, blinded)   	 		&  $-19.88$  			&	$1.373$  \\
 		$\phi$   			  & \gmtwo Phase         		&  $2.091$  			&	$\SI{2.249e-4}{}$  \\
-		$\omega_{cbo}$   	  & CBO Frequency $(MHz)$       &  $0.37$  				&	$\SI{}{}$  \\
+		$\omega_{cbo}$   	  & CBO Frequency $(MHz)$       &  $0.37$  				&	$\SI{33}{}$  \\
 		$\tau_{cbo}$          & CBO Lifetime $(\mu s)$ 	    &  $182.1$  			&	$15.67$  \\
 		$A_{cbo-N}$   	 	  & CBO N Amplitude      		&  $0.00449$  			&	$\SI{2.365e-4}{}$  \\
 		$\phi_{cbo-N}$   	  & CBO N Phase       	 		&  $-1.835$  			&	$0.1017$  \\
@@ -53,7 +45,7 @@ There is a slight difference in data that is fitted between the T method and the
 		$\phi_{cbo-A}$   	  & CBO A Phase       	 		&  $-1.835$  			&	$0.1017$  \\
 		$A_{cbo-\phi}$   	  & CBO $\phi$ Amplitude      	&  $0.00449$  			&	$\SI{2.365e-4}{}$  \\
 		$\phi_{cbo-\phi}$     & CBO $\phi$ Phase       	 	&  $-1.835$  			&	$0.1017$  \\
-		$\omega_{VW}$   	  & VW Frequency $(MHz)$        &  $2.3$  				&	$\SI{}{}$  \\
+		$\omega_{VW}$   	  & VW Frequency $(MHz)$        &  $2.3$  				&	$\SI{33}{}$  \\
 		$\tau_{VW}$           & VW Lifetime $(\mu s)$ 	    &  $18$  				&	$15.67$  \\
 		$A_{cbo-VW}$   	 	  & VW Amplitude      			&  $0.001$  			&	$\SI{2.365e-4}{}$  \\
 		$\phi_{cbo-VW}$   	  & VW Phase       	 			&  $-0.34$  			&	$0.1017$  \\
@@ -99,7 +91,6 @@ There is a slight difference in data that is fitted between the T method and the
 	\end{table}
 \end{landscape}
 
-
 	\begin{figure}[h]
 	\centering
 	    \begin{subfigure}[]{0.45\textwidth}
@@ -135,6 +126,44 @@ There is a slight difference in data that is fitted between the T method and the
 	    \caption[FFTComparison_TMethod]{A plot of the FFT of the residuals of the fit for the five parameter fit compared to the T Method fit. In black is the FFT for a five parameter fit, where peaks for the CBO and vertical waist can be seen as well as the \gmtwo peak. In red is the FFT of the T Method fit residuals.}
 	    \label{fig:FFTComparison_TMethod}
 	\end{figure}
+
+
+	\begin{table}[]
+	\centering
+	\setlength\tabcolsep{10pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabular*}{.85\linewidth}{@{\extracolsep{\fill}}|l|l|c|c|}
+	  \hline
+	  	\multicolumn{4}{|c|}{\textbf{Fit Result Comparison}} \\
+	  \hline\hline
+	  	Parameter & Descriptor & T Method Fit & Ratio Fit \\
+	  \hline
+	  	$\chi^{2}$/NDF        & Goodness of fit 			&  $2964/3137$          &   $2964/3137$ \\
+	  	P value               & Goodness of fit 			&  $0.9867$             &   $0.9867$ \\
+		$N_{0}$    			  & Number  	    			&  $\SI{3.327e6}{}$  	&	$\SI{3.327e6}{}$ \\
+		$\tau$    			  & Muon Lifetime $(\mu s)$ 	&  $64.44$  			&	$64.44$  		\\
+		$A$    			 	  & Asymmetry  	    			&  $0.3704$  			&	$0.3704$  		\\
+		$R$     			  & R (ppm, blinded)   	 		&  $-19.88$  			&	$-19.88$  		\\
+		$\phi$   			  & \gmtwo Phase         		&  $2.091$  			&	$2.091$  		\\
+		$\omega_{cbo}$   	  & CBO Frequency $(MHz)$       &  $0.37$  				&	$0.37$  	    \\
+		$\tau_{cbo}$          & CBO Lifetime $(\mu s)$ 	    &  $182.1$  			&	$182.1$  		\\
+		$A_{cbo-N}$   	 	  & CBO N Amplitude      		&  $0.00449$  			&	$0.00449$  		\\
+		$\phi_{cbo-N}$   	  & CBO N Phase       	 		&  $-1.835$  			&	$-1.835$  		\\
+		$A_{cbo-A}$   	 	  & CBO A Amplitude      		&  $0.00449$  			&	$0.00449$  		\\
+		$\phi_{cbo-A}$   	  & CBO A Phase       	 		&  $-1.835$  			&	$-1.835$  		\\
+		$A_{cbo-\phi}$   	  & CBO $\phi$ Amplitude      	&  $0.00449$  			&	$0.00449$  		\\
+		$\phi_{cbo-\phi}$     & CBO $\phi$ Phase       	 	&  $-1.835$  			&	$-1.835$  		\\
+		$\omega_{VW}$   	  & VW Frequency $(MHz)$        &  $2.3$  				&	$2.3$  			\\
+		$\tau_{VW}$           & VW Lifetime $(\mu s)$ 	    &  $18$  				&	$18$  			\\
+		$A_{cbo-VW}$   	 	  & VW Amplitude      			&  $0.001$  			&	$0.001$  		\\
+		$\phi_{cbo-VW}$   	  & VW Phase       	 			&  $-0.34$  			&	$-0.34$  		\\
+		$\kappa_{loss}$   	  & Lost Muon Normalization     &  $6.7$  			    &	$6.7$  			\\
+	  \hline
+	\end{tabular*}
+	\caption{Comparison of fit results between T method fit and ratio fit.}
+	\label{Tab:FitComparison}
+	\end{table}
+
 
 \clearpage
 

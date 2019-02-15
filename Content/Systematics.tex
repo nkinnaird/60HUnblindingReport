@@ -6,6 +6,8 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to gain corrections}
 \label{Sec:SystematicGain}
 
+	Results produced on a 90\% subset of the 5033D dataset. \\
+
 	I estimate the systematic error on R due to the in-fill gain function at 3.5 ppb, and have yet to estimate the error due to the Short Term Double Pulse correction or unseen/unknown gain effects. %Adding these in quadrature results in a systematic error of blank ppb.
 
 	\subsection{In-Fill Gain}
@@ -61,6 +63,8 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to pileup}
 \label{Sec:SystematicPileup}
+
+	Results produced on the 5033A dataset. \\
 
 	The systematic error on R due to the pileup construction consists primarily of two parts, the error due to misconstruction of the amplitude and the phase of the pileup. I estimate the systematic error on R due to the pileup amplitude at 22.6 ppb, and to the pileup phase in pieces of 25.7 and 16.1 ppb. Adding these in quadrature results in a systematic error of 37.8 ppb.
 
@@ -147,7 +151,9 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to lost muons}
 \label{Sec:SystematicLM}
 
-	I estimate the systematic error on R due to the lost muon function at 36.1 ppb, and to the lost muon bias as
+	Results produced on the 5033A dataset. \\
+
+	I estimate the systematic error on R due to the lost muon function at 36.1 ppb, and have yet to estimate the systemetic error due to the lost muon bias.
 
 	\subsection{Lost muon function}
 
@@ -166,6 +172,8 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to CBO function}
 \label{Sec:SystematicCBO}
+
+	Results produced on the 5033A dataset. \\
 
 	I estimate the systematic error on R due to the CBO frequency at 30 ppb, to the CBO envelope shape at 21.1 ppb, and to the fixed CBO lifetime at 12.1 ppb. Adding these in quadrature results in a systematic error of 38.6 ppb.
 
@@ -208,6 +216,8 @@
 
 	\subsection{CBO Lifetime}
 
+		I plan on removing this systematic when refitting new dataset, with the cbo lifetime floating. \\
+
 		Because the CBO lifetime has been fixed in the fit, there is a systematic error on R. Scanning over various values of the fixed CBO lifetime allows this error to be calculated. The resulting curve of R vs the CBO lifetime turns out not to be linear, as shown in Figure \ref{fig:CBOLifetime}. Taking the uncertainty on the CBO lifetime as the error produced by the T Method fit, approximately $\SI{16}{\mu s}$, and looking at the change in R for CBO lifetime values of $180 \pm \SI{16}{\mu s}$, the systematic error on R is taken as the larger of the two at 12.1 ppb.
 
 		\begin{figure}[]
@@ -217,12 +227,16 @@
 		    \label{fig:CBOLifetime}
 		\end{figure}
 
+	\subsection{CBO Fit Terms}
 
+		I plan on estimating a systematic error due to excluded CBO terms (like the CBO phase term) with the new dataset.
 
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 \label{Sec:SystematicVW}
+
+	Results produced on the 5033A dataset. \\
 
 	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as described in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. This is unsurprising since I'm trying to fit an effect which does not exist in the ratio.
 
@@ -236,6 +250,8 @@
 
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to various effects}
+
+	Results produced on the 5033A dataset. \\
 
 	More effects to be studied - results vs bunch number, higher order beam/CBO effects, etc.
 
@@ -365,7 +381,9 @@
 
 	\subsection{Bunch Number}
 
-		I will examine R for the 8 separate bunches, once the new dataset is available.
+		Results produced on a 90\% subset of the 5033D dataset. \\
+
+		I will examine R for the 8 separate bunches, once the new dataset is available. As a temporary measure I examined the results for a large part of the 5033D dataset. Since the dataset is split into smaller pieces by bunch number, the individual fits have a harder time getting at various CBO terms. Therefore I've fixed the CBO lifetime in these fits to $\SI{180}{\mu s}$ and excluded all CBO terms except the N CBO term.
 
 
 
@@ -392,7 +410,7 @@
 	Bunch Number     		&        \\
 	Other   	     		&        \\
   \hline\hline		
-  	Total   	     		&        \\
+  	Total   	     		&  90.5  \\
   \hline
 \end{tabular*}
 \caption{Systematic error table for the 60H dataset. All units are in ppb.}

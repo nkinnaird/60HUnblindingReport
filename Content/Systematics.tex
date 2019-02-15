@@ -1,4 +1,4 @@
-\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/Frequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/Gain/InFillCrystals/} {Figures/VW/} {Figures/LostMuons/} }
+\graphicspath{ {Figures/Pileup/Multiplier/} {Figures/Pileup/Phase/} {Figures/Pileup/EnergyScaling/} {Figures/RandomSeeds/FitStartScans/} {Figures/RandomSeeds/FitIterations/} {Figures/Miscellaneous/} {Figures/FitStartScans/} {Figures/CBO/Frequency/} {Figures/CBO/Shape/} {Figures/CBO/LifetimeScan/} {Figures/Gain/InFill/} {Figures/Gain/InFillCrystals/} {Figures/VW/} {Figures/LostMuons/} {Figures/BunchNumber/} }
 
 \chapter{Systematic Uncertainty Evaluations}
 \label{Ch:Systematics}
@@ -385,7 +385,59 @@
 
 		I will examine R for the 8 separate bunches, once the new dataset is available. As a temporary measure I examined the results for a large part of the 5033D dataset. Since the dataset is split into smaller pieces by bunch number, the individual fits have a harder time getting at various CBO terms. Therefore I've fixed the CBO lifetime in these fits to $\SI{180}{\mu s}$ and excluded all CBO terms except the N CBO term.
 
+		\begin{figure}[]
+			\centering
+			\includegraphics[width=.6\textwidth]{RatioCBO_Chi2NDF_Vs_BunchNum_Canv}
+		    \caption[BunchNumChi2]{Plotted are \chisq per degree of freedom values for the different bunch numbers. The point at bunch number 8 is the fit result from all bunches added together. The blue dashed line is set at the added bunch number result.}
+		    \label{fig:BunchNumChi2}
+		\end{figure}
 
+		\begin{figure}[]
+		\centering
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_BunchNum_Canv}
+			    \caption{Fitted R values as a function of bunch number.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_Vs_BunchNum_Canv}
+			    \caption{Fitted \gmtwo phase values as a function of bunch number.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+			\vspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_Vs_BunchNum_Canv}
+			    \caption{Fitted A values as a function of bunch number.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_Vs_BunchNum_Canv}
+			    \caption{Fitted CBO frequency values as a function of bunch number.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+			\vspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_cbo-N_Vs_BunchNum_Canv}
+			    \caption{Fitted CBO phase values as a function of bunch number.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_cbo-N_Vs_BunchNum_Canv}
+			    \caption{Fitted CBO N amplitude values as a function of bunch number.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+			\vspace{4mm}
+		\caption[BunchNumPars]{Plotted are the fitted parameter values for the different bunch numbers. The point at bunch number 8 is the fit result from all bunches added together. The blue dashed line is set at the added bunch number result, and the red line is the fit to the individual bunches excluding the final point.}
+		\label{fig:BunchNumPars}
+		\end{figure}
+
+		I'm not sure if there is supposed to be a systematic error for the results vs bunch number. Should this just be a check that results are consistent? I'm not so sure they should be though..
+
+
+\clearpage
 
 \section{Final Systematic Uncertainty Table}
 
@@ -400,15 +452,15 @@
   \hline\hline
     Systematic Error 		& \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
-	Gain(incomplete) 		&  3.5   \\
+	Gain (incomplete) 		&  3.5   \\
 	Pileup     	     		&  37.8  \\
-	Lost Muons(incomplete)  &  36.1  \\
+	Lost Muons (incomplete) &  36.1  \\
 	CBO      		 		&  38.6  \\
 	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\
 	Bin Width        		&  44.5  \\
 	Randomization    		&  44.4  \\
-	Bunch Number     		&        \\
-	Other   	     		&        \\
+	% Bunch Number     		&        \\
+	Other (incomplete)  	&  1.6   \\
   \hline\hline		
   	Total   	     		&  90.5  \\
   \hline

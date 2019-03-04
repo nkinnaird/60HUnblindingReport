@@ -6,7 +6,7 @@
 
 \section{Key parameters in reconstruction method}
 
-	Default parameters used in the Recon West production of the 60H dataset, with SAM dataset name ``gm2pro\_daq\_full\_run1\_60h\_5033A\_withfullDQC''.
+	Default parameters used in the Recon West production of the 60H dataset, with SAM dataset name ``gm2pro\_daq\_full\_run1\_60h\_5036A\_goldList''.
 
 \section{Analysis Data Preparation Procedure}
 
@@ -29,8 +29,8 @@
 
 	\begin{enumerate}
 		\item{Loop through all clusters and apply an artificial deadtime (ADT) to combine hits within 6 ns into a single pulse using the same procedure and code that the pileup method uses (see below). Drop clusters with time $< \SI{25}{\mu s}$ or time $> \SI{660}{\mu s}$.}
-		\item{Histograms are constructed with \texttt{ROOT}'s \texttt{TH1F} class with 149.15 ns bins from $0 - \SI{699.96095}{\mu s}$ corresponding to 4693 bins, of which 4258 are filled with data, and 4157 are fit with a fit range of $\SI{30}{\mu s} - \SI{650}{\mu s}$.}
-		\item{Randomize cluster times by $\pm 149.15/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses \texttt{ROOT}'s default \texttt{TRandom3} class.}
+		\item{Histograms are constructed with \texttt{ROOT}'s \texttt{TH1F} class with 149.2 ns bins from $0 - \SI{699.8972}{\mu s}$ corresponding to 4691 bins, of which 4256 are filled with data, and 4154 are fit with a fit range of $\SI{30.2}{\mu s} - \SI{650}{\mu s}$.}
+		\item{Randomize cluster times by $\pm 149.2/2$ ns and fill histograms for energies $> 1.7$ GeV. Randomization uses \texttt{ROOT}'s default \texttt{TRandom3} class.}
 		\item{Divide the data into four datasets by filling one of the four histograms \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} per cluster. The associated histogram is determined by generating a random number between 0 and 1, and comparing that number to the relative probabilities of the different weights:
 			\begin{align}
 				u_{+}(t) : u_{-}(t) : v_{1}(t) : v_{2}(t) = e^{T/2\tau} : e^{-T/2\tau} : 1 : 1
@@ -71,7 +71,7 @@
 				t_{doublet} = \frac{t_{1} \cdot E_{1} + (t_{2}-SGT) \cdot E_{2}}{E_{1} + E_{2}},
 			\end{gather}
 		where the latter equation is the energy-weighted average of the times of the two singlets. In the former equation, the calculation of the doublet energy is the sum of the singlets times some calibration factor. That factor is set equal to 1, which is a reasonable approximation since the spatial separation in the reconstruction is turned off. The systematic effects of a factor not equal to 1 are studied in Section \ref{SubSec:PileupPhase}.}
-		\item{Randomize $t_{doublet}$ times by $\pm 149.15/2$ ns as in the histogramming procedure described above.}
+		\item{Randomize $t_{doublet}$ times by $\pm 149.2/2$ ns as in the histogramming procedure described above.}
 		\item{For each calorimeter construct a pileup spectrum P = doublets - singlets = D - S, where the singlets are subtracted at time $t_{doublet}$ as opposed to their individual times, and pulses are only added or subtracted if they are above 1.7 GeV. Subtract P off energy and threshold histograms.}
 		\item{For pileup subraction in the ratio method, randomly split doublets and singlets into 4 separate histograms as is done in the histogramming procedure described above, with times shifted accordingly. Doublets and their associated singlets are put in the same histogram. Subtract 4 pileup histograms from corresponding \{$u_{+}(t), u_{-}(t), v_{1}(t), v_{2}(t)$\} histograms before forming the ratio.}
 		\item{The errors of the pileup corrected histogram were determined to be: 

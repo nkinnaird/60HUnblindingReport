@@ -108,42 +108,44 @@
 	\noindent Systematics Section \ref{Sec:SystematicCBO}
 
 	\begin{enumerate}
-		\item{The CBO frequency as a function of time is taken from the tracking analysis, \DB{14208}, and shown in Figure \ref{fig:TrackerCBOModel}. The CBO frequency is not constant during the measurement time because the quad voltage was not constant as a function of time. As described in that document, the source of this is almost certainly the fact that some of the quad resistors were damaged, leading to longer RC time constants. The form used is 
+		\item{The CBO frequency as a function of time is taken from the tracking analysis, \DB{14208}, and shown in Figure \ref{fig:TrackerCBOModel}. The CBO frequency is not constant during the measurement time because the quad voltage was not constant as a function of time. As described in that document, the source of this is almost certainly the fact that some of the quad resistors were damaged, leading to longer RC time constants. The form used is:
 			\begin{gather}
-				\omega_{cbo}(t) = \omega_{0}(1 + \Delta\omega t + A e^{-t/\tau_{A}} + B e^{-t/\tau_{B}}),
+				\omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \Delta\omega t + A e^{-t/\tau_{A}} + B e^{-t/\tau_{B}}),
 			\label{Eqn:CBOFreq}
 			\end{gather}
 		with parameters determined from station 12 in the 60H dataset and fixed in the fit as:
 			\begin{equation*}	
 			\begin{aligned}
-			 	\Delta\omega &= \SI{1.86e-8}{ns^{-1}}, \\
+			 	\Delta\omega &= \SI{1.86e-5}{\mu s^{-1}}, \\
 			 	A &= -0.0504, \\
 			 	\tau_{A} &= \SI{73.3}{\mu s}, \\
 			 	B &= -0.131, \\
 			 	\tau_{B} &= \SI{16.6}{\mu s}. \\
 			\end{aligned}
 			\end{equation*}
-		The parameter $\omega_{0}$ is allowed to float in the fit and starts with a value of $\SI{2.3051}{rad.\mu s^{-1}}$. Because the ratio method divides out the CBO partially (reduction by a factor of $\sim5$ in the FFT cbo peak amplitude), the ratio method has trouble with letting the other frequency parameters float, and fixing them to slightly different values does not change the fit results significantly. Parameter values determined from station 18 are similar to those from station 12 and were also tested with no significant change in the fit results. See Section \ref{Sec:CBOFreq}.}
-		\item{Again because the ratio method divides out the CBO partially, the ratio fit can have a hard time fitting the CBO lifetime. The ratio fit converges to a $\tau_{cbo}$ value with a large error. This is acceptable for a single fit to the calorimeter sum. but doesn't work for individual calorimeter fits, or fit start time scans where less and less data is fit. In the latter $\tau_{cbo}$ is fixed to the value from the single calorimeter sum fit.}
+		The parameter $\omega_{cbo}$ is allowed to float in the fit and starts with a value of $\SI{2.3051}{rad.\mu s^{-1}}$. Because the ratio method divides out the CBO partially (reduction by a factor of $\sim5$ in the FFT CBO peak amplitude), the ratio method has trouble with letting the other frequency parameters float, and fixing them to slightly different values does not change the fit results significantly. Parameter values determined from station 18 are similar to those from station 12 and were also tested with no significant change in the fit results. See Section \ref{Sec:CBOFreq}.}
+		\item{Because the ratio method divides out the CBO partially, the ratio fit can have a hard time fitting the CBO lifetime. The ratio fit converges to a $\tau_{cbo}$ value with a relatively large error. This is acceptable for a single fit to the calorimeter sum as well as the individual calorimeter fits, but less sucessful for fit start time scans where less and less data is fit. In the latter $\tau_{cbo}$ is fixed to the value from the single calorimeter sum fit.}
 		\item{An exponential function is assumed for the CBO decoherence. Other models are tested in Section \ref{SubSec:CBOShape}.}
-		\item{In the calorimeter sum fit, the $N_{cbo}$, $N_{2cbo}$, and $A_{cbo}$ terms are included in the fit, while the $\phi_{cbo}$ term is excluded. The $N_{2cbo}$ and $A_{cbo}$ amplitudes have errors of order half the amplitude, but converge acceptably, while the error on the $\phi_{cbo}$ amplitude is of the same order as the amplitude, and thus excluded. For fit start scans, the phases of the $N_{2cbo}$ and $A_{cbo}$ terms are fixed to the values determined from a single fit to the calorimeter sum. For the individual calorimeter fits, the $\phi_{cbo}$ term is included, and all CBO amplitude and phase parameters converge nicely.}
+		% \item{In the calorimeter sum fit, the $N_{cbo}$, $N_{2cbo}$, and $A_{cbo}$ terms are included in the fit, while the $\phi_{cbo}$ term is excluded. The $N_{2cbo}$ and $A_{cbo}$ amplitudes have errors of order half the amplitude, but converge acceptably, while the error on the $\phi_{cbo}$ amplitude is of the same order as the amplitude, and thus excluded. For fit start scans, the phases of the $N_{2cbo}$ and $A_{cbo}$ terms are fixed to the values determined from a single fit to the calorimeter sum. For the individual calorimeter fits, the $\phi_{cbo}$ term is included, and all CBO amplitude and phase parameters converge nicely.}
+		\item{In the calorimeter sum fit the $N_{cbo}$ term is included, while the $N_{2cbo}$, $A_{cbo}$, and $\phi_{cbo}$ terms are excluded. The latter terms all have errors the same order as the amplitude or greater, and are thus excluded. For the individual calorimeter fits, the listed terms are included, and all CBO amplitude and phase parameters converge nicely. The effects of including the omitted terms are examined in Section \ref{SubSec:CBOFitTerms}.}
 		\item{The CBO function pieces are:
 			\begin{equation}
 			\begin{aligned}
 					N_{cbo}(t) &= 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}), \\
-					N_{2cbo}(t) &= 1 + A_{2cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(2 \cdot \omega_{cbo}(t) \cdot t + \phi_{2cbo-N}), \\
+					N_{2cbo}(t) &= 1 + A_{2cbo-N} \cdot e^{-t/(\tau_{cbo}/2)} \cdot \cos(2 \cdot \omega_{cbo}(t) \cdot t + \phi_{2cbo-N}), \\
 					A_{cbo}(t) &= 1 + A_{cbo-A} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-A}), \\
 					\phi_{cbo}(t) &= 1 + A_{cbo-\phi} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-\phi}).
 			\label{eqn:CBO}
 			\end{aligned}
 			\end{equation}
+		Note the factor of $1/2$ in the lifetime of the $N_{2cbo}$ term. From Aaron - The damping comes from the decoherence which comes from a spread in frequencies. The spread in frequencies is tied to the momentum distribution, so if the frequency is twice for the same momentum, the decoherence time should be half.
 		}
 	\end{enumerate}
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{TrackerCBOModel}
-	    \caption[TrackerCBOModel]{CBO frequency determined with tracker data as a function of time, for station 12 in the 60H dataset. The frequency was modeled as a sum of a constant with a linear part and two exponentials. It rises sharply at early times and slowly over the rest of the fill. Plot created by James Mott, \DB{14208}.}
+	    \caption[TrackerCBOModel]{CBO frequency determined with tracker data as a function of time, for station 12 in the 60H dataset. The frequency was modeled as a sum of a constant with a linear part and two exponentials. It rises sharply at early times and slowly over the rest of the fill. The $\omega_{0}$ term here is what is fitted as $\omega_{cbo}$ in Equation \ref{Eqn:CBOFreq}. Plot provided by James Mott, \DB{14208}.}
 	    \label{fig:TrackerCBOModel}
 	\end{figure}
 
@@ -183,16 +185,15 @@
 
 	The following function is used for the final fit for the calorimeter sum:
 	\begin{gather}
-			R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[6pt]
-			f_{\pm}(t) = f(t \pm T_{a}/2) \\[6pt]
-			f(t) = N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A \cdot A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi)) \\[6pt]
-			N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[6pt]
-			N_{2cbo}(t) = 1 + A_{2cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(2 \cdot \omega_{cbo}(t) \cdot t + \phi_{2cbo-N}) \\[6pt]
-			A_{cbo}(t) = 1 + A_{cbo-A} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-A}) \\[6pt]
-			\omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
+		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[6pt]
+		f_{\pm}(t) = f(t \pm T_{a}/2) \\[6pt]
+		f(t) = N_{cbo}(t) \cdot (1 + A \cdot \cos(\omega_{a}t + \phi)) \\[6pt]
+		N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[6pt]
+		\omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \delta_{cbo}(t)) \text{, $\delta_{cbo}(t)$ fixed} \\[6pt]
+		\omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
 	\end{gather}
-	All parameters are floating except for the extra terms in $\omega_{cbo}(t)$ (except $\omega_{0}$) as described in Section \ref{Sec:CBO}. The individual calorimeters use the same fit function, with the phase cbo term included:
+	All parameters are floating except for the terms in $\delta_{cbo}(t)$ as described in Section \ref{Sec:CBO}. The individual calorimeters use the same fit function, except with the other CBO terms included:
 	\begin{gather}
-			f(t) = N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A \cdot A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi \cdot \phi_{cbo}(t))),
+			f(t) = N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A \cdot A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi \cdot \phi_{cbo}(t)))
 	\end{gather}
-	but now with $\tau_{cbo}$ fixed in the fits. In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}, with a particular string phrase. Finally, the value of the fit function in each time bin is calculated as the integral of the function over the bin, divided by the bin width. It's important to note that fitting with the integral is necessary in order to fit the asymmetry properly, corresponding to the asymmetry value returned by a T Method likelihood fit.
+	In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}. Finally, the value of the fit function in each time bin is calculated as the integral of the function over the bin, divided by the bin width. It's important to note that fitting with the integral is necessary in order to fit the asymmetry properly, corresponding to the asymmetry value returned by a T Method likelihood fit, and such that its value does not depend on the fit start time. This improves the goodness-of-fit, helps to avoid any pulling on R and push the fit end time out to late times with less data, as well as fixes the asymmetry versus start time plot.

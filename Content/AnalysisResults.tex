@@ -54,16 +54,16 @@
 
 \clearpage
 
-\section{7 Parameter Ratio Fit}
+\section{Full Ratio Fit}
 
-	The data has been fit to a 7 parameter function, as described in Section \ref{Sec:FinalFitFunction}, reduced from the conventional 14 parameters in a T Method fit. The results are shown in Figure \ref{fig:ratioCBO_moduloPlot}, with the fit parameters transcribed into Table \ref{Tab:FitParams}. These 7 parameters include the asymmetry ``A'', the ppm level shift in the \gmtwo frequency ``R'', the \gmtwo phase ``$\phi$'', and then 4 CBO parameters. As detailed in Section \ref{Sec:CBO}, these CBO parameters include the frequency ``$\omega_{cbo}$'', lifetime ``$\tau_{cbo}$'', and then the CBO amplitude and phase on the N term, ``$N_{cbo-A}$'' and ``$N_{cbo-\phi}$'' respectively. The CBO lifetime has been fixed in the fit to $\SI{180}{\mu s}$. The N and muon lifetime terms are unecessary because the ratio method removes those terms in the data to be fit. The ratio method also divides out slow effects, which removes the need to fit for muon losses. The lack of a low frequency rise in the FFTs of the residuals as shown in Figure \ref{fig:FFT_ratioCBOFit} justifies excluding this term. Finally, due to the specific n value used in gathering the 60H data, the vertical waist (VW) frequency just so happens to be very nearly 10 times the \gmtwo frequency. As described in Section \ref{Sec:VW} this means that the VW does not need to be included in the fit. Like the lost muons this is justified by the lack of a VW peak in the FFT of the residuals. Finally, the fit range is restricted from $\SI{30}{\mu s} - \SI{500}{\mu s}$. The early time cut is determined due the instability of the stored muon beam at early times. The late time cut was chosen to avoid the region where the ratio actually starts to widen due to low stats. (This can actually be extended beyond $\SI{500}{\mu s}$ safely but that was the limit used by default for previous datasets, and was left in when analyzing the 60H dataset. How far it should be extended is yet to be decided.)
+	The data has been fit to a 7 parameter function, as described in Section \ref{Sec:FinalFitFunction}, reduced from the number of parameters in a conventional T Method fit. The results are shown in Figure \ref{fig:ratioCBO_moduloPlot}, with the fit parameters transcribed into Table \ref{Tab:FitParams}. These 7 parameters include the asymmetry ``A'', the ppm level shift in the \gmtwo frequency ``R'', the \gmtwo phase ``$\phi$'', and then 4 CBO parameters. As detailed in Section \ref{Sec:CBO}, these CBO parameters include the frequency ``$\omega_{cbo}$'', lifetime ``$\tau_{cbo}$'', and then the CBO amplitude and phase on the N term, ``$A_{cbo-N}$'' and ``$\phi{N}_{cbo-N}$'' respectively. The N and muon lifetime terms are unecessary because the ratio method removes those terms in the data to be fit. Other CBO parameters when included in the fit result in fitted parameter amplitudes of order the same error as their errors, and so were omitted. The ratio method also divides out slow effects, which removes the need to fit for muon losses. The lack of a low frequency rise in the FFTs of the residuals as shown in Figure \ref{fig:FFT_ratioCBOFit} justifies excluding this term. Finally, due to the specific n value used in gathering the 60H data, the vertical waist (VW) frequency just so happens to be very nearly 10 times the \gmtwo frequency. As described in Section \ref{Sec:VW} this means that the VW does not need to be included in the fit. Like the lost muons this is justified by the lack of a VW peak in the FFT of the residuals. The effects on the fit when including the extra CBO terms, lost muon function, and VW function are shown in Sections \ref{SubSec:CBOFitTerms}, \ref{SubSec:LMFunc}, and \ref{Sec:SystematicVW} respectively.Finally, the fit range is restricted from $\SI{30.2}{\mu s} - \SI{650}{\mu s}$. The early time cut is determined due the instability of the stored muon beam at early times. The late time cut corresponds to the end of data taking within a fill.
 
 	Table \ref{Tab:CorrMat} shows the correlation matrix for the fit parameters in the added calorimeter fit. Figure \ref{fig:CorrelationMatrix} shows the same information in graphical format. As seen the only significant correlation to R is the \gmtwo phase. This is good because it means that if other fit parameters are for some reason fitted slightly incorrectly, the resulting effect on R will be minimal.
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{ratioCBO_moduloPlot}
-	    \caption[ratioCBO_moduloPlot]{Final fit result for the 60 hour dataset. The fit includes 6 free parameters and one fixed. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from 30 $\mu$s to 500 $\mu$s.}
+	    \caption[ratioCBO_moduloPlot]{Final fit result for the 60 hour dataset. The fit includes 6 free parameters and one fixed. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from $\SI{30.2}{\mu s}$ to $\SI{650}{\mu s}$.}
 	    \label{fig:ratioCBO_moduloPlot}
 	\end{figure}
 
@@ -75,18 +75,18 @@
 	  \hline
 	  	\multicolumn{4}{|c|}{\textbf{Fit Results}} \\
 	  \hline\hline
-	  	\multicolumn{2}{|c}{$\chi^{2}$/NDF}       				&  \multicolumn{2}{c|}{$3052/3145$}  \\
-	  	\multicolumn{2}{|c}{P value}         	 				&  \multicolumn{2}{c|}{$0.8806$}  \\
+	  	\multicolumn{2}{|c}{$\chi^{2}$/NDF}       				&  \multicolumn{2}{c|}{$4178/4148$}  \\
+	  	\multicolumn{2}{|c}{P value}         	 				&  \multicolumn{2}{c|}{$0.3688$}  \\
 	  \hline\hline
 	  	Parameter & Descriptor & Value & Error \\
 	  \hline
-		$A$    			 	  & Asymmetry  	    			&  $0.3704$  	&	$\SI{4.493e-5}{}$  \\
-		$R$     			  & R (ppm, blinded)   	 		&  $-19.88$  	&	$1.373$  \\
-		$\phi$   			  & \gmtwo Phase         		&  $2.091$  	&	$\SI{2.249e-4}{}$  \\
-		$\omega_{cbo}$   	  & CBO Frequency $(ns^{-1})$   &  $0.002306$  	&	$\SI{1.325e-6}{}$  \\
-		$\tau_{cbo}$ (fixed)  & CBO Lifetime $(\mu s)$ 	    &  $180$  		&	$0$  \\
-		$N_{cbo-A}$   	 	  & CBO N Amplitude      		&  $0.00449$  	&	$\SI{2.365e-4}{}$  \\
-		$N_{cbo-\phi}$   	  & CBO N Phase       	 		&  $-1.835$  	&	$0.1017$  \\
+		$A$    			 	  & Asymmetry  	    			&  $\SI{0.3704}{}$ & $\SI{4.41e-05}{}$ \\
+		$R$     			  & R (ppm, blinded)   	 		&  $\SI{-20.487}{}$ & $\SI{1.330}{}$ \\
+		$\phi$   			  & \gmtwo Phase         		&  $\SI{2.091}{}$ & $\SI{2.199e-4}{}$ \\
+		$\omega_{cbo}$   	  & CBO Frequency $(MHz)$	    &  $\SI{0.367}{}$ & $\SI{2.603e-4}{}$ \\
+		$\tau_{cbo}$ 		  & CBO Lifetime $(\mu s)$ 	    &  $\SI{168.4}{}$ & $\SI{48.92}{}$ \\
+		$A_{cbo-N}$   	 	  & CBO N Amplitude      		&  $\SI{0.00397}{}$ & $\SI{5.214e-4}{}$ \\
+		$\phi_{cbo-N}$   	  & CBO N Phase       	 		&  $\SI{-1.908}{}$ & $\SI{0.119}{}$ \\
 	  \hline
 	\end{tabular*}
 	\caption{Table of final fit results.}

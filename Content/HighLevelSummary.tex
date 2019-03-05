@@ -14,19 +14,20 @@
 	\item{Model for CBO: Exponential envelope, frequency from tracking analysis}
 	\item{Model for VW: Exponential envelope, constant frequency, not included in ratio fit}
 	\item{Fit Range: $\SI{30.2}{\mu s} - \SI{650}{\mu s}$}
+	\item{Energy Threshold: 1700 MeV}
+	\item{Fills: $\SI{1498397}{}$, Analyzed Positrons: $\sim \SI{9.29e8}{}$}
 	\item{$R = -20.487 \pm \SI{1.330}{ppm} \pm XX\SI{}{ppm}$ (blinded with common string)}
-	\item{$\chi^{2}/NDF = 4178/4148$} (fit results and NDF to change with final production)
-	\item{P value = 0.3688}
+	\item{$\chi^{2}/NDF = 4178/4148$, P value = 0.3688}
 \end{itemize}
 
 \textbf{Final fit function:}
 
 \begin{gather*}
-		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[6pt]
-		f_{\pm}(t) = f(t \pm T_{a}/2) \\[6pt]
-		f(t) = N_{cbo}(t) \cdot (1 + A \cdot \cos(\omega_{a}t + \phi)) \\[6pt]
-		N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[6pt]
-		\omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \delta_{cbo}(t)) \text{, $\delta_{cbo}(t)$ fixed} \\[6pt]
+		R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[5pt]
+		f_{\pm}(t) = f(t \pm T_{a}/2) \\[5pt]
+		f(t) = N_{cbo}(t) \cdot (1 + A \cdot \cos(\omega_{a}t + \phi)) \\[5pt]
+		N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[5pt]
+		\omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \delta_{cbo}(t)) \text{, $\delta_{cbo}(t)$ fixed} \\[5pt]
 		\omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
 \end{gather*}
 

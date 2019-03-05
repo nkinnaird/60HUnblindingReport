@@ -3,6 +3,10 @@
 \chapter{Analysis Results}
 \label{Ch:Results}
 
+\section{Info}
+
+Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_full\_run1\_60h\_5036A\_goldList), 23452 were processed and analyzed in this report. There was a single missing file which was left out, corresponding to 190 missed fills. The analyzed data contains $\SI{1498397}{}$ fills, with approximately $\SI{9.29e8}{}$ positrons greater than 1.7 GeV between $\SI{30.2}{\mu s} - \SI{650}{\mu s}$.
+
 \section{Pre-corrected and corrected energy and time spectra}
 
 	Before fitting the data and extracting the \gmtwo frequency, pileup has to be removed. The procedure to do this was detailed in Section \ref{Sec:PileupCorrection}, and the results are shown here. Figure \ref{fig:PileupTimeSpectrum} shows the constructed pileup time spectrum, for pileup energies above threshold. The pre-corrected and corrected time spectra are not shown because differences are small and hard to see. As shown the pileup is almost completely gone by $\SI{300}{\mu s}$. The exact shape of the pileup time spectra is explained in \DB{14394}, which is in general unimportant as long as it is constructed and subtracted properly. Figure \ref{fig:ClusterEnergiesVsPileupEnergies} shows a comparison between the cluster energies and the constructed pileup energies, where differences in the two spectra are small and can be attributed to pileup contamination in the shadow method and triplets which have not been included in this analysis. Figures \ref{fig:AddedEnergies}, \ref{fig:CaloEnergies}, and \ref{fig:CaloEnergiesZoomed} show the pre-corrected and corrected energy spectra for the added histograms and for some individual calorimeters. Since the pileup energies are not perfectly reconstructed the corrected energy spectrum does not converge to 0 at the end of the high energy tail, which is readily seen in the log-scale plots. This is okay for the level of statistics included in both the 60H dataset and in Run 1. Systematic effects from getting the pileup amplitude or shape wrong are explored in Section \ref{Sec:SystematicPileup}.

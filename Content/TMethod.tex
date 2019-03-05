@@ -3,9 +3,9 @@
 \chapter{T Method Fit}
 \label{Ch:TMethod}
 
-While not the main focus of my analysis, I also perform a T method fit to the data along with the ratio fit. This is useful as a comparison to the ratio method results, and can also provide useful parameter information that the ratio method has trouble getting at. I do not perform systematic studies, and only perform analysis checks like fit start time scans to verify that the T method fit is working correctly. In my T method fit, I include all CBO terms except the $N_{2cbo}$ term, the vertical waist, and lost muons, as described in Chapter \ref{Ch:Procedures}. The same fit start and end times as used in the ratio fit of $\SI{30.2}{\mu s} - \SI{650}{\mu s}$ are used here as well.
+While not the main focus of my analysis, I also perform a T method fit to the data along with the ratio fit. This is useful as a comparison to the ratio method results, and can also provide useful parameter information that the ratio method has trouble getting at. I do not perform systematic studies, and only perform analysis checks like fit start time scans to verify that the T method fit is working correctly. In my T method fit, I include all CBO terms except the $N_{2cbo}$ term, the vertical waist, and lost muons, as described in Chapter \ref{Ch:Procedures}, for a total of 18 fit parameters. The same fit start and end times as used in the ratio fit of $\SI{30.2}{\mu s} - \SI{650}{\mu s}$ are used here as well.
 
-The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod}. Residuals and FFTs of the T method fit results are included for posterity in Figures \ref{fig:fitResidual_TMethod} - \ref{fig:FFTComparison_TMethod}.
+The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod} and plotted in Figure \ref{fig:CorrelationMatrixTMethod}. Residuals and FFTs of the T method fit results are included for posterity in Figures \ref{fig:fitResidual_TMethod} - \ref{fig:FFTComparison_TMethod}.
 
 A comparison between the ratio and T-Method results are shown in Table \ref{Tab:FitComparison}. There is a slight difference in data that is fitted between the T method and the ratio method. Because of the time shifting that is done in the ratio method, there is a quarter \gmtwo periods worth of data starting at $\SI{30.2}{\mu s}$ that is replaced by data before $\SI{30.2}{\mu s}$. This shouldn't change much but should be kept in mind when comparing the results.
 
@@ -57,36 +57,41 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 	\begin{table}[]
 	\setlength\tabcolsep{0pt}
 	\scalebox{0.7}{%
-	\begin{tabular*}{1.5\linewidth}{@{\extracolsep{\fill}}lLBLLLLLLLLLLLLLLLLLL}
+	\begin{tabular*}{1.5\linewidth}{@{\extracolsep{\fill}}lLLLBLLLLLLLLLLLLLLLL}
 	  \toprule
-	            & \thead{$N_{0}$} & \thead{$\tau$} & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{cbo-2N}$} & \thead{$\phi_{cbo-2N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\omega_{VW}$} & \thead{$\tau_{VW}$} & \thead{$A_{VW}$} & \thead{$\phi_{VW}$} & \thead{$\kappa_{loss}$} \\
+	            & \thead{$N_{0}$} & \thead{$\tau$} & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\omega_{VW}$} & \thead{$\tau_{VW}$} & \thead{$A_{VW}$} & \thead{$\phi_{VW}$} & \thead{$\kappa_{loss}$} \\
 	  \midrule
-		$N_{0}$    			 & 1.000 & 0.165 & 0.020 & -0.044 & 0.046 & 0.025 & -0.071 & 0.075 & -0.012 & 0.000 & -0.023 & 0.028 & 0.026 & -0.043 & -0.013 & -0.117 & -0.491 & 0.512 & 0.121 & 0.580  \\
-		$\tau$    			 & 0.165 & 1.000 & 0.013 & -0.008 & 0.007 & 0.004 & -0.025 & 0.028 & 0.004 & -0.017 & -0.019 & 0.014 & 0.018 & -0.033 & -0.002 & -0.030 & -0.058 & 0.055 & 0.032 & 0.856  \\
-		$A$    			 	 & 0.020 & 0.013 & 1.000 & 0.005 & -0.006 & -0.012 & 0.002 & -0.004 & 0.019 & -0.011 & -0.001 & 0.017 & -0.033 & 0.007 & 0.024 & -0.008 & -0.016 & 0.016 & 0.008 & 0.019  \\
-		$R$     			 & -0.044 & -0.008 & 0.005 & 1.000 & -0.826 & -0.013 & -0.025 & 0.030 & 0.018 & 0.009 & -0.004 & -0.024 & -0.019 & 0.013 & -0.014 & 0.001 & -0.032 & 0.033 & -0.002 & -0.027  \\
-		$\phi$   			 & 0.046 & 0.007 & -0.006 & -0.826 & 1.000 & 0.020 & 0.031 & -0.038 & -0.026 & -0.013 & 0.002 & 0.032 & 0.024 & -0.022 & 0.019 & -0.011 & 0.032 & -0.034 & 0.011 & 0.028  \\
-		$\omega_{cbo}$   	 & 0.025 & 0.004 & -0.012 & -0.013 & 0.020 & 1.000 & 0.029 & -0.029 & -0.859 & 0.004 & -0.126 & -0.009 & -0.038 & -0.011 & -0.068 & 0.042 & 0.046 & -0.046 & -0.043 & 0.017  \\
-		$\tau_{cbo}$		 & -0.071 & -0.025 & 0.002 & -0.025 & 0.031 & 0.029 & 1.000 & -0.883 & -0.028 & -0.011 & 0.010 & -0.063 & 0.035 & -0.026 & 0.007 & -0.044 & -0.033 & 0.033 & 0.046 & -0.053  \\
-		$A_{cbo-N}$   	 	 & 0.075 & 0.028 & -0.004 & 0.030 & -0.038 & -0.029 & -0.883 & 1.000 & 0.027 & 0.013 & -0.012 & 0.059 & -0.047 & 0.022 & -0.008 & 0.050 & 0.029 & -0.028 & -0.053 & 0.057  \\
-		$\phi_{cbo-N}$   	 & -0.012 & 0.004 & 0.019 & 0.018 & -0.026 & -0.859 & -0.028 & 0.027 & 1.000 & 0.006 & 0.116 & 0.017 & 0.031 & 0.015 & 0.065 & -0.040 & -0.053 & 0.054 & 0.042 & -0.005  \\
-		$A_{cbo-2N}$   	 	 & 0.000 & -0.017 & -0.011 & 0.009 & -0.013 & 0.004 & -0.011 & 0.013 & 0.006 & 1.000 & -0.010 & 0.005 & 0.000 & -0.028 & -0.019 & 0.002 & 0.001 & 0.004 & 0.000 & -0.012  \\
-		$\phi_{cbo-2N}$   	 & -0.023 & -0.019 & -0.001 & -0.004 & 0.002 & -0.126 & 0.010 & -0.012 & 0.116 & -0.010 & 1.000 & 0.011 & 0.028 & 0.020 & 0.004 & -0.026 & 0.012 & -0.019 & 0.025 & -0.025  \\
-		$A_{cbo-A}$   	 	 & 0.028 & 0.014 & 0.017 & -0.024 & 0.032 & -0.009 & -0.063 & 0.059 & 0.017 & 0.005 & 0.011 & 1.000 & -0.008 & 0.006 & -0.004 & -0.010 & -0.013 & 0.013 & 0.010 & 0.023  \\
-		$\phi_{cbo-A}$   	 & 0.026 & 0.018 & -0.033 & -0.019 & 0.024 & -0.038 & 0.035 & -0.047 & 0.031 & 0.000 & 0.028 & -0.008 & 1.000 & 0.035 & 0.003 & 0.000 & -0.015 & 0.017 & 0.001 & 0.025  \\
-		$A_{cbo-\phi}$   	 & -0.043 & -0.033 & 0.007 & 0.013 & -0.022 & -0.011 & -0.026 & 0.022 & 0.015 & -0.028 & 0.020 & 0.006 & 0.035 & 1.000 & -0.014 & -0.001 & 0.046 & -0.049 & 0.002 & -0.045  \\
-		$\phi_{cbo-\phi}$    & -0.013 & -0.002 & 0.024 & -0.014 & 0.019 & -0.068 & 0.007 & -0.008 & 0.065 & -0.019 & 0.004 & -0.004 & 0.003 & -0.014 & 1.000 & 0.023 & -0.006 & 0.006 & -0.025 & -0.008  \\
-		$\omega_{VW}$   	 & -0.117 & -0.030 & -0.008 & 0.001 & -0.011 & 0.042 & -0.044 & 0.050 & -0.040 & 0.002 & -0.026 & -0.010 & 0.000 & -0.001 & 0.023 & 1.000 & -0.679 & 0.671 & -0.987 & -0.081  \\
-		$\tau_{VW}$		 	 & -0.491 & -0.058 & -0.016 & -0.032 & 0.032 & 0.046 & -0.033 & 0.029 & -0.053 & 0.001 & 0.012 & -0.013 & -0.015 & 0.046 & -0.006 & -0.679 & 1.000 & -0.964 & 0.676 & -0.289  \\
-		$A_{VW}$   	 	 	 & 0.512 & 0.055 & 0.016 & 0.033 & -0.034 & -0.046 & 0.033 & -0.028 & 0.054 & 0.004 & -0.019 & 0.013 & 0.017 & -0.049 & 0.006 & 0.671 & -0.964 & 1.000 & -0.668 & 0.297  \\
-		$\phi_{VW}$   	 	 & 0.121 & 0.032 & 0.008 & -0.002 & 0.011 & -0.043 & 0.046 & -0.053 & 0.042 & 0.000 & 0.025 & 0.010 & 0.001 & 0.002 & -0.025 & -0.987 & 0.676 & -0.668 & 1.000 & 0.084  \\
-		$\kappa_{loss}$   	 & 0.580 & 0.856 & 0.019 & -0.027 & 0.028 & 0.017 & -0.053 & 0.057 & -0.005 & -0.012 & -0.025 & 0.023 & 0.025 & -0.045 & -0.008 & -0.081 & -0.289 & 0.297 & 0.084 & 1.000  \\
+		$N_{0}$    			 & 1.000 & 0.207 & 0.037 & 0.002 & -0.001 & -0.026 & -0.027 & 0.034 & 0.033 & 0.041 & 0.023 & -0.078 & -0.008 & 0.032 & 0.062 & -0.067 & -0.031 & 0.663  \\
+		$\tau$    			 & 0.207 & 1.000 & 0.015 & 0.000 & 0.008 & -0.010 & -0.007 & 0.009 & 0.014 & 0.015 & 0.020 & -0.039 & -0.004 & 0.003 & -0.005 & 0.005 & -0.003 & 0.831  \\
+		$A$    			 	 & 0.037 & 0.015 & 1.000 & 0.010 & -0.004 & -0.018 & 0.005 & -0.008 & 0.026 & 0.008 & -0.032 & 0.008 & 0.026 & -0.010 & -0.028 & 0.030 & 0.010 & 0.030  \\
+		$R$     			 & 0.002 & 0.000 & 0.010 & 1.000 & -0.824 & -0.019 & -0.024 & 0.032 & 0.024 & -0.028 & -0.009 & 0.010 & 0.004 & 0.002 & -0.002 & 0.002 & -0.002 & 0.002  \\
+		$\phi$   			 & -0.001 & 0.008 & -0.004 & -0.824 & 1.000 & 0.025 & 0.033 & -0.044 & -0.032 & 0.039 & 0.013 & -0.021 & -0.006 & 0.005 & 0.020 & -0.021 & -0.005 & 0.004  \\
+		$\omega_{cbo}$   	 & -0.026 & -0.010 & -0.018 & -0.019 & 0.025 & 1.000 & 0.025 & -0.021 & -0.863 & -0.016 & -0.075 & -0.005 & -0.085 & -0.030 & -0.028 & 0.029 & 0.030 & -0.020  \\
+		$\tau_{cbo}$		 & -0.027 & -0.007 & 0.005 & -0.024 & 0.033 & 0.025 & 1.000 & -0.880 & -0.021 & -0.072 & 0.035 & -0.043 & -0.015 & 0.005 & 0.016 & -0.017 & -0.005 & -0.019  \\
+		$A_{cbo-N}$   	 	 & 0.034 & 0.009 & -0.008 & 0.032 & -0.044 & -0.021 & -0.880 & 1.000 & 0.017 & 0.066 & -0.042 & 0.035 & 0.016 & -0.001 & -0.010 & 0.011 & 0.001 & 0.024  \\
+		$\phi_{cbo-N}$   	 & 0.033 & 0.014 & 0.026 & 0.024 & -0.032 & -0.863 & -0.021 & 0.017 & 1.000 & 0.026 & 0.066 & 0.006 & 0.077 & 0.031 & 0.031 & -0.032 & -0.031 & 0.026  \\
+		$A_{cbo-A}$   	 	 & 0.041 & 0.015 & 0.008 & -0.028 & 0.039 & -0.016 & -0.072 & 0.066 & 0.026 & 1.000 & -0.004 & 0.009 & 0.001 & -0.004 & -0.013 & 0.015 & 0.004 & 0.033  \\
+		$\phi_{cbo-A}$   	 & 0.023 & 0.020 & -0.032 & -0.009 & 0.013 & -0.075 & 0.035 & -0.042 & 0.066 & -0.004 & 1.000 & 0.026 & 0.004 & -0.004 & -0.008 & 0.008 & 0.004 & 0.027  \\
+		$A_{cbo-\phi}$   	 & -0.078 & -0.039 & 0.008 & 0.010 & -0.021 & -0.005 & -0.043 & 0.035 & 0.006 & 0.009 & 0.026 & 1.000 & -0.016 & 0.003 & 0.021 & -0.022 & -0.002 & -0.069  \\
+		$\phi_{cbo-\phi}$    & -0.008 & -0.004 & 0.026 & 0.004 & -0.006 & -0.085 & -0.015 & 0.016 & 0.077 & 0.001 & 0.004 & -0.016 & 1.000 & 0.020 & 0.034 & -0.037 & -0.019 & -0.008  \\
+		$\omega_{VW}$   	 & 0.032 & 0.003 & -0.010 & 0.002 & 0.005 & -0.030 & 0.005 & -0.001 & 0.031 & -0.004 & -0.004 & 0.003 & 0.020 & 1.000 & 0.760 & -0.756 & -0.996 & 0.020  \\
+		$\tau_{VW}$		 	 & 0.062 & -0.005 & -0.028 & -0.002 & 0.020 & -0.028 & 0.016 & -0.010 & 0.031 & -0.013 & -0.008 & 0.021 & 0.034 & 0.760 & 1.000 & -0.993 & -0.757 & 0.032  \\
+		$A_{VW}$   	 	 	 & -0.067 & 0.005 & 0.030 & 0.002 & -0.021 & 0.029 & -0.017 & 0.011 & -0.032 & 0.015 & 0.008 & -0.022 & -0.037 & -0.756 & -0.993 & 1.000 & 0.753 & -0.034  \\
+		$\phi_{VW}$   	 	 & -0.031 & -0.003 & 0.010 & -0.002 & -0.005 & 0.030 & -0.005 & 0.001 & -0.031 & 0.004 & 0.004 & -0.002 & -0.019 & -0.996 & -0.757 & 0.753 & 1.000 & -0.019  \\
+		$\kappa_{loss}$   	 & 0.663 & 0.831 & 0.030 & 0.002 & 0.004 & -0.020 & -0.019 & 0.024 & 0.026 & 0.033 & 0.027 & -0.069 & -0.008 & 0.020 & 0.032 & -0.034 & -0.019 & 1.000  \\
 	  \bottomrule
 	\end{tabular*}}
 	\caption{Correlation matrix for the T method fit. The only significant correlation to R is the \gmtwo phase.}
 	\label{Tab:CorrMatTMethod}
 	\end{table}
 \end{landscape}
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=\textwidth]{CorrelationMatrixTMethod}
+	    \caption[CorrelationMatrixTMethod]{Plotted are the correlations between the different fit parameters. Correlations to R are minimal for all fit parameters except the \gmtwo phase.}
+	    \label{fig:CorrelationMatrixTMethod}
+	\end{figure}
 
 	\begin{figure}[h]
 	\centering

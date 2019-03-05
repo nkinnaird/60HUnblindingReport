@@ -97,25 +97,25 @@
 	\setlength\tabcolsep{0pt}
 	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLL}
 	  \toprule
-	            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$ (fixed)} & \thead{$N_{cbo-A}$} & \thead{$N_{cbo-\phi}$} \\
+	            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} \\
 	  \midrule
-		$A$    			 	 &  1.000  &  0.005  & -0.007  & -0.017  &  0.000  & -0.010  &  0.023  \\
-		$R$     			 &  0.005  &  1.000  & -0.830  & -0.020  &  0.000  &  0.021  &  0.028  \\
-		$\phi$   			 & -0.007  & -0.830  &  1.000  &  0.028  &  0.000  & -0.029  & -0.039  \\
-		$\omega_{cbo}$   	 & -0.017  & -0.020  &  0.028  &  1.000  &  0.000  &  0.077  & -0.859  \\
-		$\tau_{cbo}$ (fixed) &  0.000  &  0.000  &  0.000  &  0.000  &  1.000  &  0.000  &  0.000  \\
-		$N_{cbo-A}$   	 	 & -0.010  &  0.021  & -0.029  &  0.077  &  0.000  &  1.000  & -0.066  \\
-		$N_{cbo-\phi}$   	 &  0.023  &  0.028  & -0.039  & -0.859  &  0.000  & -0.066  &  1.000  \\
+		$A$    			 	 & 1.000 & 0.005 & -0.007 & -0.017 & 0.013 & -0.017 & 0.023  \\
+		$R$     			 & 0.005 & 1.000 & -0.828 & -0.014 & -0.023 & 0.032 & 0.022  \\
+		$\phi$   			 & -0.007 & -0.828 & 1.000 & 0.019 & 0.033 & -0.044 & -0.030  \\
+		$\omega_{cbo}$   	 & -0.017 & -0.014 & 0.019 & 1.000 & -0.174 & 0.194 & -0.866  \\
+		$\tau_{cbo}$ 		 & 0.013 & -0.023 & 0.033 & -0.174 & 1.000 & -0.889 & 0.107  \\
+		$A_{cbo-N}$   	 	 & -0.017 & 0.032 & -0.044 & 0.194 & -0.889 & 1.000 & -0.130  \\
+		$\phi_{cbo-N}$   	 & 0.023 & 0.022 & -0.030 & -0.866 & 0.107 & -0.130 & 1.000  \\
 	  \bottomrule
 	\end{tabular*}
-	\caption{Correlation matrix for the full ratio fit. The CBO lifetime is fixed but included in this table. The only significant correlation to R is the \gmtwo phase.}
+	\caption{Correlation matrix for the full ratio fit. The only significant correlation to R is the \gmtwo phase.}
 	\label{Tab:CorrMat}
 	\end{table}
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{CorrelationMatrix}
-	    \caption[CorrelationMatrix]{Plotted are the correlations between the different fit parameters. Correlations to R are minimal for all fit parameters except the \gmtwo phase. The correlation between the CBO frequency and phase is also easily noticed in this plot.}
+	    \caption[CorrelationMatrix]{Plotted are the correlations between the different fit parameters. Correlations to R are minimal for all fit parameters except the \gmtwo phase. There is also a large correlation between the CBO frequency and phase, and the CBO lifetime and amplitude.}
 	    \label{fig:CorrelationMatrix}
 	\end{figure}
 

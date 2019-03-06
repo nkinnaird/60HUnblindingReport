@@ -5,7 +5,7 @@
 
 While not the main focus of my analysis, I also perform a T method fit to the data along with the ratio fit. This is useful as a comparison to the ratio method results, and can also provide useful parameter information that the ratio method has trouble getting at. I do not perform systematic studies, and only perform analysis checks like fit start time scans to verify that the T method fit is working correctly. In my T method fit, I include all CBO terms except the $N_{2cbo}$ term, the vertical waist, and lost muons, as described in Chapter \ref{Ch:Procedures}, for a total of 18 fit parameters. The same fit start and end times as used in the ratio fit of $\SI{30.2}{\mu s} - \SI{650}{\mu s}$ are used here as well.
 
-The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod} and plotted in Figure \ref{fig:CorrelationMatrixTMethod}. Residuals and FFTs of the T method fit results are included for posterity in Figures \ref{fig:fitResidual_TMethod} - \ref{fig:FFTComparison_TMethod}.
+The results for a T-Method fit are shown in Figure \ref{fig:TMethod_moduloPlot}, with a table of the results with parameter information shown in Table \ref{Tab:FitParamsTMethod}. The correlation matrix for the T-Method fit is shown in Table \ref{Tab:CorrMatTMethod} and plotted in Figure \ref{fig:CorrelationMatrixTMethod}. Residuals and FFTs of the T method fit results are included for posterity in Figures \ref{fig:fitResidual_TMethod} - \ref{fig:FFTComparison_TMethod}. Note that the errors on the VW amplitude and phase are large, seemingly indicating that the VW does not need to be included in the fit. If it is excluded however, then the VW peak in the FFT of the residuals reappears, therefore it is left in the fit. Preliiminary tests with different random seeds indicate that there is a large effect on the degree of cancellation of the fast rotation and the subsequent values of the fitted VW parameters.
 
 A comparison between the ratio and T-Method results are shown in Table \ref{Tab:FitComparison}. There is a slight difference in data that is fitted between the T method and the ratio method. Because of the time shifting that is done in the ratio method, there is a quarter \gmtwo periods worth of data starting at $\SI{30.2}{\mu s}$ that is replaced by data before $\SI{30.2}{\mu s}$. This shouldn't change much but should be kept in mind when comparing the results.
 
@@ -44,7 +44,7 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 		$\phi_{cbo-\phi}$     & CBO $\phi$ Phase       	 	&  $\SI{-1.391}{}$ & $\SI{0.510}{}$ \\
 		$\omega_{VW}$   	  & VW Frequency $(MHz)$        &  $\SI{2.309}{}$ & $\SI{0.00757}{}$ \\
 		$\tau_{VW}$           & VW Lifetime $(\mu s)$ 	    &  $\SI{11.69}{}$ & $\SI{4.91}{}$ \\
-		$A_{VW}$   	 		  & VW Amplitude      			&  $\SI{0.017}{}$ & $\SI{0.019}{}$ \\
+		$A_{VW}$   	 		  & VW Amplitude      			&  $\SI{0.018}{}$ & $\SI{0.019}{}$ \\
 		$\phi_{VW}$   	  	  & VW Phase       	 			&  $\SI{1.328}{}$ & $\SI{1.689}{}$ \\
 		$\kappa_{loss}$   	  & Lost Muon Normalization     &  $\SI{6.616}{}$ & $\SI{0.245}{}$ \\
 	  \hline
@@ -157,7 +157,7 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 		$\phi_{cbo-\phi}$     & CBO $\phi$ Phase       	 	&  $\SI{-1.391}{}$ &  \\
 		$\omega_{VW}$   	  & VW Frequency $(MHz)$        &  $\SI{2.309}{}$ &  \\
 		$\tau_{VW}$           & VW Lifetime $(\mu s)$ 	    &  $\SI{11.69}{}$ &  \\
-		$A_{cbo-VW}$   	 	  & VW Amplitude      			&  $\SI{0.017}{}$ &  \\
+		$A_{cbo-VW}$   	 	  & VW Amplitude      			&  $\SI{0.018}{}$ &  \\
 		$\phi_{cbo-VW}$   	  & VW Phase       	 			&  $\SI{1.328}{}$ &  \\
 		$\kappa_{loss}$   	  & Lost Muon Normalization     &  $\SI{6.616}{}$ &  \\
 	  \hline

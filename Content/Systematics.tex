@@ -238,14 +238,12 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to VW function}
 \label{Sec:SystematicVW}
 
-	Results produced on the 5033A dataset. \\
-
 	As described in Section \ref{Sec:VW}, the vertical waist does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the VW, I added the VW to the fit as described in that section, with an exponentially decaying cosine term. Since the fit is unstable in regards to the amplitude and lifetime parameters, I fixed them to values determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:VWModuloPlot}. The final fitted R value differs from the non-VW fitted function by less than 1 ppb. This is unsurprising since I'm trying to fit an effect which does not exist in the ratio.
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{ratioCBO_moduloPlot-VW}
-	    \caption[VWModuloPlot]{Fit results with the VW term included. The lifetime and amplitude of the effect have been fixed, while the frequency and phase are allowed to float. As can be seen there is a large error on the phase. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The parameter values in the stats box for the CBO frequency and lifetime are in units of ns. R is blinded locally. The fit ranges from $\SI{30.2}{\mu s}$ to $\SI{650}{\mu s}$.}
+	    \caption[VWModuloPlot]{Fit results with the VW term included. The VW parameters have been fixed to values determined from a T Method fit to the data. The x axis is in units of $\mu$s modulo 100 $\mu$s, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from $\SI{30.2}{\mu s}$ to $\SI{650}{\mu s}$.}
 	    \label{fig:VWModuloPlot}
 	\end{figure}
 

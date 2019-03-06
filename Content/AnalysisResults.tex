@@ -14,7 +14,7 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{PileupTimeSpectrum}
-	    \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{32.02}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
+	    \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
 	    \label{fig:PileupTimeSpectrum}
 	\end{figure}
 
@@ -38,7 +38,7 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 			\includegraphics[width=\textwidth]{AddedEnergiesZoomed}
 		    \caption{Linear scale - zoomed in to show the shape.}
 	    \end{subfigure}
-	\caption[AddedEnergies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero.}
+	\caption[AddedEnergies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors.}
 	\label{fig:AddedEnergies}
 	\end{figure}
 
@@ -201,7 +201,7 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 	    \begin{subfigure}[t]{0.45\textwidth}
 		    \centering
 			\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_FS_Canv}
-		    \caption{Fitted CBO frequency ($\omega_{0}$) vs fit start time.}
+		    \caption{Fitted CBO frequency vs fit start time.}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
 	    \vspace{4mm}
 	    \begin{subfigure}[t]{0.45\textwidth}
@@ -212,7 +212,7 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 	    \begin{subfigure}[t]{0.45\textwidth}
 		    \centering
 			\includegraphics[width=\textwidth]{RatioCBO_N_cbo-phi_FS_Canv}
-		    \caption{Fitted CBO frequency ($\omega_{0}$) vs fit start time.}
+		    \caption{Fitted CBO phase on the N term vs fit start time.}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
 	\caption[FitStartScans]{Start time scans for the free parameters in the full ratio fit. All parameters are consistently within the one sigma statistical bands.}
 	\label{fig:FitStartScans}
@@ -263,9 +263,9 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 
 \section{Results vs calorimeter}
 
-	Finally results are examined on a per calorimeter basis. While there will be some differences in fit results due to the differing acceptance between the calorimeters, in general the results should be consistent. Because of the reduced amount of stats for the individual calorimeters, the fit range has been restricted to 30 - 300 $\mu s$ as opposed to 30 - 500 $\mu s$ for the added calorimeter fit. As described briefly in Section \ref{Sec:CBO}, extra CBO terms are included in the fits, including $N_{2cbo}$, $A_{cbo}$, and $\phi_{cbo}$. While not all individual calorimeters need all of these terms for good fits, some have poor \chisq's without them, as shown in Figure \ref{fig:CaloChi2s}. The fitted parameter results for individual calorimeters are shown in Figures \ref{fig:PerCaloPlots} and \ref{fig:PerCaloPlotsExtraCBOParams}, where the latter shows fit convergence for the extra CBO parameters. In only a few calorimeters are the extra CBO parameters potentially omittable, as evidenced by larger error bars on the fitted parameters. As seen all calorimeter fits and their parameters behave well.
+	Finally results are examined on a per calorimeter basis. While there will be some differences in fit results due to the differing acceptance between the calorimeters, in general the results should be consistent. Because of the reduced amount of stats for the individual calorimeters, the fit range has been restricted to $\SI{30.2}{\mu s}$ to $\SI{400}{\mu s}$ as opposed to $\SI{30.2}{\mu s}$ to $\SI{650}{\mu s}$ for the calorimeter sum fit. As described briefly in Section \ref{Sec:CBO}, extra CBO terms are included in the fits, including $N_{2cbo}$, $A_{cbo}$, and $\phi_{cbo}$. While not all individual calorimeters need all of these terms for good fits, some have poor \chisq's without them, as shown in Figure \ref{fig:CaloChi2s}. The fitted parameter results for individual calorimeters are shown in Figures \ref{fig:PerCaloPlots}, \ref{fig:PerCaloPlotsCBO}, and \ref{fig:PerCaloPlotsExtraCBOParams}, where the latter shows fit convergence for the extra CBO parameters. In only a few calorimeters are the extra CBO parameters potentially omittable, as evidenced by larger error bars on the fitted parameters. As seen all calorimeter fits and their parameters behave well.
 
-	Of interest to note, calorimeters 13 and 19 have their \gmtwo phases converge to values similar to each other and separate from the rest of the calorimeters, as shown in Figure \ref{subfig:CaloGM2Phase}. There is also potentially a slight bump between calorimeters 1 and 24. This behaviour is matched by high $N_{cbo}$ amplitudes shown in Figure \ref{subfig:CaloNcboAmp}, and bumps in the $N_{cbo}$ phase shown in Figure \ref{subfig:CaloNcboPhase} at the same locations. These calorimeters lie behind the two tracker stations, as well as the empty tracker station near calorimeters 1 and 24. Presumably the different amount of material upstream of these calorimeters leads to a different acceptance and subsequent CBO parameters, which tie into the \gmtwo phase. It's good to see that the fitted R values for these calorimeters are not significantly different in any way. It would be interesting to see if the behaviour of these fitted parameters is reflected in simulation.
+	Of interest to note, calorimeters 13 and 19 have their \gmtwo phases converge to values similar to each other and separate from the rest of the calorimeters, as shown in Figure \ref{subfig:CaloGM2Phase}. There is also potentially a slight bump between calorimeters 1 and 24. This behaviour is somewhat matched by high $N_{cbo}$ amplitudes shown in Figure \ref{subfig:CaloNcboAmp}, and bumps in the $N_{cbo}$ phase shown in Figure \ref{subfig:CaloNcboPhase} at the same locations. These calorimeters lie behind the two tracker stations, as well as the empty tracker station near calorimeters 1 and 24. Presumably the different amount of material upstream of these calorimeters leads to a different acceptance and subsequent CBO parameters, which tie into the \gmtwo phase. It's good to see that the fitted R values for these calorimeters are not significantly different in any way. It would be interesting to see if the behaviour of these fitted parameters is reflected in simulation.
 
 	\begin{figure}[]
 	\centering
@@ -305,11 +305,22 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 			\includegraphics[width=\textwidth]{RatioCBOFit_A_Vs_Calo_Canv}
 		    \caption{Fitted asymmetry vs calorimeter number.}
 	    \end{subfigure}
-	    \hspace{4mm}
+	\caption[PerCaloPlots]{Full ratio fit parameter values vs calorimeter number.}
+	\label{fig:PerCaloPlots}
+	\end{figure}
+
+	\begin{figure}[h]
+	\centering
 	    \begin{subfigure}[t]{0.4\textwidth}
 		    \centering
 			\includegraphics[width=\textwidth]{RatioCBOFit_omega_cbo_Vs_Calo_Canv}
-		    \caption{Fitted CBO frequency ($\omega_{0}$) vs calorimeter number.}
+		    \caption{Fitted CBO frequency vs calorimeter number.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.4\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{RatioCBOFit_tau_cbo_Vs_Calo_Canv}
+		    \caption{Fitted CBO lifetime vs calorimeter number.}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
 	    \vspace{4mm}
 	    \begin{subfigure}[t]{0.4\textwidth}
@@ -325,10 +336,9 @@ Of the $\SI{23453}{}$ files contained within the gold 60H dataset (gm2pro\_daq\_
 		    \caption{Fitted CBO phase on the N parameter vs calorimeter number. The CBO phase varies from 0 to 2$\pi$ around the ring.}
 		\label{subfig:CaloNcboPhase}
 	    \end{subfigure}% %you need this % here to add spacing between subfigures
-	\caption[PerCaloPlots]{Full ratio fit parameter values vs calorimeter number.}
-	\label{fig:PerCaloPlots}
+	\caption[PerCaloPlotsCBO]{Full ratio fit main CBO parameter values vs calorimeter number.}
+	\label{fig:PerCaloPlotsCBO}
 	\end{figure}
-
 
 	\begin{figure}[h]
 	\centering

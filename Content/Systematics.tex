@@ -384,9 +384,7 @@
 
 	\subsection{Bunch Number}
 
-		Results produced on a 90\% subset of the 5033D dataset. \\
-
-		I will examine R for the 8 separate bunches, once the new dataset is available. As a temporary measure I examined the results for a large part of the 5033D dataset. Since the dataset is split into smaller pieces by bunch number, the individual fits have a harder time getting at various CBO terms. Therefore I've fixed the CBO lifetime in these fits to $\SI{180}{\mu s}$ and excluded all CBO terms except the N CBO term.
+		Each fill during normal data taking comes from one of eight separate muon bunches. Each individual bunch, due to the nature of the particle production and upstream beamline effects, likely has separate properties. In order to explore this the fit results can be examined as a function of bunch number. The fit results are shown in Figures \ref{fig:BunchNumChi2}, \ref{fig:BunchNumPars}, and \ref{fig:BunchNumParsCBO}. As can be seen in the first figure, it appears that the goodness-of-fit as a function of bunch number is not quite adequate, with most points being above 1. The fitted parameter values for the different bunches shown in the latter figures appear for the most part consistent, with some clear differences between the different bunches. This is especially evident in Figure \ref{SubFig:gm2PhaseBunch}, where the \gmtwo phase is clearly different between bunches. This could potentially lead to a systematic error on R, for example due to different lost muon characteristics per bunch and thus a changing average \gmtwo phase over the course of a fill. It is nice to see however that the average R value and \gmtwo phases between the different bunches are very consistent with the results from the bunch sum fit. The other parameters are all consistent as well to different degrees. This is only a cursory look at the analysis results on a per bunch basis, and the systematic effects on R (if indeed there are any) have yet to be explored in any great detail.
 
 		\begin{figure}[]
 			\centering
@@ -407,6 +405,7 @@
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_phi_Vs_BunchNum_Canv}
 			    \caption{Fitted \gmtwo phase values as a function of bunch number.}
+			    \label{SubFig:gm2PhaseBunch}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
 			\vspace{4mm}
 		    \begin{subfigure}[t]{0.4\textwidth}
@@ -414,11 +413,22 @@
 				\includegraphics[width=\textwidth]{RatioCBO_A_Vs_BunchNum_Canv}
 			    \caption{Fitted A values as a function of bunch number.}
 		    \end{subfigure}
-		    \hspace{4mm}
+		\caption[BunchNumPars]{Plotted are the main fitted parameter values for the different bunch numbers. The point at bunch number 8 is the fit result from all bunches added together. The blue dashed line is set at the added bunch number result, and the red line is the fit to the individual bunches excluding the final point.}
+		\label{fig:BunchNumPars}
+		\end{figure}
+
+		\begin{figure}[]
+		\centering
 		    \begin{subfigure}[t]{0.4\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_Vs_BunchNum_Canv}
 			    \caption{Fitted CBO frequency values as a function of bunch number.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.4\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_tau_cbo_Vs_BunchNum_Canv}
+			    \caption{Fitted CBO lifetime values as a function of bunch number. Bunches 6 and 7 hit the upper fit limit of $\SI{500}{\mu s}$.}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
 			\vspace{4mm}
 		    \begin{subfigure}[t]{0.4\textwidth}
@@ -433,11 +443,9 @@
 			    \caption{Fitted CBO N amplitude values as a function of bunch number.}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
 			\vspace{4mm}
-		\caption[BunchNumPars]{Plotted are the fitted parameter values for the different bunch numbers. The point at bunch number 8 is the fit result from all bunches added together. The blue dashed line is set at the added bunch number result, and the red line is the fit to the individual bunches excluding the final point.}
-		\label{fig:BunchNumPars}
+		\caption[BunchNumParsCBO]{Plotted are the fitted CBO parameter values for the different bunch numbers. Some of the fitted parameters have large error bars, indicating that the fit had trouble fitting the CBO parameters. The point at bunch number 8 is the fit result from all bunches added together. The blue dashed line is set at the added bunch number result, and the red line is the fit to the individual bunches excluding the final point.}
+		\label{fig:BunchNumParsCBO}
 		\end{figure}
-
-		I'm not sure if there is supposed to be a systematic error for the results vs bunch number. Should this just be a check that results are consistent? I'm not so sure they should be though..
 
 
 \clearpage

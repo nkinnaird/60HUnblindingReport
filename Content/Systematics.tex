@@ -67,7 +67,7 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to pileup}
 \label{Sec:SystematicPileup}
 
-	The systematic error on R due to the pileup construction consists primarily of two parts, the error due to misconstruction of the amplitude and the phase of the pileup. I estimate the systematic error on R due to the pileup amplitude at 24.1 ppb, and to the pileup phase in pieces of 25.7 and 16.1 ppb. Adding these in quadrature results in a systematic error of 37.8 ppb.
+	The systematic error on R due to the pileup construction consists primarily of two parts, the error due to misconstruction of the amplitude and the phase of the pileup. I estimate the systematic error on R due to the pileup amplitude at 24.1 ppb, and to the pileup phase in pieces of 23.1 and 17.1 ppb. Adding these in quadrature results in a systematic error of 37.5 ppb.
 
 	\subsection{Pileup Amplitude}
 
@@ -101,23 +101,23 @@
 	\subsection{Pileup Phase}
 	\label{SubSec:PileupPhase}
 
-		The error on R due to the pileup phase construction was calculated by scanning over a pileup time shift parameter, where the pileup spectrum was shifted in time by some amount before subtraction. The sensitivity of R to this parameter is shown in Figure \ref{fig:PileupPhase}. It is extremely unlikely that the entire pileup spectrum could be shifted by the offsets shown here, so this is a conservative estimate of the effect of the pileup phase on R. I then calculate the phase error as 
+		The error on R due to the pileup phase construction was calculated by scanning over a pileup time shift parameter, where the pileup spectrum was shifted in time by some amount before subtraction. The sensitivity of R to this parameter is shown in Figure \ref{fig:PileupPhase}. It is unlikely that the entire pileup spectrum could be shifted by the offsets shown here, so this is a conservative estimate of the effect of the pileup phase on R. I then calculate the phase error as 
 			\begin{align}
 				\delta R_{pp} = \delta\alpha_{pp} \times \frac{dR}{d\alpha_{pp}}
 			\end{align}
-		where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. Conservatively estimating the uncertainty on the pileup phase as half the artificial deadtime at 3 ns, the systematic error on R is then calculated as $\SI{3}{ns} \times \SI{8.571}{ppb/ns} = \SI{25.7}{ppb}$. Figure \ref{fig:PileupTimeShiftFS} shows the change in R vs fit start times for pileup time shifted spectra vs the unshifted pileup time spectra. As shown the difference converges to zero as the level of pileup diminishes over the course of a fill.
+		where $\delta\alpha_{pp}$ is the uncertainty on the pileup phase. Conservatively estimating the uncertainty on the pileup phase as half the artificial deadtime at 3 ns, the systematic error on R is then calculated as $\SI{3}{ns} \times \SI{7.697}{ppb/ns} = \SI{23.1}{ppb}$. Figure \ref{fig:PileupTimeShiftFS} shows the change in R vs fit start times for pileup time shifted spectra vs the unshifted pileup time spectra. As shown the difference converges to zero as the level of pileup diminishes over the course of a fill.
 
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.5\textwidth]{RatioCBO_R_Vs_PileupTimeShift_Canv}
-		    \caption[PileupPhase]{Sensitivity of R vs the pileup phase. The slope is 8.571 ppb per ns.}
+		    \caption[PileupPhase]{Sensitivity of R vs the pileup phase. The slope is 7.697 ppb per ns.}
 		    \label{fig:PileupPhase}
 		\end{figure}
 
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.8\textwidth]{pileupTimeShiftComparison}
-		    \caption[PileupTimeShiftFS]{Plotted is $\Delta R$ between pileup time shifted and unshifted results vs fit start time. The black line and points are by definition 0. As the fit start time increases and the pileup reduces, the $\Delta R$ points converge to zero as they should.}
+		    \caption[PileupTimeShiftFS]{Plotted is $\Delta R$ between pileup time shifted and unshifted results vs fit start time. The black line and points are by definition 0. As the fit start time increases and the pileup reduces, the $\Delta R$ points converge to zero as they should. Plot created on 5033A dataset.}
 		    \label{fig:PileupTimeShiftFS}
 		\end{figure}
 
@@ -125,24 +125,24 @@
 			\begin{align}
 				E_{doublet} = C \cdot (E_{1} + E_{2}),
 			\end{align}
-		by scanning over the parameter C this error can be determined. The sensitivity of R to this pileup energy scaling parameter is shown in Figure \ref{fig:PileupEnergyScaling}, with a slope of -806.5 ppb per unit scaling parameter. The systematic error on R is calculated in the usual way,
+		by scanning over the parameter C this error can be determined. The sensitivity of R to this pileup energy scaling parameter is shown in Figure \ref{fig:PileupEnergyScaling}, with a slope of -841.6 ppb per unit scaling parameter. The systematic error on R is calculated in the usual way,
 			\begin{align}
 				\delta R_{pe} = \delta\alpha_{pe} \times \frac{dR}{d\alpha_{pe}}
 			\end{align}
-		where $\delta\alpha_{pe}$ is the uncertainty on the pileup energy dependence. This uncertainty was calculated in the same manner as was done for the pileup amplitude, by fitting a parabola to the \chisq as a function of the energy scaling parameter, and it was determined to be 2\%. The systematic error on R is then calculated as $0.02 \times \SI{806.5}{ppb} = \SI{16.1}{ppb}$.
+		where $\delta\alpha_{pe}$ is the uncertainty on the pileup energy dependence. This uncertainty was calculated in the same manner as was done for the pileup amplitude, by fitting a parabola to the \chisq as a function of the energy scaling parameter, and it was determined to be 2.03\%. The systematic error on R is then calculated as $0.0203 \times \SI{841.6}{ppb} = \SI{17.1}{ppb}$.
 
 		\begin{figure}[]
 		\centering
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_PileupEnergyScaling_Canv}
-			    \caption{Sensitivity of R vs the pileup energy scaling parameter. The slope is -806.5 ppb per unit energy scaling.}
+			    \caption{Sensitivity of R vs the pileup energy scaling parameter. The slope is -841.6 ppb per unit energy scaling.}
 		    \end{subfigure}
 		    \hspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_Chi2_Vs_PileupEnergyScaling_Canv}
-			    \caption{Plotted is the fitted \chisq vs the pileup energy scaling parameter. The fit equation used was $p2 \times (x - p1)^{2} + p0.$ The minimum lies at 1.023.}
+			    \caption{Plotted is the fitted \chisq vs the pileup energy scaling parameter. The fit equation used was $p2 \times (x - p1)^{2} + p0.$ The minimum lies at 1.013.}
 		    \end{subfigure}
 		\caption[PileupEnergyScaling]{The significant plots to determine a part of the pileup phase systematic error.}
 		\label{fig:PileupEnergyScaling}
@@ -258,6 +258,8 @@
 
 	\subsection{\gmtwo Period Guess}
 	\label{SubSec:gm2Guess}
+
+		error will instead be from uniform distribution of +- 24 over root 12 added in quadrature with e821 answer being wrong and hardware blinding
 
 		To perform the ratio method, the \gmtwo period needs to be known a priori to high precision. By scanning over various \gmtwo period guesses the dependence of R on $T_{a}$ can be determined, as shown in Figure \ref{fig:gm2PeriodGuess}. The systematic error can then be calculated as 
 			\begin{align}
@@ -456,7 +458,7 @@ The calculated systematic errors are shown in Table \ref{Tab:Systematics}. Here 
     Systematic Error 		& \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
 	Gain 			 		&  3.5   \\
-	Pileup     	     		&  37.8  \\
+	Pileup     	     		&  37.5  \\
 	Lost Muons              &  29.9  \\
 	CBO      		 		&  38.6  \\
 	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\

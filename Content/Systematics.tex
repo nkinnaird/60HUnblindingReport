@@ -261,7 +261,7 @@
 			\end{align}
 		where $\delta\alpha_{period}$ is the uncertainty on $T_{a}$. 
 
-		Since the period that the counts need to be shifted by is already modified by the hardware blinding, it is technically the hardware shifted \gmtwo period that we want to use. As described in \cite{ClockManual}, the calorimeter digitizers use a ``40'' MHz clock which has been blinded to a value in the range of 39.997 to 39.999 MHz. This corresponds to a 75 ppm range in the frequency we're after, in a uniform distribution. Calculating the uncertainty from said uniform distribution and adding it in quadrature with a conservative 10 ppm uncertainty in the guess on the true \gmtwo period, 
+		Since the period that the counts need to be shifted by is already modified by the hardware blinding, it is technically the hardware shifted \gmtwo period that we want to use. As described in \cite{ClockManual}, the calorimeter digitizers use a ``40'' MHz clock which has been blinded to a value in the range of 39.997 to 39.999 MHz. This corresponds to a 75 ppm range in the frequency we're after, in a uniform distribution. Calculating the uncertainty from said uniform distribution and adding it in quadrature with a conservative 10 ppm uncertainty in the guess on the true \gmtwo period: 
 			\begin{align}
 				\delta\alpha_{period} = \sqrt{(75)^{2}/12 + 10^{2}} = \SI{23.8}{ppm}
 			\end{align}

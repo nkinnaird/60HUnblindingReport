@@ -252,37 +252,37 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to various effects}
 
-	Results produced on the 5033A dataset. \\
-
-	More effects to be studied - results vs bunch number, higher order beam/CBO effects, etc.
-
 	\subsection{\gmtwo Period Guess}
 	\label{SubSec:gm2Guess}
 
-		error will instead be from uniform distribution of +- 24 over root 12 added in quadrature with e821 answer being wrong and hardware blinding
-
-		To perform the ratio method, the \gmtwo period needs to be known a priori to high precision. By scanning over various \gmtwo period guesses the dependence of R on $T_{a}$ can be determined, as shown in Figure \ref{fig:gm2PeriodGuess}. The systematic error can then be calculated as 
+		To perform the ratio method, the \gmtwo period needs to be known a priori to high precision. This is because this value is used when time shifting the individual counts before filling the ratio histograms. By scanning over various \gmtwo period guesses the dependence of R on $T_{a}$ can be determined, as shown in Figure \ref{fig:gm2PeriodGuess}. The systematic error can then be calculated as 
 			\begin{align}
 				\delta R_{period} = \delta\alpha_{period} \times \frac{dR}{d\alpha_{period}}
 			\end{align}
-		where $\delta\alpha_{period}$ is the uncertainty on $T_{a}$. Very conservatively taking the uncertainty as 10 ppm, the systematic error on R is calcualted as $\SI{10}{ppm} \times \SI{1.62e-4}{ppm/ppm} = \SI{1.62}{ppb}$, which is completely negligible.
+		where $\delta\alpha_{period}$ is the uncertainty on $T_{a}$. 
+
+		Since the period that the counts need to be shifted by is already modified by the hardware blinding, it is technically the hardware shifted \gmtwo period that we want to use. As described in \cite{ClockManual}, the calorimeter digitizers use a ``40'' MHz clock which has been blinded to a value in the range of 39.997 to 39.999 MHz. This corresponds to a 75 ppm range in the frequency we're after, in a uniform distribution. Calculating the uncertainty from said uniform distribution and adding it in quadrature with a conservative 10 ppm uncertainty in the guess on the true \gmtwo period, 
+			\begin{align}
+				\delta\alpha_{period} = \sqrt{(75)^{2}/12 + 10^{2}} = \SI{23.8}{ppm}
+			\end{align}
+		This results in a systematic error of $\SI{23.8}{ppm} \times \SI{1.16e-4}{ppm/ppm} = \SI{2.8}{ppb}$.
 
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_gm2PeriodGuess_Canv}
-		    \caption[gm2PeriodGuess]{Fitted R value as a function of the ppm level offset from the guess used for the \gmtwo period, \ref{eq:Ta}. Error bars have been removed from this plot, otherwise it appears as a flat line. The slope is .16 ppb per ppm offset in $T_{a}$.}
+		    \caption[gm2PeriodGuess]{Fitted R value as a function of the ppm level offset from the default guess used for the \gmtwo period, \ref{eq:Ta}. Error bars have been removed from this plot, otherwise it appears as a flat line. There appears to be a noticeable oscillation in the points at \gmtwo period guesses beyond the range of -25 ppm - +25 ppm, therefore the fit has been restricted to that range. The slope is .116 ppb per ppm offset in $T_{a}$.}
 		    \label{fig:gm2PeriodGuess}
 		\end{figure}
 
 	\subsection{Lifetime used in weighting}
 	\label{SubSec:LifetimeWeighting}
 
-		Similarly to the \gmtwo period guesses used when constructing the time spectra for the ratio method, the lifetime of the muon is used when splitting the counts into the various histograms with different weights, as seen in Equation \ref{Eqn:Weighting}. To check for a systematic effect on R from getting this lifetime wrong, I scanned over a range of such lifetimes around the default value used, $\SI{64.4}{\mu s}$. As shown in Figure \ref{fig:weightingLifetime}, the slope is 2.632 ppb per $\mu$s. Since the uncertainty on the lifetime is much less than a microsecond, this systematic error is completely neglible.
+		Similarly to the \gmtwo period guesses used when constructing the time spectra for the ratio method, the lifetime of the muon is used when splitting the counts into the various histograms with different weights, as seen in Equation \ref{Eqn:Weighting}. To check for a systematic effect on R from getting this lifetime wrong, I scanned over a range of such lifetimes around the default value used, $\SI{64.4}{\mu s}$. As shown in Figure \ref{fig:weightingLifetime}, the slope is 4.015 ppb per $\mu$s. Since the uncertainty on the lifetime is much less than a microsecond, this systematic error is neglible.
 
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_weightingLifetime_Canv}
-		    \caption[weightingLifetime]{Fitted R value as a function of the lifetime used in the weighting of counts into histograms. Error bars have been removed from this plot, otherwise it appears as a flat line. The slope is 2.632 ppb per $\mu$s.}
+		    \caption[weightingLifetime]{Fitted R value as a function of the lifetime used in the weighting of counts into histograms. Error bars have been removed from this plot, otherwise it appears as a flat line. The slope is 4.015 ppb per $\mu$s.}
 		    \label{fig:weightingLifetime}
 		\end{figure}
 
@@ -492,7 +492,7 @@
 		\caption[RandomSeedsPars3]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
 		\label{fig:RandomSeedsPars3}
 		\end{figure}
-		
+
 
 	\subsection{Bunch Number}
 
@@ -564,7 +564,7 @@
 
 \section{Final Systematic Uncertainty Table}
 
-The calculated systematic errors are shown in Table \ref{Tab:Systematics}. Here we see...
+The calculated systematic errors for the 60H dataset are shown in Table \ref{Tab:Systematics}. As a reminder, not all systematic uncertainty evaluations are fully completed. Here we see that...
 
 
 \begin{table}[H]
@@ -577,20 +577,20 @@ The calculated systematic errors are shown in Table \ref{Tab:Systematics}. Here 
   \hline\hline
     Systematic Error 		& \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
-	Gain 			 		&  3.5   \\
+	Gain 			 		&     \\
 	Pileup     	     		&  37.5  \\
-	Lost Muons              &  29.9  \\
-	CBO      		 		&  38.6  \\
+	Lost Muons*             &  29.9  \\
+	CBO      		 		&    \\
 	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\
-	Bin Width        		&  44.5  \\
+	Bin Width        		&    \\
 	Randomization    		&  24.4  \\
 	% Bunch Number     		&        \\
-	Other 				  	&  1.6   \\
+	Other* 				  	&  2.8   \\
   \hline\hline		
   	Total   	     		&    \\
   \hline
 \end{tabular*}
-\caption{Systematic error table for the 60H dataset. All units are in ppb. Not all systematic errors have been fully estimated.}
+\caption{Systematic error table for the 60H dataset. All units are in ppb. The `*'s indicate that significant work still needs to be done in the error estimation. The lack of a `*' does not preclude future work on the rest of the systematic errors. }
 \label{Tab:Systematics}
 \end{table}
 

@@ -301,22 +301,23 @@
 	\subsection{Randomization}
 	\label{Sec:Randomization}
 
-		In the histogramming phase of my analysis, random seeds are used in two places. One for the randomization of counts into the 4 separate datasets that go into the ratio, and one for the time randomization to reduce the fast rotation. It's necessary to make sure that results are consistent among random seeds, and that the final answer wasn't a particularly fortuitous or disastrous choice. In order to test this I performed fits with 20 different random seeds, the $\chi^{2}/NDF$ and fitted R values of which are plotted in Figure \ref{fig:RandomSeeds}. Results are consistent and very much within error of each other. I also performed fit start scans for a couple of the random seeds as an extra check to make sure the fitting was behaving consistently as shown in Figures \ref{fig:RandomSeedFitStartScansChi2} and \ref{fig:RandomSeedFitStartScansR}.
+		In the histogramming phase of my analysis, random seeds are used in two places. One for the randomization of counts into the 4 separate datasets that go into the ratio, and one for the time randomization to reduce the fast rotation. It's necessary to make sure that results are consistent among random seeds, and that the final answer wasn't a particularly fortuitous or disastrous choice. In order to test this I performed fits with 50 different random seeds, the $\chi^{2}/NDF$ and fitted R values of which are plotted in Figure \ref{fig:RandomSeeds}. Results are consistent and very much within error of each other. I also performed fit start scans for a couple of the random seeds as an extra check to make sure the fitting was behaving consistently as shown in Figures \ref{fig:RandomSeedFitStartScansChi2} and \ref{fig:RandomSeedFitStartScansR}.
 
 		\begin{figure}[]
 		\centering
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_Iter_Canv_hist}
-			    \caption{$\chi^{2}$/NDF values for 20 random seeds.}
+			    \caption{$\chi^{2}$/NDF values for 50 random seeds. The mean is near 1.}
 		    \end{subfigure}
+		    \hspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_Iter_Canv_hist}
-			    \caption{R values for 20 random seeds.}
+			    \caption{R values for 50 random seeds. The mean is -20.38 ppm and the RMS is 170.5 ppb.}
 			\label{Subfig:RVsRandomSeed}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
-		\caption[RandomSeeds]{Plotted is the $\chi^{2}$/NDF and fitted R value for 20 random seeds.}
+		\caption[RandomSeeds]{Plotted are the $\chi^{2}$/NDF and fitted R values for 50 random seeds.}
 		\label{fig:RandomSeeds}
 		\end{figure}
 
@@ -329,21 +330,21 @@
 		    \end{subfigure}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed5}
+				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed1}
 			    \caption{Seed 2}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
 		    \vspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed12}
+				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed2}
 			    \caption{Seed 3}
 		    \end{subfigure}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed18}
+				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_FS_canv-Seed3}
 			    \caption{Seed 4}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
-		\caption[RandomSeedFitStartScansChi2]{Fit start time scans for the \chisq for four random seeds of the randomization of the same dataset. Compare to Figure \ref{fig:RatioCBO_Chi2NDF_Vs_FS_canv}. The general behaviour of the fits vs fit start time is consistent and relatively the same, but as is seen the scans can rise and fall at different points due to the choice of randomization.}
+		\caption[RandomSeedFitStartScansChi2]{Fit start time scans for the \chisq for four random seeds of the randomization of the same dataset. Compare to Figure \ref{fig:Chi2FSScan}. The general behaviour of the fits vs fit start time is consistent and relatively the same, but as is seen the scans can rise and fall at different points due to the choice of randomization.}
 		\label{fig:RandomSeedFitStartScansChi2}
 		\end{figure}
 
@@ -356,31 +357,30 @@
 		    \end{subfigure}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed5}
+				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed1}
 			    \caption{Seed 2}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
 		    \vspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed12}
+				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed2}
 			    \caption{Seed 3}
 		    \end{subfigure}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
-				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed18}
+				\includegraphics[width=\textwidth]{RatioCBO_R_FS_canv-Seed3}
 			    \caption{Seed 4}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
-		\caption[RandomSeedFitStartScansR]{Fit start time scans for the fitted R parameter for four random seeds of the randomization of the same dataset. The general behaviour of the fits vs fit start time is consistent.}
+		\caption[RandomSeedFitStartScansR]{Fit start time scans for the fitted R parameter for four random seeds of the randomization of the same dataset. The general behaviour of the R value vs fit start time is very consistent between seeds.}
 		\label{fig:RandomSeedFitStartScansR}
 		\end{figure}
 
-		I'm not so sure there should be a systematic error on R due to the randomization. Such an error should be contained within the statistical error of the final answer I believe. However I calculate one here for posterity in the manner that was done for E821,
+		If the reported final answer on R is that of a single fit, then I believe there should be no systematic error on R due to the randomization. Such an error should be contained within the statistical error of the fitted parameter. If however the reported final answer is the average R value from many random seeds, then I can see why one might want to add in such a systematic error. For the latter case I calculate the systematic error on R as:
 			\begin{align}
 				\delta R_{rand} = \sigma(R)/\sqrt{N-1},
 			\label{Eqn:Rand}
 			\end{align}
-		where $\sigma(R)$ is the RMS spread in R and N is the number of random seeds fitted, in this case 20. Therefore with an RMS on R of 193.6 ppb, the systematic error on R due to the randomization is (potentially) 44.4 ppb. (The fact that simply increasing the number of seeds allows for this systematic error to reduce to zero as shown in Equation \ref{Eqn:Rand} gives greater weight to the argument that this really shouldn't be a systematic error at all, and is instead a purely statistical effect already taken care of in the fit.)
-
+		where $\sigma(R)$ is the RMS spread in R and N is the number of random seeds fitted, in this case 50. Therefore with an RMS on R of 170.5 ppb, the systematic error on the average R due to the randomization is 24.4 ppb. Perhaps the best thing to do is to report the fitted R value from a single fit that is closest to the mean, to avoid this error entirely while remaining closest to the average value.
 
 	\subsection{Bunch Number}
 
@@ -471,7 +471,7 @@ The calculated systematic errors are shown in Table \ref{Tab:Systematics}. Here 
 	CBO      		 		&  38.6  \\
 	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\
 	Bin Width        		&  44.5  \\
-	Randomization    		&  44.4  \\
+	Randomization    		&  24.4  \\
 	% Bunch Number     		&        \\
 	Other 				  	&  1.6   \\
   \hline\hline		

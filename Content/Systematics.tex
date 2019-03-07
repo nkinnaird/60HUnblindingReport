@@ -301,7 +301,7 @@
 	\subsection{Randomization}
 	\label{Sec:Randomization}
 
-		In the histogramming phase of my analysis, random seeds are used in two places. One for the randomization of counts into the 4 separate datasets that go into the ratio, and one for the time randomization to reduce the fast rotation. It's necessary to make sure that results are consistent among random seeds, and that the final answer wasn't a particularly fortuitous or disastrous choice. In order to test this I performed fits with 50 different random seeds, the $\chi^{2}/NDF$ and fitted R values of which are plotted in Figure \ref{fig:RandomSeeds}. Results are consistent and very much within error of each other. I also performed fit start scans for a couple of the random seeds as an extra check to make sure the fitting was behaving consistently as shown in Figures \ref{fig:RandomSeedFitStartScansChi2} and \ref{fig:RandomSeedFitStartScansR}.
+		In the histogramming phase of my analysis, random seeds are used in two places. One for the randomization of counts into the 4 separate datasets that go into the ratio, and one for the time randomization to reduce the fast rotation. It's necessary to make sure that results are consistent among random seeds, and that the final answer wasn't a particularly fortuitous or disastrous choice. In order to test this I performed fits with 50 different random seeds, the $\chi^{2}/NDF$ and fitted R values of which are plotted in Figure \ref{fig:RandomSeeds}. Results are consistent and very much within error of each other. I also performed fit start scans for a couple of the random seeds as an extra check to make sure the fitting was behaving consistently as shown in Figures \ref{fig:RandomSeedFitStartScansChi2} and \ref{fig:RandomSeedFitStartScansR}. I've included plots of the other fit parameters as a function of random seed in Figures \ref{fig:RandomSeedsPars1} - \ref{fig:RandomSeedsPars3}.
 
 		\begin{figure}[]
 		\centering
@@ -381,6 +381,118 @@
 			\label{Eqn:Rand}
 			\end{align}
 		where $\sigma(R)$ is the RMS spread in R and N is the number of random seeds fitted, in this case 50. Therefore with an RMS on R of 170.5 ppb, the systematic error on the average R due to the randomization is 24.4 ppb. Perhaps the best thing to do is to report the fitted R value from a single fit that is closest to the mean, to avoid this error entirely while remaining closest to the average value.
+
+		\begin{figure}[]
+		\centering
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_Chi2NDF_Vs_Iter_Canv_hist}
+			    \caption{$\chi^{2}$/NDF}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_PVal_Vs_Iter_Canv}
+			    \caption{P value}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		   	\vspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_Iter_Canv}
+			    \caption{R in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_R_Vs_Iter_Canv_hist}
+			    \caption{R in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		\caption[RandomSeedsPars1]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+		\label{fig:RandomSeedsPars1}
+		\end{figure}
+
+		\begin{figure}[]
+		\centering
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_Vs_Iter_Canv}
+			    \caption{A in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_Vs_Iter_Canv_hist}
+			    \caption{A in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		   	\vspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_Vs_Iter_Canv}
+			    \caption{\gmtwo phase in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_Vs_Iter_Canv_hist}
+			    \caption{\gmtwo phase in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		   	\vspace{4mm}
+		   	\begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_Vs_Iter_Canv}
+			    \caption{CBO frequency in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_omega_cbo_Vs_Iter_Canv_hist}
+			    \caption{CBO frequency in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		\caption[RandomSeedsPars2]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+		\label{fig:RandomSeedsPars2}
+		\end{figure}
+
+		\begin{figure}[]
+		\centering
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_tau_cbo_Vs_Iter_Canv}
+			    \caption{CBO lifetime in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_tau_cbo_Vs_Iter_Canv_hist}
+			    \caption{CBO lifetime in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		   	\vspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_cbo-N_Vs_Iter_Canv}
+			    \caption{CBO N amplitude in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_A_cbo-N_Vs_Iter_Canv_hist}
+			    \caption{CBO N amplitude in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		   	\vspace{4mm}
+		   	\begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_cbo-N_Vs_Iter_Canv}
+			    \caption{CBO N phase in graph format.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{RatioCBO_phi_cbo-N_Vs_Iter_Canv_hist}
+			    \caption{CBO N phase in histogram format.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		\caption[RandomSeedsPars3]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+		\label{fig:RandomSeedsPars3}
+		\end{figure}
+		
 
 	\subsection{Bunch Number}
 

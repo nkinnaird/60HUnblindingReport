@@ -169,7 +169,7 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 
 \clearpage
 
-	T method fits were performed for 50 random sees as was done for the ratio method fit. The results are shown in Figure \ref{fig:RandomSeedsTMethod}. Results are consistent with each other as they should be. The average R value for the T method fits is -20.3 ppm. See the next section for comparison with the random seed results for the ratio fit.
+	T method fits were performed for 50 random sees as was done for the ratio method fit. The results are shown in Figure \ref{fig:RandomSeedsTMethod}. Results are consistent with each other as they should be. The average R value for the T method fits is -20.3 ppm. See the next section for comparison with the random seed results for the ratio fit. I've included plots of the other fit parameters as a function of random seed in Figures \ref{fig:TMethodRandomSeedsPars1} - \ref{fig:TMethodRandomSeedsPars7}. Notice how the VW parameters are very dependent on the random seed, converging to distinct values between fits.
 
 	\begin{figure}[]
 	\centering
@@ -178,6 +178,7 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 			\includegraphics[width=\textwidth]{TMethod_Chi2NDF_Vs_Iter_Canv_hist}
 		    \caption{$\chi^{2}$/NDF values for 50 random seeds. The mean is less 1.}
 	    \end{subfigure}
+	    \hspace{4mm}
 	    \begin{subfigure}[t]{0.45\textwidth}
 		    \centering
 			\includegraphics[width=\textwidth]{TMethod_R_Vs_Iter_Canv_hist.png}
@@ -188,6 +189,270 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 	\label{fig:RandomSeedsTMethod}
 	\end{figure}
 
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_Chi2NDF_Vs_Iter_Canv_hist}
+		    \caption{$\chi^{2}$/NDF}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_PVal_Vs_Iter_Canv}
+		    \caption{P value}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_R_Vs_Iter_Canv}
+		    \caption{R in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_R_Vs_Iter_Canv_hist}
+		    \caption{R in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars1]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars1}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_N_0_Vs_Iter_Canv}
+		    \caption{N in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_N_0_Vs_Iter_Canv_hist}
+		    \caption{N in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_Vs_Iter_Canv}
+		    \caption{Muon lifetime in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_Vs_Iter_Canv_hist}
+		    \caption{Muon lifetime in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	   	\begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_Iter_Canv}
+		    \caption{Muon loss parameter in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_Iter_Canv_hist}
+		    \caption{Muon loss parameter in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars2]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars2}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_Vs_Iter_Canv}
+		    \caption{A in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_Vs_Iter_Canv_hist}
+		    \caption{A in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_Vs_Iter_Canv}
+		    \caption{\gmtwo phase in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_Vs_Iter_Canv_hist}
+		    \caption{\gmtwo phase in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	   	\begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_omega_cbo_Vs_Iter_Canv}
+		    \caption{CBO frequency in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_omega_cbo_Vs_Iter_Canv_hist}
+		    \caption{CBO frequency in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars3]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars3}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_cbo_Vs_Iter_Canv}
+		    \caption{CBO lifetime in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_cbo_Vs_Iter_Canv_hist}
+		    \caption{CBO lifetime in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-N_Vs_Iter_Canv}
+		    \caption{CBO N amplitude in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-N_Vs_Iter_Canv_hist}
+		    \caption{CBO N amplitude in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	   	\begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-N_Vs_Iter_Canv}
+		    \caption{CBO N phase in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-N_Vs_Iter_Canv_hist}
+		    \caption{CBO N phase in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars4]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars4}
+	\end{figure}
+		
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-A_Vs_Iter_Canv}
+		    \caption{CBO A amplitude in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-A_Vs_Iter_Canv_hist}
+		    \caption{CBO A amplitude in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-A_Vs_Iter_Canv}
+		    \caption{CBO A phase in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-A_Vs_Iter_Canv_hist}
+		    \caption{CBO A phase in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	   	\begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-phi_Vs_Iter_Canv}
+		    \caption{CBO phi amplitude in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_cbo-phi_Vs_Iter_Canv_hist}
+		    \caption{CBO phi amplitude in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars5]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars5}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-phi_Vs_Iter_Canv}
+		    \caption{CBO phi phase in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_cbo-phi_Vs_Iter_Canv_hist}
+		    \caption{CBO phi phase in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_omega_VW_Vs_Iter_Canv}
+		    \caption{VW frequency in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_omega_VW_Vs_Iter_Canv_hist}
+		    \caption{VW frequency in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	   	\begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_VW_Vs_Iter_Canv}
+		    \caption{VW lifetime in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_tau_VW_Vs_Iter_Canv_hist}
+		    \caption{VW lifetime in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars6]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars6}
+	\end{figure}
+
+	\begin{figure}[]
+	\centering
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_VW_Vs_Iter_Canv}
+		    \caption{VW amplitude in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_A_VW_Vs_Iter_Canv_hist}
+		    \caption{VW amplitude in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	   	\vspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_VW_Vs_Iter_Canv}
+		    \caption{VW phase in graph format.}
+	    \end{subfigure}
+	    \hspace{4mm}
+	    \begin{subfigure}[t]{0.45\textwidth}
+		    \centering
+			\includegraphics[width=\textwidth]{TMethod_phi_VW_Vs_Iter_Canv_hist}
+		    \caption{VW phase in histogram format.}
+	    \end{subfigure}% %you need this % here to add spacing between subfigures
+	\caption[TMethodRandomSeedsPars7]{Plotted are various fitted parameters for 50 different random seeds in graph and histogram format.}
+	\label{fig:TMethodRandomSeedsPars7}
+	\end{figure}
+
+
 \clearpage
 
 \section{Toy MC Comparison}
@@ -195,9 +460,9 @@ A comparison between the ratio and T-Method results are shown in Table \ref{Tab:
 
 In order to assist in combining the ratio method results with those of the other analyzers and their T method results, it's useful to perform an MC comparison between the ratio and T method fits. To do this I generated 100 pseudo-experiments in MC. Each pseudo-experiment consisted of a single set of ``positron'' data, generated using a 1D \texttt{ROOT} function corresponding to an energy threshold time histogram. The amount of stats in each pseudo-experiment was chosen to be comparable to the 60H dataset. This single set of hits was then randomized with 50 different random seeds, where the times of the generated hits were randomized in the same way as was done for data to remove the fast rotation. The times were also randomly split into the separate U and V histograms to form the ratio. In this way each pseudo-experiment corresponds to an idealized approximation of the 60H dataset, with 50 different random seeds applied before fitting.
 
-5 parameter fits and 3 parameter ratio fits were then performed on the created histograms for all random seeds, and for all pseudo-experiments. The distribution of fitted R values for a single pseudo-experiment is shown in Figure \ref{Subfig:SingleRDist}. While the true R value is 0, the R values for a single pseudo-experiment will be centered around some other value that is statistically consistent with 0. (This is satisfied since the statistical error on R is approximately 1.3 ppm.) Plots for all pseudo-experiment R distribution means and widths are shown in \ref{Subfig:MeanDist} and \ref{Subfig:WidthDist} respectively. In the former, the mean of the plotted histograms should be and are consistent with 0, with widths corresponding to the statistical error on R. In the latter the widths of the T method and ratio method fits due to the randomization is shown. It can be seen that the ratio method, while having the same statistical fit precision as the T method, has a larger width due to the randomization of counts in the ratio histograms. It's good to note that the mean of the ratio fit R distribution width, 189.9 ppb here, is consistent with the width shown in Figure \ref{Subfig:RVsRandomSeed}, of 193.6 ppb.
+5 parameter fits and 3 parameter ratio fits were then performed on the created histograms for all random seeds, and for all pseudo-experiments. The distribution of fitted R values for a single pseudo-experiment is shown in Figure \ref{Subfig:SingleRDist}. While the true R value is 0, the R values for a single pseudo-experiment will be centered around some other value that is statistically consistent with 0. (This is satisfied since the statistical error on R is approximately 1.3 ppm.) Plots for all pseudo-experiment R distribution means and widths are shown in \ref{Subfig:MeanDist} and \ref{Subfig:WidthDist} respectively. In the former, the mean of the plotted histograms should be and are consistent with 0, with widths corresponding to the statistical error on R. In the latter the widths of the T method and ratio method fits due to the randomization is shown. It can be seen that the ratio method, while having the same statistical fit precision as the T method, has a larger width due to the randomization of counts in the ratio histograms. It's good to note that the mean of the ratio fit R distribution width, 189.9 ppb here, is relatively consistent with the width shown in Figure \ref{Subfig:RVsRandomSeed}, of 170.5 ppb.
 
-Finally, the differences in the mean of the R distributions between the T method fit and the ratio fit for each pseudo-experiment is plotted in Figure \ref{Subfig:DiffDist}. It is the width of this histogram that is the number we are after. What this plot tells us is that for a dataset with approximately the same statistics as the 60H dataset, an average R value for 50 different random seeds for a T method fit that is 70 ppb different from that for a ratio fit, is statistically consistent to 1 $\sigma$. Comparing the means of Figure \ref{Subfig:RVsRandomSeed} and \ref{Subfig:RVsRandomSeedTMethod}, the average R values for the T method and ratio method fits are consistent to within blank $\sigma$. Assuming the data is treated in the same way between different analyzers and myself, this should hold true when comparing our results.
+Finally, the differences in the mean of the R distributions between the T method fit and the ratio fit for each pseudo-experiment is plotted in Figure \ref{Subfig:DiffDist}. It is the width of this histogram that is the number we are after. What this plot tells us is that for a dataset with approximately the same statistics as the 60H dataset, an average R value for 50 different random seeds for a T method fit that is 70 ppb different from that for a ratio fit, is statistically consistent to 1 $\sigma$. Comparing the means of Figure \ref{Subfig:RVsRandomSeed} and \ref{Subfig:RVsRandomSeedTMethod}, a difference of 80 ppb, the average R values for the T method and ratio method fits are consistent to within 1.14 $\sigma$.
 
 	\begin{figure}[h]
 	\centering

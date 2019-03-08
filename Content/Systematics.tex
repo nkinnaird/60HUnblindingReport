@@ -285,15 +285,26 @@
 		\end{figure}
 
 
+\clearpage
+
 	\subsection{Bin Width}
 
-		The systematic uncertainty from the bin width, chosen to eliminate the fast rotation signal, was calculated by performing the histogramming and fitting stages with varying values of bin widths. The systematic uncertainty is taken as the RMS spread of the fitted R values. As shown in Figure \ref{fig:BinWidth} it is 44.5 ppb.
+		The bin width of the histograms is chosen to eliminate the fast rotation signal. The spread in bin widths corresponding to the range of cyclotron frequencies in the data is from about 148.9 ns to about 149.6 ns, with 149.2 ns being the peak of the distribution. R as a function of bin width is shown in Figure \ref{fig:BinWidth}. As shown there doesn't appear to be any significant trend for R with respect to the bin width. The randomization of counts also ties in with the bin width, as counts will be shifted from one bin to another based on where the bin edges fall. For these reasons I forgo any systematic error calculation due to the choice of bin width itself. See the following section on the randomization and the systematic error relating to it.
 
 		\begin{figure}[]
-			\centering
-			\includegraphics[width=.6\textwidth]{BinWidthComparison_R}
-		    \caption[BinWidth]{Plotted are fitted R values for varying bin widths ranging from 149.00 ns to 149.30 ns in steps of 5 ns.}
-		    \label{fig:BinWidth}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{BinWidthComparison_R}
+			    \caption{In graph format. As can be seen there is no clear trend for R with respect to the bin width.}
+		    \end{subfigure}
+		    \hspace{4mm}
+		    \begin{subfigure}[t]{0.45\textwidth}
+			    \centering
+				\includegraphics[width=\textwidth]{BinWidthComparison_R_hist}
+			    \caption{In histogram format. The RMS spread is 99.9 ppb.}
+		    \end{subfigure}% %you need this % here to add spacing between subfigures
+		\caption[BinWidth]{Plotted are fitted R values for varying bin widths ranging from 148.9 ns to 149.6 ns in steps of .1 ns.}
+		\label{fig:BinWidth}
 		\end{figure}
 
 	\subsection{Randomization}

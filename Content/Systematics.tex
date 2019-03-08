@@ -9,9 +9,7 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to gain corrections}
 \label{Sec:SystematicGain}
 
-	Results produced on a 90\% subset of the 5033D dataset. \\
-
-	I estimate the systematic error on R due to the in-fill gain function at 3.5 ppb, and have yet to estimate the error due to the Short Term Double Pulse correction or unseen/unknown gain effects. %Adding these in quadrature results in a systematic error of blank ppb.
+	I estimate the systematic error on R due to the in-fill gain function at 7.2 ppb (including the Short Term Double Pulse correction), and have yet to estimate the error due to solely the SDTP or any other unseen or unknown gain effects. %Adding these in quadrature results in a systematic error of blank ppb.
 
 	\subsection{In-Fill Gain}
 
@@ -31,38 +29,38 @@
 		    \label{Fig:MatthiasInFill}
 		\end{figure}
 
-		For the error due to the amplitude, I applied multipliers on the amplitude of 0, 0.9, 1, 1.1, and 2. For the error due to the lifetime, I applied multipliers of 0.1, 0.9, 1, 1.1, and 2. The results of these scans are shown in Figure \ref{Fig:InFillGain}. I included the mulipliers of 0 (or 0.1) and 2 in order to calculate outer limits on the error. The multipliers of 2 resulted in a 20 ppb change on R due to the amplitude, and a 60 ppb change due to the lifetime. The change in R due to the multipliers of 0 or near 0 were much less. I calculate the systematic error on R as the quadrature sum of the separate pieces: 
+		For the error due to the amplitude, I applied multipliers on the amplitude of 0, 0.9, 0.95, 1, 1.05, 1.1, and 2. For the error due to the lifetime, I applied multipliers of 0.1, 0.9, 0.95, 1, 1.05, 1.1, and 2. The results of these scans are shown in Figure \ref{Fig:InFillGain}. I included the mulipliers of 0 (or 0.1) and 2 in order to calculate outer limits on the error. The multipliers of 2 resulted in a 7 ppb change on R due to the amplitude, and an 85 ppb change due to the lifetime. The change in R due to the multipliers of 0 or 0.1 were 6 ppb due to both the amplitude and lifetime. I calculate the systematic error on R as the quadrature sum of the separate pieces: 
 		\begin{align}
 			\delta R_{A} &= \delta\alpha_{A} \times \frac{dR}{d\alpha_{A}}, \\
 			\delta R_{\tau} &= \delta\alpha_{\tau} \times \frac{dR}{d\alpha_{\tau}},
 		\end{align}
-		where $\delta\alpha_{A}$ and $\delta\alpha_{\tau}$ are the uncertainties on the gain sag amplitude and lifetime respectively. I assume that these errors are uncorrelated. I take the uncertainty on the amplitude at 10\%, leading to a systematic error on R of $0.1 \times \SI{10}{ppb} = \SI{1}{ppb}$. I take the uncertainty on the lifetime at 10\%, leading to a systematic error on R of $0.1 \times \SI{33.1}{ppb} = \SI{3.3}{ppb}$. In each of these cases, the uncertainty is the uncertainty on the applied parameters, and not the stability or precision of the energy response over the course of the fill. Both of these errors are practically negligible, and added in quadrature results in a systematic error on R of 3.5 ppb.
+		where $\delta\alpha_{A}$ and $\delta\alpha_{\tau}$ are the uncertainties on the gain sag amplitude and lifetime respectively. I assume that these errors are uncorrelated. I take the uncertainties on the amplitude and lifetime at 10\%. This leads to systematic errors on R of $0.1 \times \SI{57.9}{ppb} = \SI{5.8}{ppb}$ and $0.1 \times \SI{42.9}{ppb} = \SI{4.3}{ppb}$ respectively. In each of these cases, the uncertainty is the uncertainty on the applied parameters, and not the stability or precision of the energy response over the course of the fill. These added in quadrature results in a systematic error on R of 7.2 ppb.
 
 		\begin{figure}[]
 		\centering
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{R_Vs_IFG_Amp_crystals}
-			    \caption{Plotted is R vs the multiplier on the amplitude parameter in the gain sag function. The slope is about 10 ppb per unit amplitude.}
+			    \caption{Plotted is R vs the multiplier on the amplitude parameter in the gain sag function. A greater slope was observed when exluding the outer points, by over an order of magnitude. In order to be conservative I fit just the inner points. The slope is 57.9 ppb per unit amplitude.}
 		    \end{subfigure}
 		    \hspace{4mm}
 		    \begin{subfigure}[t]{0.45\textwidth}
 			    \centering
 				\includegraphics[width=\textwidth]{R_Vs_IFG_Tau_crystals}
-			    \caption{Plotted is R vs the multiplier on the lifetime parameter in the gain sag function. The slope is 33.1 ppb per unit lifetime.}
+			    \caption{Plotted is R vs the multiplier on the lifetime parameter in the gain sag function. The slope is 42.9 ppb per unit lifetime.}
 		    \end{subfigure}% %you need this % here to add spacing between subfigures
-		\caption[InFillGain]{Plotted is the fitted R values vs gain sag function parameter multipliers. In each case, these parameter multipliers were applied to each crystal individually, after undoing the gain sag correction done in the reconstruction.}
+		\caption[InFillGain]{Plotted are the fitted R values vs gain sag function parameter multipliers. In each case, these parameter multipliers were applied to each crystal individually, after undoing the gain sag correction done in the reconstruction. The fact that the outer points change the R value by so little indicates that the ratio fit is largely insensitive to the amplitude and lifetime of the gain function, as it is divided out.}
 		\label{Fig:InFillGain}
 		\end{figure}
 
 
 	\subsection{Short Term Double Pulse (SDTP)}
 
-		Work and writing to be done here. I plan on reconstructing clusters w/ and w/o the SDTP included and comparing the results to determine the systematic effect on R. I expect it to be very small.
+		To determine the systematic effect from the SDTP correction, the path forward is to reconstruct the cluster with and without the correction and observe the change in R. I expect it to be small considering how small the in fill gain systematic error was.
 
 	\subsection{Unseen/Unknown Gain Changes}
 
-
+		More thought needs to be given on how any unseen gain changes might affect R.
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to pileup}
 \label{Sec:SystematicPileup}
@@ -577,7 +575,7 @@ The calculated systematic errors for the 60H dataset are shown in Table \ref{Tab
   \hline\hline
     Systematic Error 		& \multicolumn{1}{c|}{\SI{60}{H}} \\
   \hline
-	Gain 			 		&     \\
+	Gain 			 		&  7.2   \\
 	Pileup     	     		&  37.5  \\
 	Lost Muons*             &  29.9  \\
 	CBO      		 		&    \\

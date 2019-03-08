@@ -24,7 +24,7 @@
 
 \section{Histogramming Procedure}
 
-	Method: Ratio (\DB{13080}) \\
+	Method: Ratio (\DB{13080}, \cite{DenverRatioTalk}) \\
 	\noindent Systematics Sections \ref{SubSec:gm2Guess} and \ref{SubSec:LifetimeWeighting}
 
 	\begin{enumerate}
@@ -47,7 +47,7 @@
 
 \section{Gain Correction Procedure}
 
-	Gain correction method: Default by the Italian Calibration Team (\DB{16003}) \\
+	Gain correction method: Default by the Italian Calibration Team (\DB{16003}, \cite{60HGain}) \\
 	\noindent Systematics Section \ref{Sec:SystematicGain}
 
 	\begin{enumerate}
@@ -60,7 +60,7 @@
 \section{Pileup Correction Procedure}
 \label{Sec:PileupCorrection}
 
-	Pileup correction method: Asymmetric shadow window (\DB{14394} and \DB{14830}) \\
+	Pileup correction method: Asymmetric shadow window (\DB{14394}, \cite{Pileup1} and \DB{14830}, \cite{Pileup2}, \cite{Pileup3}) \\
 	\noindent Systematics Section \ref{Sec:SystematicPileup}
 
 	\begin{enumerate}
@@ -78,7 +78,7 @@
 			\begin{gather}
 				\sigma(N_{corrected}) = \sqrt{N_{corrected} + 2 N_{1} + 6 N_{4}},
 			\end{gather}
-		where $N_{1}$ is the number of doublets where both singlets were below threshold, and $N_{4}$ is the number of doublets where both singlets were above threshold, and this is a quantity evaluated at each time bin (\DB{14830}). A histogram of error multipliers was created by factoring out the $N_{corrected}$ term, which is then applied to the bin errors before fitting. This is true even for the ratio errors to good approximation (\DB{2896} Appendix - John Paley's thesis). Note that I did not time randomize the $N_{1}$ and $N_{4}$ entries when constructing the correct errors, which is a negligble effect. This is justified in \DB{14394} slide 11, which shows that this is about a 2 ppb effect. (The pileup is about a 1\% effect, including the pileup errors is about 1\% effect on that, and then time randomizing the errors is less than that.)}
+		where $N_{1}$ is the number of doublets where both singlets were below threshold, and $N_{4}$ is the number of doublets where both singlets were above threshold, and this is a quantity evaluated at each time bin (\DB{14830}, \cite{Pileup2}). A histogram of error multipliers was created by factoring out the $N_{corrected}$ term, which is then applied to the bin errors before fitting. This is true even for the ratio errors to good approximation (Appendix B.4 \cite{JPThesis}). Note that I did not time randomize the $N_{1}$ and $N_{4}$ entries when constructing the correct errors, which is a negligble effect. This is justified in \DB{14394}, \cite{Pileup1} slide 11, which shows that this is about a 2 ppb effect. (The pileup is about a 1\% effect, including the pileup errors is about 1\% effect on that, and then time randomizing the errors is less than that.)}
 		\item{The pileup correction at the triplet/contamination level is not included. It has been determined not be necessary for the 60H and Run 1 data.}
 	\end{enumerate}
 
@@ -86,7 +86,7 @@
 \section{Lost muon spectrum extraction procedure}
 \label{Sec:LM}
 
-	Method: Triple coincidence of clusters (\DB{12912}) \\
+	Method: Triple coincidence of clusters (\DB{12912}, \cite{MuonLosses}) \\
 	\noindent Systematics Section \ref{Sec:SystematicLM} \\
 
 	Note that the lost muons are not included in the ratio fit because the ratio method divides out such slow effects. This is reflected by the lack of a low frequency peak in the FFT of the fit residuals for the ratio fit, whereas such a peak exists for T method fits. I include here however my method for extracting the lost muon function for systematic studies.
@@ -108,7 +108,7 @@
 	\noindent Systematics Section \ref{Sec:SystematicCBO}
 
 	\begin{enumerate}
-		\item{The CBO frequency as a function of time is taken from the tracking analysis, \DB{14208}, and shown in Figure \ref{fig:TrackerCBOModel}. The CBO frequency is not constant during the measurement time because the quad voltage was not constant as a function of time. As described in that document, the source of this is almost certainly the fact that some of the quad resistors were damaged, leading to longer RC time constants. The form used is:
+		\item{The CBO frequency as a function of time is taken from the tracking analysis, \DB{14208}, \cite{TrackerFreq}, and shown in Figure \ref{fig:TrackerCBOModel}. The CBO frequency is not constant during the measurement time because the quad voltage was not constant as a function of time. As described in that document, the source of this is almost certainly the fact that some of the quad resistors were damaged, leading to longer RC time constants. The form used is:
 			\begin{gather}
 				\omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \Delta\omega t + A e^{-t/\tau_{A}} + B e^{-t/\tau_{B}}),
 			\label{Eqn:CBOFreq}
@@ -145,7 +145,7 @@
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=\textwidth]{TrackerCBOModel}
-	    \caption[TrackerCBOModel]{CBO frequency determined with tracker data as a function of time, for station 12 in the 60H dataset. The frequency was modeled as a sum of a constant with a linear part and two exponentials. It rises sharply at early times and slowly over the rest of the fill. The $\omega_{0}$ term here is what is fitted as $\omega_{cbo}$ in Equation \ref{Eqn:CBOFreq}. Plot provided by James Mott, \DB{14208}.}
+	    \caption[TrackerCBOModel]{CBO frequency determined with tracker data as a function of time, for station 12 in the 60H dataset. The frequency was modeled as a sum of a constant with a linear part and two exponentials. It rises sharply at early times and slowly over the rest of the fill. The $\omega_{0}$ term here is what is fitted as $\omega_{cbo}$ in Equation \ref{Eqn:CBOFreq}. Plot provided by James Mott, \DB{14208}, \cite{TrackerFreq}.}
 	    \label{fig:TrackerCBOModel}
 	\end{figure}
 
@@ -196,4 +196,4 @@
 	\begin{gather}
 			f(t) = N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A \cdot A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi \cdot \phi_{cbo}(t)))
 	\end{gather}
-	In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}. Finally, the value of the fit function in each time bin is calculated as the integral of the function over the bin, divided by the bin width. It's important to note that fitting with the integral is necessary in order to fit the asymmetry properly, corresponding to the asymmetry value returned by a T Method likelihood fit, and such that its value does not depend on the fit start time. This improves the goodness-of-fit, helps to avoid any pulling on R and push the fit end time out to late times with less data, as well as fixes the asymmetry versus start time plot.
+	In all the fits, \wa is blinded by some amount of ppm in R, as described in \DB{11232}, \cite{SoftwareBlinding}. Finally, the value of the fit function in each time bin is calculated as the integral of the function over the bin, divided by the bin width. It's important to note that fitting with the integral is necessary in order to fit the asymmetry properly, corresponding to the asymmetry value returned by a T Method likelihood fit, and such that its value does not depend on the fit start time. This improves the goodness-of-fit, helps to avoid any pulling on R and push the fit end time out to late times with less data, as well as fixes the asymmetry versus start time plot.

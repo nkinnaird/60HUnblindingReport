@@ -155,7 +155,7 @@
 	\subsection{Lost muon function}
 	\label{SubSec:LMFunc}
 
-		As described in Section \ref{Sec:LM}, the lost muon function does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the lost muon function, I added the function to the fit as described in that section. I fixed the value of the $\kappa_{loss}$ parameter to that determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:LMModuloPlot}. The final fitted R value differs from the non-LM fitted function by -29.9 ppb. Therefore I take the the systematic error from excluding the lost muon function as 29.9 ppb.
+		As described in Section \ref{Sec:LM}, the lost muon function does not need to be included in the ratio fit. In order to calculate a systematic error from excluding the lost muon function, I added the function to the fit as described in that section. I fixed the value of the $\kappa_{loss}$ parameter to that determined from a T Method fit of the same data. The results can be seen in Figure \ref{fig:LMModuloPlot}. The final fitted R value differs from the non-LM fitted function by $\SI{-29.9}{ppb}$. Therefore I take the the systematic error from excluding the lost muon function as 29.9 ppb.
 
 		\begin{figure}[]
 			\centering
@@ -173,16 +173,14 @@
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to CBO function}
 \label{Sec:SystematicCBO}
 
-	Results produced on the 5033A dataset. \\
-
-	I estimate the systematic error on R due to the CBO frequency at 30 ppb, to the CBO envelope shape at 21.1 ppb, and to the fixed CBO lifetime at 12.1 ppb. Adding these in quadrature results in a systematic error of 38.6 ppb.
+	I estimate the systematic error on R due to the CBO frequency at 10 ppb, to the CBO envelope shape at 19.1 ppb, and to excluded CBO terms at 20.5 ppb. Adding these in quadrature results in a systematic error of 29.7 ppb.
 
 	\subsection{CBO Frequency}
 	\label{Sec:CBOFreq}
 
 	As described in Section \ref{Sec:CBO}, the CBO frequency as a function of time changes over the course of a fill. Shown in Figure \ref{fig:CBOFreqModel} is a comparison between the fitted CBO frequency parameter as a function of fit start time for a constant frequency vs a changing frequency. Without the changing frequency the fit behaves improperly. Because a specific model was chosen for the CBO frequency, there will be a systematic error on R that needs to be determined. James Mott examined the frequency function he derived from the data in greater detail in \DB{15376}, where he considered parameter correlations in Equation \ref{Eqn:CBOFreq} and subsequent effects on the overall function. He found that errors were small, parameters were highly correlated, and that the CBO frequency function was very well constrained, as well as comparable between stations 12 and 18, and the 60H and 9d datasets. 
 
-	In order to determine the systematic error on R, I simply varied the individual fixed parameters in the CBO frequency function $\{\Delta\omega, A, \tau_{A}, B, \tau_{B}\}$, by $\pm 2 \sigma$, where the errors on the parameters were taken from \DB{15376}. I also fit the data with the station 18 parameters. Even though the frequency parameters are highly correlated, varying them individually should be a conservative method for determining the overall systematic error on R. I found a 25 ppb difference in the fitted R value for the station 18 parameters, as compared to the station 12 parameters, primarily due to the different ``A'' value, and differences of order 5 ppb or less for the rest of the parameters. Adding them in quadrature resulted in an error of approximately 27.3 ppb. In order to be slightly more conservative, I estimate the systematic error on R due to the frequency at 30 ppb.
+	In order to determine the systematic error on R, I simply varied the individual fixed parameters in the CBO frequency function $\{\Delta\omega, A, \tau_{A}, B, \tau_{B}\}$, by $\pm 2 \sigma$, where the errors on the parameters were taken from \DB{15376}. I also fit the data with the station 18 parameters. Even though the frequency parameters are highly correlated, varying them individually should be a conservative method for determining the overall systematic error on R. I found deviations in R of order 5 ppb or less for each parameter, except the B parameter for which I found a change in R of 6.5 ppb. Adding them in quadrature results in an error on R of 8.3 ppb. Being conservative, I take as my sysematic error on R due to the CBO frequency model at 10 ppb.
 
 		\begin{figure}[]
 		\centering
@@ -205,7 +203,7 @@
 	\subsection{CBO Shape}
 	\label{SubSec:CBOShape}
 
-		If the shape of the CBO in the fit function is wrong, then there will be a systematic error on R. Because I get good fits and the CBO parameters are stable vs fit start time, the possbile changes to the envelope are limited, compared to the envelope used as shown in Equation \ref{eqn:CBO}. Possible changes to the envelope include those functions as shown in Figure \ref{fig:CBOShapeAmplitude}, an exponential plus a constant and then an exponential times another oscillatory term. Both new envelopes were determined from tracker analysis fits to the CBO amplitude. Both changes to the envelope amplitude were tried in the fitting function, with changes in R of $\SI{-21.1}{ppb}$ and $\SI{-9.6}{ppb}$ respectively, though neither showed any improvement in the fit. (In the latter the period of the oscillatory term was fixed and the other parameters were allowed to float.) I take the latter value of $\SI{21.1}{ppb}$ as the systematic error on R due to the shape.
+		If the shape of the CBO in the fit function is wrong, then there will be a systematic error on R. Because I get good fits and the CBO parameters are stable vs fit start time, the possbile changes to the envelope are limited, compared to the envelope used as shown in Equation \ref{eqn:CBO}. Possible changes to the envelope include those functions as shown in Figure \ref{fig:CBOShapeAmplitude}, an exponential plus a constant and then an exponential times another oscillatory term. Both new envelopes were determined from tracker analysis fits to the CBO amplitude. Both changes to the envelope amplitude were tried in the fitting function, with changes in R of $\SI{19.1}{ppb}$ and $\SI{18.1}{ppb}$ respectively, though neither showed any improvement in the fit. (In the latter the period of the oscillatory term was fixed and the other parameters were allowed to float.) I take the largest value of $\SI{19.1}{ppb}$ as the systematic error on R due to the shape.
 
 		\begin{figure}[]
 			\centering
@@ -214,23 +212,44 @@
 		    \label{fig:CBOShapeAmplitude}
 		\end{figure}
 
-	\subsection{CBO Lifetime}
+	% \subsection{CBO Lifetime}
 
-		I plan on removing this systematic when refitting new dataset, with the cbo lifetime floating. \\
+	% 	I plan on removing this systematic when refitting new dataset, with the cbo lifetime floating. \\
 
-		Because the CBO lifetime has been fixed in the fit, there is a systematic error on R. Scanning over various values of the fixed CBO lifetime allows this error to be calculated. The resulting curve of R vs the CBO lifetime turns out not to be linear, as shown in Figure \ref{fig:CBOLifetime}. Taking the uncertainty on the CBO lifetime as the error produced by the T Method fit, approximately $\SI{16}{\mu s}$, and looking at the change in R for CBO lifetime values of $180 \pm \SI{16}{\mu s}$, the systematic error on R is taken as the larger of the two at 12.1 ppb.
+	% 	Because the CBO lifetime has been fixed in the fit, there is a systematic error on R. Scanning over various values of the fixed CBO lifetime allows this error to be calculated. The resulting curve of R vs the CBO lifetime turns out not to be linear, as shown in Figure \ref{fig:CBOLifetime}. Taking the uncertainty on the CBO lifetime as the error produced by the T Method fit, approximately $\SI{16}{\mu s}$, and looking at the change in R for CBO lifetime values of $180 \pm \SI{16}{\mu s}$, the systematic error on R is taken as the larger of the two at 12.1 ppb.
 
-		\begin{figure}[]
-			\centering
-			\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_tau_cbo_Canv}
-		    \caption[CBOLifetime]{Plotted is the fitted R value as a function of the CBO lifetime, which has been fixed in the full ratio fit. The error bars have been removed from the plot in order to show the shape of the curve better. The points have been fitted to an exponential function which lines up nicely, $p_{0} e^{-t/p_{1}} + p_{2}$.}
-		    \label{fig:CBOLifetime}
-		\end{figure}
+	% 	\begin{figure}[]
+	% 		\centering
+	% 		\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_tau_cbo_Canv}
+	% 	    \caption[CBOLifetime]{Plotted is the fitted R value as a function of the CBO lifetime, which has been fixed in the full ratio fit. The error bars have been removed from the plot in order to show the shape of the curve better. The points have been fitted to an exponential function which lines up nicely, $p_{0} e^{-t/p_{1}} + p_{2}$.}
+	% 	    \label{fig:CBOLifetime}
+	% 	\end{figure}
 
 	\subsection{CBO Fit Terms}
 	\label{SubSec:CBOFitTerms}
 
-		I plan on estimating a systematic error due to excluded CBO terms (like the CBO phase term) with the new dataset.
+		As described in Section \ref{Sec:FinalFitFunction}, the only CBO term included in the final ratio fit is the $N_{cbo}$ term. The $A_{cbo}$, $\phi_{cbo}$, and $N_{2cbo}$ terms are excluded. To estimate the systematic effect from potentially excluding needed fit terms, I fit with the extra terms and compare the fitted R values. See Table \ref{Tab:ExtraCBOTerms}. The largest differences in R are with the $A_{cbo}$ and $\phi_{cbo}$ terms at $-20.5$ and $18.9$ ppb respectively. Including all CBO terms results in a difference of only $-7$ ppb. I take as my systematic erorr the largest of the values at $20.5$ ppb.
+
+			\begin{table}[H]
+			\centering
+			\setlength\tabcolsep{10pt}
+			\renewcommand{\arraystretch}{1.2}
+			\begin{tabular*}{.7\linewidth}{@{\extracolsep{\fill}}|lcc|}
+			  \hline
+			  	\multicolumn{3}{|c|}{\textbf{Fitted R Values With CBO Terms Included}} \\
+			  \hline\hline
+    			Included CBO Terms & $R$ (ppm) & $\Delta R$ (ppb) \\
+			  \hline
+				$N_{cbo}$ 							& $-20.4868$ & $0$ \\
+				$+N_{2cbo}$ 						& $-20.4893$ & $-2.5$ \\
+				$+A_{cbo}$ 							& $-20.5073$ & $-20.5$ \\
+				$+\phi_{cbo}$ 						& $-20.4679$ & $18.9$ \\
+				$+N_{2cbo}+A_{cbo}+\phi_{cbo}$	   	& $-20.4938$ & $-7$ \\
+			  \hline
+			\end{tabular*}
+			\caption{Fitted R values, with various CBO terms included in addition to the $N_{cbo}$ term.}
+			\label{Tab:ExtraCBOTerms}
+			\end{table}
 
 
 
@@ -250,6 +269,10 @@
 
 \section{Sensitivity of \texorpdfstring{$\omega_{a}$}{} to various effects}
 
+	\subsection{Fit Procedure}
+
+		I still need to come up with a procedure for estimating the systematic error on R due to my fit procedure.
+
 	\subsection{\gmtwo Period Guess}
 	\label{SubSec:gm2Guess}
 
@@ -268,7 +291,7 @@
 		\begin{figure}[]
 			\centering
 			\includegraphics[width=.6\textwidth]{RatioCBO_R_Vs_gm2PeriodGuess_Canv}
-		    \caption[gm2PeriodGuess]{Fitted R value as a function of the ppm level offset from the default guess used for the \gmtwo period, \ref{eq:Ta}. Error bars have been removed from this plot, otherwise it appears as a flat line. There appears to be a noticeable oscillation in the points at \gmtwo period guesses beyond the range of -25 ppm - +25 ppm, therefore the fit has been restricted to that range. The slope is .116 ppb per ppm offset in $T_{a}$.}
+		    \caption[gm2PeriodGuess]{Fitted R value as a function of the ppm level offset from the default guess used for the \gmtwo period, \ref{eq:Ta}. Error bars have been removed from this plot, otherwise it appears as a flat line. There appears to be a noticeable oscillation in the points at \gmtwo period guesses beyond the range of $\SI{-25}{ppm} - \SI{+25}{ppm}$, therefore the fit has been restricted to that range. The slope is .116 ppb per ppm offset in $T_{a}$.}
 		    \label{fig:gm2PeriodGuess}
 		\end{figure}
 
@@ -589,17 +612,17 @@ The calculated systematic errors for the 60H dataset are shown in Table \ref{Tab
 	Gain 			 		&  7.2   \\
 	Pileup     	     		&  37.5  \\
 	Lost Muons*             &  29.9  \\
-	CBO      		 		&    \\
+	CBO      		 		&  29.7  \\
 	VW 			     		&  \multicolumn{1}{c|}{$<1$} \\
 	% Bin Width        		&    \\
 	Randomization    		&  24.4  \\
 	% Bunch Number     		&        \\
 	Other* 				  	&  2.8   \\
   \hline\hline		
-  	Total   	     		&    \\
+  	Total   	     		&  61.9  \\
   \hline
 \end{tabular*}
-\caption{Systematic error table for the 60H dataset. All units are in ppb. The `*'s indicate that significant work still needs to be done in the error estimation. The lack of a `*' does not preclude future work on the rest of the systematic errors. }
+\caption{Systematic error table for the 60H dataset. All units are in ppb. The `*'s indicate that significant work still needs to be done in the error estimation. The lack of a `*' does not preclude future work on the rest of the systematic errors.}
 \label{Tab:Systematics}
 \end{table}
 
